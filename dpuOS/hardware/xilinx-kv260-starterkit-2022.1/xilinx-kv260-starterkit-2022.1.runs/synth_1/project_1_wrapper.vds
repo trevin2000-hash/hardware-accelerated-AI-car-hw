@@ -1,0 +1,235 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Tue Apr 19 01:14:31 2022
+# Process ID: 19184
+# Current directory: /tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.runs/synth_1
+# Command line: vivado -log project_1_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source project_1_wrapper.tcl
+# Log file: /tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.runs/synth_1/project_1_wrapper.vds
+# Journal file: /tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.runs/synth_1/vivado.jou
+# Running On: xcosswbld18, OS: Linux, CPU Frequency: 1000.053 MHz, CPU Physical cores: 32, Host memory: 404352 MB
+#-----------------------------------------------------------
+Sourcing tcl script '/home/xbrbbot/.Xilinx/Vivado/Vivado_init.tcl'
+478 Beta devices matching pattern found, 478 enabled.
+enable_beta_device: Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 3157.324 ; gain = 8.148 ; free physical = 281486 ; free virtual = 335280
+source project_1_wrapper.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/proj/xbuilds/SWIP/2022.1_0418_1907/installs/lin64/Vivado/2022.1/data/ip'.
+Command: synth_design -top project_1_wrapper -part xck26-sfvc784-2LV-c
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xck26'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xck26'
+INFO: [Device 21-403] Loading part xck26-sfvc784-2LV-c
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 19561
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 3445.152 ; gain = 209.828 ; free physical = 280475 ; free virtual = 334283
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'project_1_wrapper' [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.srcs/sources_1/imports/hdl/project_1_wrapper.v:12]
+INFO: [Synth 8-6157] synthesizing module 'project_1' [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.gen/sources_1/bd/project_1/synth/project_1.v:12]
+INFO: [Synth 8-6157] synthesizing module 'project_1_xlslice_0_0' [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.gen/sources_1/bd/project_1/ip/project_1_xlslice_0_0/synth/project_1_xlslice_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'xlslice_v1_0_2_xlslice' [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.gen/sources_1/bd/project_1/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'xlslice_v1_0_2_xlslice' (0#1) [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.gen/sources_1/bd/project_1/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'project_1_xlslice_0_0' (0#1) [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.gen/sources_1/bd/project_1/ip/project_1_xlslice_0_0/synth/project_1_xlslice_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'project_1_zynq_ultra_ps_e_0_0' [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.runs/synth_1/.Xil/Vivado-19184-xcosswbld18/realtime/project_1_zynq_ultra_ps_e_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'project_1_zynq_ultra_ps_e_0_0' (0#1) [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.runs/synth_1/.Xil/Vivado-19184-xcosswbld18/realtime/project_1_zynq_ultra_ps_e_0_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'pl_resetn0' of module 'project_1_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.gen/sources_1/bd/project_1/synth/project_1.v:24]
+WARNING: [Synth 8-7071] port 'pl_resetn1' of module 'project_1_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.gen/sources_1/bd/project_1/synth/project_1.v:24]
+WARNING: [Synth 8-7071] port 'pl_resetn2' of module 'project_1_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.gen/sources_1/bd/project_1/synth/project_1.v:24]
+WARNING: [Synth 8-7071] port 'pl_resetn3' of module 'project_1_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.gen/sources_1/bd/project_1/synth/project_1.v:24]
+WARNING: [Synth 8-7071] port 'pl_clk0' of module 'project_1_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.gen/sources_1/bd/project_1/synth/project_1.v:24]
+WARNING: [Synth 8-7071] port 'pl_clk1' of module 'project_1_zynq_ultra_ps_e_0_0' is unconnected for instance 'zynq_ultra_ps_e_0' [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.gen/sources_1/bd/project_1/synth/project_1.v:24]
+WARNING: [Synth 8-7023] instance 'zynq_ultra_ps_e_0' of module 'project_1_zynq_ultra_ps_e_0_0' has 8 connections declared, but only 2 given [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.gen/sources_1/bd/project_1/synth/project_1.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'project_1' (0#1) [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.gen/sources_1/bd/project_1/synth/project_1.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'project_1_wrapper' (0#1) [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.srcs/sources_1/imports/hdl/project_1_wrapper.v:12]
+WARNING: [Synth 8-7129] Port Din[1] in module xlslice_v1_0_2_xlslice is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Din[0] in module xlslice_v1_0_2_xlslice is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 3505.121 ; gain = 269.797 ; free physical = 283581 ; free virtual = 337391
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 3522.934 ; gain = 287.609 ; free physical = 283566 ; free virtual = 337377
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 3522.934 ; gain = 287.609 ; free physical = 283566 ; free virtual = 337377
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3522.934 ; gain = 0.000 ; free physical = 283562 ; free virtual = 337372
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.gen/sources_1/bd/project_1/ip/project_1_zynq_ultra_ps_e_0_0/project_1_zynq_ultra_ps_e_0_0/project_1_zynq_ultra_ps_e_0_0_in_context.xdc] for cell 'project_1_i/zynq_ultra_ps_e_0'
+Finished Parsing XDC File [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.gen/sources_1/bd/project_1/ip/project_1_zynq_ultra_ps_e_0_0/project_1_zynq_ultra_ps_e_0_0/project_1_zynq_ultra_ps_e_0_0_in_context.xdc] for cell 'project_1_i/zynq_ultra_ps_e_0'
+Parsing XDC File [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.srcs/constrs_1/imports/xdc/default.xdc]
+Finished Parsing XDC File [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.srcs/constrs_1/imports/xdc/default.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.srcs/constrs_1/imports/xdc/default.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/project_1_wrapper_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/project_1_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3556.777 ; gain = 0.000 ; free physical = 286876 ; free virtual = 340692
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3556.777 ; gain = 0.000 ; free physical = 286878 ; free virtual = 340695
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 3556.777 ; gain = 321.453 ; free physical = 293769 ; free virtual = 347581
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xck26-sfvc784-2LV-c
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 3556.777 ; gain = 321.453 ; free physical = 293769 ; free virtual = 347581
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for project_1_i. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for project_1_i/xlslice_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for project_1_i/zynq_ultra_ps_e_0. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 3556.777 ; gain = 321.453 ; free physical = 293769 ; free virtual = 347581
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 3556.777 ; gain = 321.453 ; free physical = 293768 ; free virtual = 347580
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 1248 (col length:96)
+BRAMs: 288 (col length: RAMB18 96 RAMB36 48)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port Din[1] in module project_1_xlslice_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Din[0] in module project_1_xlslice_0_0 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 3556.777 ; gain = 321.453 ; free physical = 293736 ; free virtual = 347560
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 3989.105 ; gain = 753.781 ; free physical = 294204 ; free virtual = 348028
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 3989.105 ; gain = 753.781 ; free physical = 294202 ; free virtual = 348027
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 4008.137 ; gain = 772.812 ; free physical = 294181 ; free virtual = 348005
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 4014.074 ; gain = 778.750 ; free physical = 294045 ; free virtual = 347869
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 4014.074 ; gain = 778.750 ; free physical = 294050 ; free virtual = 347875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 4014.074 ; gain = 778.750 ; free physical = 294045 ; free virtual = 347870
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 4014.074 ; gain = 778.750 ; free physical = 294042 ; free virtual = 347867
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 4014.074 ; gain = 778.750 ; free physical = 294057 ; free virtual = 347882
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 4014.074 ; gain = 778.750 ; free physical = 294056 ; free virtual = 347880
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+------------------------------+----------+
+|      |BlackBox name                 |Instances |
++------+------------------------------+----------+
+|1     |project_1_zynq_ultra_ps_e_0_0 |         1|
++------+------------------------------+----------+
+
+Report Cell Usage: 
++------+----------------------------+------+
+|      |Cell                        |Count |
++------+----------------------------+------+
+|1     |project_1_zynq_ultra_ps_e_0 |     1|
+|2     |OBUF                        |     1|
++------+----------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 4014.074 ; gain = 778.750 ; free physical = 294052 ; free virtual = 347877
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 3 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 4014.074 ; gain = 744.906 ; free physical = 294103 ; free virtual = 347928
+Synthesis Optimization Complete : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 4014.082 ; gain = 778.750 ; free physical = 294109 ; free virtual = 347934
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4029.012 ; gain = 0.000 ; free physical = 294377 ; free virtual = 348201
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4049.824 ; gain = 0.000 ; free physical = 294348 ; free virtual = 348173
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: cebdb181
+INFO: [Common 17-83] Releasing license: Synthesis
+27 Infos, 12 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:41 ; elapsed = 00:00:41 . Memory (MB): peak = 4049.824 ; gain = 892.500 ; free physical = 294851 ; free virtual = 348676
+INFO: [Common 17-1381] The checkpoint '/tmp/tmp.b3R9RXuff1/temp/hw_design/k26_starter_kits/kv260/project/project_1.runs/synth_1/project_1_wrapper.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file project_1_wrapper_utilization_synth.rpt -pb project_1_wrapper_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Tue Apr 19 01:15:37 2022...

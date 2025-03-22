@@ -1,0 +1,79 @@
+{
+   "ActiveEmotionalView":"Color Coded",
+   "Color Coded_ExpandedHierarchyInLayout":"",
+   "Color Coded_Layers":"/hier_dpu/DPUCZDX8G_dpu0_interrupt:true|/hier_dpu/hier_dpu_clk/rst_gen_clk_dsp_peripheral_aresetn:true|/rst_gen_ghp_peripheral_aresetn:true|/hier_dpu/hier_dpu_clk/rst_gen_clk_peripheral_aresetn:true|/zynq_ultra_ps_e_pl_clk0:true|/zynq_ultra_ps_e_pl_resetn0:true|/hier_dpu/DPUCZDX8G_dpu_2x_clk_ce:true|/hier_dpu/hier_dpu_clk/dpu_clk_wiz_clk_dsp:true|/rst_gen_reg_peripheral_aresetn:true|/hier_dpu/hier_dpu_clk/rst_gen_clk_interconnect_aresetn:true|/zynq_ultra_ps_e_pl_clk1:true|/hier_dpu/hier_dpu_clk/dpu_clk_wiz_clk_dpu:true|",
+   "Color Coded_Layout":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace inst hier_dpu -pg 1 -lvl 2 -x 870 -y 430 -defaultsOSRD
+preplace inst dpu_concat_irq -pg 1 -lvl 3 -x 1140 -y 470 -defaultsOSRD
+preplace inst rst_gen_ghp -pg 1 -lvl 1 -x 380 -y 830 -defaultsOSRD
+preplace inst rst_gen_reg -pg 1 -lvl 1 -x 380 -y 650 -defaultsOSRD
+preplace inst zynq_ultra_ps_e -pg 1 -lvl 1 -x 380 -y 140 -defaultsOSRD
+preplace netloc hier_dpu_GHP_CLK_O 1 0 3 70 290 NJ 290 1040
+preplace netloc hier_dpu_INTR 1 2 1 NJ 470
+preplace netloc dpu_concat_irq_dout 1 0 4 60 540 NJ 540 NJ 540 1240
+preplace netloc zynq_ultra_ps_e_pl_clk0 1 0 2 20 320 720
+preplace netloc zynq_ultra_ps_e_pl_resetn0 1 0 2 50 480 690
+preplace netloc zynq_ultra_ps_e_pl_clk1 1 0 2 40 470 700
+preplace netloc rst_gen_reg_peripheral_aresetn 1 1 1 710 410n
+preplace netloc rst_gen_ghp_peripheral_aresetn 1 1 1 730 490n
+preplace netloc hier_dpu_M_AXI_HP0_FPD 1 0 3 50 280 NJ 280 1030
+preplace netloc hier_dpu_M_AXI_HP1_FPD 1 0 3 30 300 NJ 300 1020
+preplace netloc hier_dpu_M_AXI_LPD 1 0 3 40 310 NJ 310 1010
+preplace netloc zynq_ultra_ps_e_M_AXI_HPM0_LPD 1 1 1 730 110n
+levelinfo -pg 1 0 380 870 1140 1260
+pagesize -pg 1 -db -bbox -sgen 0 0 1260 930
+",
+   "Color Coded_ScaleFactor":"0.531183",
+   "Color Coded_TopLeft":"-497,0",
+   "Default View_ScaleFactor":"0.531183",
+   "Default View_TopLeft":"-497,0",
+   "Display-PortTypeClock":"true",
+   "Display-PortTypeClockEnable":"true",
+   "Display-PortTypeInterrupt":"true",
+   "Display-PortTypeOthers":"true",
+   "Display-PortTypeReset":"true",
+   "ExpandedHierarchyInLayout":"",
+   "Interfaces View_ExpandedHierarchyInLayout":"",
+   "Interfaces View_Layers":"/hier_dpu/DPUCZDX8G_dpu0_interrupt:false|/hier_dpu/hier_dpu_clk/rst_gen_clk_dsp_peripheral_aresetn:false|/rst_gen_ghp_peripheral_aresetn:false|/hier_dpu/hier_dpu_clk/rst_gen_clk_peripheral_aresetn:false|/zynq_ultra_ps_e_pl_clk0:false|/zynq_ultra_ps_e_pl_resetn0:false|/hier_dpu/DPUCZDX8G_dpu_2x_clk_ce:false|/hier_dpu/hier_dpu_clk/dpu_clk_wiz_clk_dsp:false|/rst_gen_reg_peripheral_aresetn:false|/hier_dpu/hier_dpu_clk/rst_gen_clk_interconnect_aresetn:false|/zynq_ultra_ps_e_pl_clk1:false|/hier_dpu/hier_dpu_clk/dpu_clk_wiz_clk_dpu:false|",
+   "Interfaces View_Layout":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace inst hier_dpu -pg 1 -lvl 2 -x 770 -y 110 -defaultsOSRD
+preplace inst zynq_ultra_ps_e -pg 1 -lvl 1 -x 330 -y 110 -defaultsOSRD
+preplace netloc hier_dpu_M_AXI_HP0_FPD 1 0 3 20 10 NJ 10 910
+preplace netloc hier_dpu_M_AXI_HP1_FPD 1 0 3 30 20 NJ 20 900
+preplace netloc hier_dpu_M_AXI_LPD 1 0 3 30 200 NJ 200 900
+preplace netloc zynq_ultra_ps_e_M_AXI_HPM0_LPD 1 1 1 N 110
+levelinfo -pg 1 0 330 770 930
+pagesize -pg 1 -db -bbox -sgen 0 0 930 210
+",
+   "Interfaces View_ScaleFactor":"1.0",
+   "Interfaces View_TopLeft":"-131,-143",
+   "No Loops_ScaleFactor":"0.633333",
+   "No Loops_TopLeft":"-392,0",
+   "Reduced Jogs_ScaleFactor":"0.6175",
+   "Reduced Jogs_TopLeft":"-275,0",
+   "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace inst hier_dpu -pg 1 -lvl 2 -x 870 -y 430 -defaultsOSRD
+preplace inst zynq_ultra_ps_e -pg 1 -lvl 1 -x 380 -y 140 -defaultsOSRD
+preplace inst dpu_concat_irq -pg 1 -lvl 3 -x 1130 -y 470 -defaultsOSRD
+preplace inst rst_gen_reg -pg 1 -lvl 1 -x 380 -y 650 -defaultsOSRD
+preplace inst rst_gen_ghp -pg 1 -lvl 1 -x 380 -y 830 -defaultsOSRD
+preplace netloc dpu_concat_irq_dout 1 0 4 70 290 NJ 290 NJ 290 1230
+preplace netloc hier_dpu_GHP_CLK_O 1 0 3 60 280 NJ 280 1030
+preplace netloc hier_dpu_INTR 1 2 1 NJ 470
+preplace netloc rst_gen_ghp_peripheral_aresetn 1 1 1 730 490n
+preplace netloc rst_gen_reg_peripheral_aresetn 1 1 1 710 410n
+preplace netloc zynq_ultra_ps_e_pl_clk0 1 0 2 50 320 720
+preplace netloc zynq_ultra_ps_e_pl_clk1 1 0 2 60 470 700
+preplace netloc zynq_ultra_ps_e_pl_resetn0 1 0 2 70 550 690
+preplace netloc hier_dpu_M_AXI_HP0_FPD 1 0 3 20 300 NJ 300 1020
+preplace netloc hier_dpu_M_AXI_HP1_FPD 1 0 3 30 310 NJ 310 1010
+preplace netloc hier_dpu_M_AXI_LPD 1 0 3 40 540 NJ 540 1010
+preplace netloc zynq_ultra_ps_e_M_AXI_HPM0_LPD 1 1 1 730 110n
+levelinfo -pg 1 0 380 870 1130 1250
+pagesize -pg 1 -db -bbox -sgen 0 0 1250 930
+"
+}
+0

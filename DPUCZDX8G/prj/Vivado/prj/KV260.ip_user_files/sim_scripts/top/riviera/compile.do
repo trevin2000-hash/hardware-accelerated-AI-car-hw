@@ -1,0 +1,164 @@
+vlib work
+vlib riviera
+
+vlib riviera/xilinx_vip
+vlib riviera/xpm
+vlib riviera/xil_defaultlib
+vlib riviera/lib_cdc_v1_0_2
+vlib riviera/proc_sys_reset_v5_0_13
+vlib riviera/xlconcat_v2_1_4
+vlib riviera/xbip_utils_v3_0_10
+vlib riviera/axi_utils_v2_0_6
+vlib riviera/xbip_pipe_v3_0_6
+vlib riviera/xbip_dsp48_wrapper_v3_0_4
+vlib riviera/xbip_dsp48_addsub_v3_0_6
+vlib riviera/xbip_dsp48_multadd_v3_0_6
+vlib riviera/xbip_bram18k_v3_0_6
+vlib riviera/mult_gen_v12_0_18
+vlib riviera/floating_point_v7_1_14
+vlib riviera/axi_infrastructure_v1_1_0
+vlib riviera/axi_vip_v1_1_12
+vlib riviera/zynq_ultra_ps_e_vip_v1_0_12
+vlib riviera/fifo_generator_v13_2_7
+vlib riviera/axi_clock_converter_v2_1_25
+
+vmap xilinx_vip riviera/xilinx_vip
+vmap xpm riviera/xpm
+vmap xil_defaultlib riviera/xil_defaultlib
+vmap lib_cdc_v1_0_2 riviera/lib_cdc_v1_0_2
+vmap proc_sys_reset_v5_0_13 riviera/proc_sys_reset_v5_0_13
+vmap xlconcat_v2_1_4 riviera/xlconcat_v2_1_4
+vmap xbip_utils_v3_0_10 riviera/xbip_utils_v3_0_10
+vmap axi_utils_v2_0_6 riviera/axi_utils_v2_0_6
+vmap xbip_pipe_v3_0_6 riviera/xbip_pipe_v3_0_6
+vmap xbip_dsp48_wrapper_v3_0_4 riviera/xbip_dsp48_wrapper_v3_0_4
+vmap xbip_dsp48_addsub_v3_0_6 riviera/xbip_dsp48_addsub_v3_0_6
+vmap xbip_dsp48_multadd_v3_0_6 riviera/xbip_dsp48_multadd_v3_0_6
+vmap xbip_bram18k_v3_0_6 riviera/xbip_bram18k_v3_0_6
+vmap mult_gen_v12_0_18 riviera/mult_gen_v12_0_18
+vmap floating_point_v7_1_14 riviera/floating_point_v7_1_14
+vmap axi_infrastructure_v1_1_0 riviera/axi_infrastructure_v1_1_0
+vmap axi_vip_v1_1_12 riviera/axi_vip_v1_1_12
+vmap zynq_ultra_ps_e_vip_v1_0_12 riviera/zynq_ultra_ps_e_vip_v1_0_12
+vmap fifo_generator_v13_2_7 riviera/fifo_generator_v13_2_7
+vmap axi_clock_converter_v2_1_25 riviera/axi_clock_converter_v2_1_25
+
+vlog -work xilinx_vip  -sv2k12 "+incdir+/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/include" \
+"/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/hdl/axi4stream_vip_axi4streampc.sv" \
+"/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/hdl/axi_vip_axi4pc.sv" \
+"/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/hdl/xil_common_vip_pkg.sv" \
+"/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/hdl/axi4stream_vip_pkg.sv" \
+"/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/hdl/axi_vip_pkg.sv" \
+"/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/hdl/axi4stream_vip_if.sv" \
+"/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/hdl/axi_vip_if.sv" \
+"/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/hdl/clk_vip_if.sv" \
+"/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/hdl/rst_vip_if.sv" \
+
+vlog -work xpm  -sv2k12 "+incdir+../../../../../srcs/top/ipshared/4e49" "+incdir+../../../bd/top/ipshared/1312/inc" "+incdir+../../../../../srcs/top/ipshared/ec67/hdl" "+incdir+../../../../../srcs/top/ipshared/8cdf/hdl" "+incdir+../../../../../srcs/top/ipshared/1312/inc" "+incdir+/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/include" \
+"/tools/Xilinx/Vivado/2022.1/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+"/tools/Xilinx/Vivado/2022.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+
+vcom -work xpm -93 \
+"/tools/Xilinx/Vivado/2022.1/data/ip/xpm/xpm_VCOMP.vhd" \
+
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../../srcs/top/ipshared/4e49" "+incdir+../../../bd/top/ipshared/1312/inc" "+incdir+../../../../../srcs/top/ipshared/ec67/hdl" "+incdir+../../../../../srcs/top/ipshared/8cdf/hdl" "+incdir+../../../../../srcs/top/ipshared/1312/inc" "+incdir+/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/include" \
+"../../../bd/top/ip/top_dpu_clk_wiz_0_1/top_dpu_clk_wiz_0_clk_wiz.v" \
+"../../../bd/top/ip/top_dpu_clk_wiz_0_1/top_dpu_clk_wiz_0.v" \
+
+vcom -work lib_cdc_v1_0_2 -93 \
+"../../../../../srcs/top/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd" \
+
+vcom -work proc_sys_reset_v5_0_13 -93 \
+"../../../../../srcs/top/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd" \
+
+vcom -work xil_defaultlib -93 \
+"../../../bd/top/ip/top_rst_gen_clk_0_1/sim/top_rst_gen_clk_0.vhd" \
+"../../../bd/top/ip/top_rst_gen_clk_dsp_0_1/sim/top_rst_gen_clk_dsp_0.vhd" \
+
+vlog -work xlconcat_v2_1_4  -v2k5 "+incdir+../../../../../srcs/top/ipshared/4e49" "+incdir+../../../bd/top/ipshared/1312/inc" "+incdir+../../../../../srcs/top/ipshared/ec67/hdl" "+incdir+../../../../../srcs/top/ipshared/8cdf/hdl" "+incdir+../../../../../srcs/top/ipshared/1312/inc" "+incdir+/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/include" \
+"../../../../../srcs/top/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v" \
+
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../../srcs/top/ipshared/4e49" "+incdir+../../../bd/top/ipshared/1312/inc" "+incdir+../../../../../srcs/top/ipshared/ec67/hdl" "+incdir+../../../../../srcs/top/ipshared/8cdf/hdl" "+incdir+../../../../../srcs/top/ipshared/1312/inc" "+incdir+/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/include" \
+"../../../bd/top/ip/top_dpu_concat_irq_inner_0_1/sim/top_dpu_concat_irq_inner_0.v" \
+
+vcom -work xbip_utils_v3_0_10 -93 \
+"../../../../../srcs/top/ip/top_DPUCZDX8G_0_1/xci/sfm/fp_exp/hdl/xbip_utils_v3_0_vh_rfs.vhd" \
+
+vcom -work axi_utils_v2_0_6 -93 \
+"../../../../../srcs/top/ip/top_DPUCZDX8G_0_1/xci/sfm/fp_exp/hdl/axi_utils_v2_0_vh_rfs.vhd" \
+
+vcom -work xbip_pipe_v3_0_6 -93 \
+"../../../../../srcs/top/ip/top_DPUCZDX8G_0_1/xci/sfm/fp_exp/hdl/xbip_pipe_v3_0_vh_rfs.vhd" \
+
+vcom -work xbip_dsp48_wrapper_v3_0_4 -93 \
+"../../../../../srcs/top/ip/top_DPUCZDX8G_0_1/xci/sfm/fp_exp/hdl/xbip_dsp48_wrapper_v3_0_vh_rfs.vhd" \
+
+vcom -work xbip_dsp48_addsub_v3_0_6 -93 \
+"../../../../../srcs/top/ip/top_DPUCZDX8G_0_1/xci/sfm/fp_exp/hdl/xbip_dsp48_addsub_v3_0_vh_rfs.vhd" \
+
+vcom -work xbip_dsp48_multadd_v3_0_6 -93 \
+"../../../../../srcs/top/ip/top_DPUCZDX8G_0_1/xci/sfm/fp_exp/hdl/xbip_dsp48_multadd_v3_0_vh_rfs.vhd" \
+
+vcom -work xbip_bram18k_v3_0_6 -93 \
+"../../../../../srcs/top/ip/top_DPUCZDX8G_0_1/xci/sfm/fp_exp/hdl/xbip_bram18k_v3_0_vh_rfs.vhd" \
+
+vcom -work mult_gen_v12_0_18 -93 \
+"../../../../../srcs/top/ip/top_DPUCZDX8G_0_1/xci/sfm/fp_exp/hdl/mult_gen_v12_0_vh_rfs.vhd" \
+
+vcom -work floating_point_v7_1_14 -93 \
+"../../../../../srcs/top/ip/top_DPUCZDX8G_0_1/xci/sfm/fp_exp/hdl/floating_point_v7_1_rfs.vhd" \
+
+vlog -work floating_point_v7_1_14  -v2k5 "+incdir+../../../../../srcs/top/ipshared/4e49" "+incdir+../../../bd/top/ipshared/1312/inc" "+incdir+../../../../../srcs/top/ipshared/ec67/hdl" "+incdir+../../../../../srcs/top/ipshared/8cdf/hdl" "+incdir+../../../../../srcs/top/ipshared/1312/inc" "+incdir+/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/include" \
+"../../../../../srcs/top/ip/top_DPUCZDX8G_0_1/xci/sfm/fp_exp/hdl/floating_point_v7_1_rfs.v" \
+
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../../srcs/top/ipshared/4e49" "+incdir+../../../bd/top/ipshared/1312/inc" "+incdir+../../../../../srcs/top/ipshared/ec67/hdl" "+incdir+../../../../../srcs/top/ipshared/8cdf/hdl" "+incdir+../../../../../srcs/top/ipshared/1312/inc" "+incdir+/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/include" \
+"../../../bd/top/ip/top_DPUCZDX8G_0_1/xci/sfm/fp_exp/sim/fp_exp.v" \
+"../../../bd/top/ip/top_DPUCZDX8G_0_1/xci/sfm/fp_convert/sim/fp_convert.v" \
+"../../../bd/top/ip/top_DPUCZDX8G_0_1/xci/sfm/fp_div/sim/fp_div.v" \
+"../../../bd/top/ip/top_DPUCZDX8G_0_1/xci/sfm/fp_acc/sim/fp_acc.v" \
+"../../../bd/top/ip/top_DPUCZDX8G_0_1/xci/sfm/fp_add/sim/fp_add.v" \
+
+vlog -work xil_defaultlib  -sv2k12 "+incdir+../../../../../srcs/top/ipshared/4e49" "+incdir+../../../bd/top/ipshared/1312/inc" "+incdir+../../../../../srcs/top/ipshared/ec67/hdl" "+incdir+../../../../../srcs/top/ipshared/8cdf/hdl" "+incdir+../../../../../srcs/top/ipshared/1312/inc" "+incdir+/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/include" \
+"../../../bd/top/ipshared/1312/hdl/DPUCZDX8G_v4_0_0_vl_dpu.sv" \
+"../../../bd/top/ipshared/1312/hdl/DPUCZDX8G_v4_0_0_vl_sfm.sv" \
+"../../../bd/top/ipshared/1312/hdl/DPUCZDX8G_v4_0_0_vl_top.sv" \
+"../../../bd/top/ip/top_DPUCZDX8G_0_1/sim/top_DPUCZDX8G_0.sv" \
+
+vlog -work axi_infrastructure_v1_1_0  -v2k5 "+incdir+../../../../../srcs/top/ipshared/4e49" "+incdir+../../../bd/top/ipshared/1312/inc" "+incdir+../../../../../srcs/top/ipshared/ec67/hdl" "+incdir+../../../../../srcs/top/ipshared/8cdf/hdl" "+incdir+../../../../../srcs/top/ipshared/1312/inc" "+incdir+/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/include" \
+"../../../../../srcs/top/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v" \
+
+vlog -work axi_vip_v1_1_12  -sv2k12 "+incdir+../../../../../srcs/top/ipshared/4e49" "+incdir+../../../bd/top/ipshared/1312/inc" "+incdir+../../../../../srcs/top/ipshared/ec67/hdl" "+incdir+../../../../../srcs/top/ipshared/8cdf/hdl" "+incdir+../../../../../srcs/top/ipshared/1312/inc" "+incdir+/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/include" \
+"../../../../../srcs/top/ipshared/1033/hdl/axi_vip_v1_1_vl_rfs.sv" \
+
+vlog -work zynq_ultra_ps_e_vip_v1_0_12  -sv2k12 "+incdir+../../../../../srcs/top/ipshared/4e49" "+incdir+../../../bd/top/ipshared/1312/inc" "+incdir+../../../../../srcs/top/ipshared/ec67/hdl" "+incdir+../../../../../srcs/top/ipshared/8cdf/hdl" "+incdir+../../../../../srcs/top/ipshared/1312/inc" "+incdir+/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/include" \
+"../../../../../srcs/top/ipshared/8cdf/hdl/zynq_ultra_ps_e_vip_v1_0_vl_rfs.sv" \
+
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../../srcs/top/ipshared/4e49" "+incdir+../../../bd/top/ipshared/1312/inc" "+incdir+../../../../../srcs/top/ipshared/ec67/hdl" "+incdir+../../../../../srcs/top/ipshared/8cdf/hdl" "+incdir+../../../../../srcs/top/ipshared/1312/inc" "+incdir+/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/include" \
+"../../../bd/top/ip/top_zynq_ultra_ps_e_0_1/sim/top_zynq_ultra_ps_e_0_vip_wrapper.v" \
+"../../../bd/top/ip/top_dpu_concat_irq_0_1/sim/top_dpu_concat_irq_0.v" \
+
+vcom -work xil_defaultlib -93 \
+"../../../bd/top/ip/top_rst_gen_reg_0_1/sim/top_rst_gen_reg_0.vhd" \
+"../../../bd/top/ip/top_rst_gen_ghp_0_1/sim/top_rst_gen_ghp_0.vhd" \
+
+vlog -work fifo_generator_v13_2_7  -v2k5 "+incdir+../../../../../srcs/top/ipshared/4e49" "+incdir+../../../bd/top/ipshared/1312/inc" "+incdir+../../../../../srcs/top/ipshared/ec67/hdl" "+incdir+../../../../../srcs/top/ipshared/8cdf/hdl" "+incdir+../../../../../srcs/top/ipshared/1312/inc" "+incdir+/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/include" \
+"../../../../../srcs/top/ipshared/83df/simulation/fifo_generator_vlog_beh.v" \
+
+vcom -work fifo_generator_v13_2_7 -93 \
+"../../../../../srcs/top/ipshared/83df/hdl/fifo_generator_v13_2_rfs.vhd" \
+
+vlog -work fifo_generator_v13_2_7  -v2k5 "+incdir+../../../../../srcs/top/ipshared/4e49" "+incdir+../../../bd/top/ipshared/1312/inc" "+incdir+../../../../../srcs/top/ipshared/ec67/hdl" "+incdir+../../../../../srcs/top/ipshared/8cdf/hdl" "+incdir+../../../../../srcs/top/ipshared/1312/inc" "+incdir+/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/include" \
+"../../../../../srcs/top/ipshared/83df/hdl/fifo_generator_v13_2_rfs.v" \
+
+vlog -work axi_clock_converter_v2_1_25  -v2k5 "+incdir+../../../../../srcs/top/ipshared/4e49" "+incdir+../../../bd/top/ipshared/1312/inc" "+incdir+../../../../../srcs/top/ipshared/ec67/hdl" "+incdir+../../../../../srcs/top/ipshared/8cdf/hdl" "+incdir+../../../../../srcs/top/ipshared/1312/inc" "+incdir+/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/include" \
+"../../../../../srcs/top/ipshared/e893/hdl/axi_clock_converter_v2_1_vl_rfs.v" \
+
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../../srcs/top/ipshared/4e49" "+incdir+../../../bd/top/ipshared/1312/inc" "+incdir+../../../../../srcs/top/ipshared/ec67/hdl" "+incdir+../../../../../srcs/top/ipshared/8cdf/hdl" "+incdir+../../../../../srcs/top/ipshared/1312/inc" "+incdir+/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/include" \
+"../../../bd/top/ip/top_auto_cc_0_1/sim/top_auto_cc_0.v" \
+"../../../bd/top/ip/top_auto_cc_1_1/sim/top_auto_cc_1.v" \
+"../../../bd/top/ip/top_auto_cc_2_1/sim/top_auto_cc_2.v" \
+"../../../bd/top/sim/top.v" \
+
+vlog -work xil_defaultlib \
+"glbl.v"
+

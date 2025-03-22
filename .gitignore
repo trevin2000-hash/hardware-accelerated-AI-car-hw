@@ -1,0 +1,60 @@
+# Build output and artifacts
+**/build/
+*.o
+*.elf
+*.bin
+*.bit
+*.bit.bin
+*.wic.gz
+**/images/linux/
+**/tmp/
+
+# Large hardware files
+*.xsa
+*.bit
+**/hardware/xilinx-kv260-starterkit-2022.1/xilinx-kv260-starterkit-2022.1.xsa
+
+# BSP files
+*.bsp
+
+# Downloaded components
+**/downloads/
+**/git2/
+
+# Cache directories
+**/sstate-cache/
+**/cache/
+**/.Xil/
+**/_pcs/
+
+# Log files
+*.log
+**/logs/
+
+# Petalinux specific
+dpuOS/build/
+dpuOS/images/
+
+#Vivado implementation runs and checkpoints
+**/.runs/
+**/KV260.runs/
+**/*.dcp
+**/*_routed.dcp
+**/*_placed.dcp
+**/*_physopt.dcp
+**/*_opt.dcp
+**/*_synth.dcp
+
+# Intermediate files
+*.jou
+*.str
+*.backup.*
+*.debug
+
+# Let's include these important model files despite size
+# If they get too large for Git, consider Git LFS
+# !DPUCZDX8G/app/model/*.xmodel
+
+# Keep our device tree files
+!kv260.dtbo
+!shell.json
