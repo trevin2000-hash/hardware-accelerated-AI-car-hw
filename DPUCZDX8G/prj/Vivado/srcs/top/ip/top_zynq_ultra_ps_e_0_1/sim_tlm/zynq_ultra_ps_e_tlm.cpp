@@ -151,12 +151,14 @@ void add_extensions_to_tlm(const xtlm::aximm_payload* xtlm_pay, tlm::tlm_generic
         ,pl_resetn0("pl_resetn0")
         ,pl_clk0("pl_clk0")
         ,pl_clk1("pl_clk1")
+        ,pl_clk2("pl_clk2")
     ,S_AXI_HP0_FPD_xtlm_brdg("S_AXI_HP0_FPD_xtlm_brdg")
     ,S_AXI_HP1_FPD_xtlm_brdg("S_AXI_HP1_FPD_xtlm_brdg")
     ,S_AXI_LPD_xtlm_brdg("S_AXI_LPD_xtlm_brdg")
     ,m_rp_bridge_M_AXI_HPM0_LPD("m_rp_bridge_M_AXI_HPM0_LPD")
         ,pl_clk0_clk("pl_clk0_clk", sc_time(10.000999599910012,sc_core::SC_NS))//clock period in nanoseconds = 1000/freq(in MZ)
         ,pl_clk1_clk("pl_clk1_clk", sc_time(3.7040738092712093,sc_core::SC_NS))//clock period in nanoseconds = 1000/freq(in MZ)
+        ,pl_clk2_clk("pl_clk2_clk", sc_time(1000.1000100010001,sc_core::SC_NS))//clock period in nanoseconds = 1000/freq(in MZ)
     {
         //creating instances of xtlm slave sockets
         S_AXI_HP0_FPD_wr_socket = new xtlm::xtlm_aximm_target_socket("S_AXI_HP0_FPD_wr_socket", 128);
@@ -240,6 +242,9 @@ void add_extensions_to_tlm(const xtlm::aximm_payload* xtlm_pay, tlm::tlm_generic
         SC_METHOD(trigger_pl_clk1_pin);
         sensitive << pl_clk1_clk;
         dont_initialize();
+        SC_METHOD(trigger_pl_clk2_pin);
+        sensitive << pl_clk2_clk;
+        dont_initialize();
         
         S_AXI_HP0_FPD_xtlm_brdg.registerUserExtensionHandlerCallback(add_extensions_to_tlm);
         S_AXI_HP1_FPD_xtlm_brdg.registerUserExtensionHandlerCallback(&add_extensions_to_tlm);
@@ -274,6 +279,11 @@ void add_extensions_to_tlm(const xtlm::aximm_payload* xtlm_pay, tlm::tlm_generic
     //pl_clk1 pin written based on pl_clk1_clk clock value 
     void zynq_ultra_ps_e_tlm ::trigger_pl_clk1_pin()    {
         pl_clk1.write(pl_clk1_clk.read());
+    }
+    //Method which is sentive to pl_clk2_clk sc_clock object
+    //pl_clk2 pin written based on pl_clk2_clk clock value 
+    void zynq_ultra_ps_e_tlm ::trigger_pl_clk2_pin()    {
+        pl_clk2.write(pl_clk2_clk.read());
     }
 
     void zynq_ultra_ps_e_tlm ::pl_ps_irq0_method()    {

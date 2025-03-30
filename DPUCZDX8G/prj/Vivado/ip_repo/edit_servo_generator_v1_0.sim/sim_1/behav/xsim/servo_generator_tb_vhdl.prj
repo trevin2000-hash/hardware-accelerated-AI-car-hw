@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../servo_generator_1.0/hdl/servo_generator_v1_0.vhd" \
+"../../../../servo_generator_1.0/hdl/servo_generator_v1_0_S00_AXI.vhd" \
+
+# Do not sort compile order
+nosort

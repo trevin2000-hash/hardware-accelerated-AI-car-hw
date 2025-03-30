@@ -2888,7 +2888,13 @@
             "value": "RPLL"
           },
           "PSU__CRL_APB__PL2_REF_CTRL__ACT_FREQMHZ": {
-            "value": "100"
+            "value": "0.999900"
+          },
+          "PSU__CRL_APB__PL2_REF_CTRL__FREQMHZ": {
+            "value": "1"
+          },
+          "PSU__CRL_APB__PL2_REF_CTRL__SRCSEL": {
+            "value": "RPLL"
           },
           "PSU__CRL_APB__PL3_REF_CTRL__ACT_FREQMHZ": {
             "value": "100"
@@ -3311,7 +3317,7 @@
             "value": "1"
           },
           "PSU__FPGA_PL2_ENABLE": {
-            "value": "0"
+            "value": "1"
           },
           "PSU__FPGA_PL3_ENABLE": {
             "value": "0"
@@ -3830,6 +3836,9 @@
             "value": "TRUE"
           },
           "PSU__PL_CLK1_BUF": {
+            "value": "TRUE"
+          },
+          "PSU__PL_CLK2_BUF": {
             "value": "TRUE"
           },
           "PSU__PL__POWER__ON": {

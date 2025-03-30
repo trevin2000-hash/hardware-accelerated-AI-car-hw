@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="servo_test" location="/home/jizz/Documents/kv260-DPU-TDR/vitis_workspace/servo_test" platform="/home/jizz/Documents/kv260-DPU-TDR/vitis_workspace/servo_platform/export/servo_platform/servo_platform.xpfm" platformUID="xilinx:kv260_som_som240_1_connector_kv260_carrier_som240_1_connector:servo_bearmetal_test:0.0(custom)" systemProject="servo_test_system" sysConfig="servo_platform" runtime="C/C++" cpu="standalone_domain" cpuInstance="psu_cortexa53_0" os="standalone" mssSignature="491a944a7bff7285f46180eb4fd94f48">
+  <configuration name="Debug" id="xilinx.gnu.arm.a53.exe.debug.1701784282">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+    <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.arm.a53.exe.release.495167299" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="hello_world"/>
+</sdkproject:SdkProject>
