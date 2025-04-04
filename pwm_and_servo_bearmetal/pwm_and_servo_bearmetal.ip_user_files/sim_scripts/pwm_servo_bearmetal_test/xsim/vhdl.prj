@@ -1,0 +1,13 @@
+vhdl xil_defaultlib  \
+"../../../bd/pwm_servo_bearmetal_test/ipshared/8fc1/hdl/pwm_generator_v1_0_S_AXI_DUTY.vhd" \
+"../../../bd/pwm_servo_bearmetal_test/ipshared/8fc1/hdl/pwm_generator_v1_0.vhd" \
+"../../../bd/pwm_servo_bearmetal_test/ip/pwm_servo_bearmetal_test_pwm_generator_0_1/sim/pwm_servo_bearmetal_test_pwm_generator_0_1.vhd" \
+"../../../bd/pwm_servo_bearmetal_test/ip/pwm_servo_bearmetal_test_pwm_generator_1_1/sim/pwm_servo_bearmetal_test_pwm_generator_1_1.vhd" \
+"../../../bd/pwm_servo_bearmetal_test/ipshared/3ca6/hdl/servo_generator_v1_0_S00_AXI.vhd" \
+"../../../bd/pwm_servo_bearmetal_test/ipshared/3ca6/hdl/servo_generator_v1_0.vhd" \
+"../../../bd/pwm_servo_bearmetal_test/ip/pwm_servo_bearmetal_test_servo_generator_0_1/sim/pwm_servo_bearmetal_test_servo_generator_0_1.vhd" \
+"../../../bd/pwm_servo_bearmetal_test/ip/pwm_servo_bearmetal_test_rst_ps8_0_5M_1/sim/pwm_servo_bearmetal_test_rst_ps8_0_5M_1.vhd" \
+"../../../bd/pwm_servo_bearmetal_test/ip/pwm_servo_bearmetal_test_rst_ps8_0_0M_1/sim/pwm_servo_bearmetal_test_rst_ps8_0_0M_1.vhd" \
+"../../../bd/pwm_servo_bearmetal_test/sim/pwm_servo_bearmetal_test.vhd" \
+
+nosort

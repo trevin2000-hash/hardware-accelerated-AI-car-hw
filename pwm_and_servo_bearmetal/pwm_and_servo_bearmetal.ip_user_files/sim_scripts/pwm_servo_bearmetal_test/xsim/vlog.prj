@@ -1,0 +1,13 @@
+verilog xil_defaultlib --include "/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/include" --include "../../../../pwm_and_servo_bearmetal.gen/sources_1/bd/pwm_servo_bearmetal_test/ipshared/ec67/hdl" --include "../../../../pwm_and_servo_bearmetal.gen/sources_1/bd/pwm_servo_bearmetal_test/ipshared/8cdf/hdl" \
+"../../../bd/pwm_servo_bearmetal_test/ip/pwm_servo_bearmetal_test_zynq_ultra_ps_e_0_0/sim/pwm_servo_bearmetal_test_zynq_ultra_ps_e_0_0_vip_wrapper.v" \
+"../../../bd/pwm_servo_bearmetal_test/ip/pwm_servo_bearmetal_test_xbar_1/sim/pwm_servo_bearmetal_test_xbar_1.v" \
+"../../../bd/pwm_servo_bearmetal_test/ip/pwm_servo_bearmetal_test_auto_cc_1/sim/pwm_servo_bearmetal_test_auto_cc_1.v" \
+"../../../bd/pwm_servo_bearmetal_test/ip/pwm_servo_bearmetal_test_auto_ds_0/sim/pwm_servo_bearmetal_test_auto_ds_0.v" \
+"../../../bd/pwm_servo_bearmetal_test/ip/pwm_servo_bearmetal_test_auto_pc_0/sim/pwm_servo_bearmetal_test_auto_pc_0.v" \
+"../../../bd/pwm_servo_bearmetal_test/ip/pwm_servo_bearmetal_test_auto_ds_1/sim/pwm_servo_bearmetal_test_auto_ds_1.v" \
+"../../../bd/pwm_servo_bearmetal_test/ip/pwm_servo_bearmetal_test_auto_pc_1/sim/pwm_servo_bearmetal_test_auto_pc_1.v" \
+"../../../bd/pwm_servo_bearmetal_test/ip/pwm_servo_bearmetal_test_auto_cc_0/sim/pwm_servo_bearmetal_test_auto_cc_0.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

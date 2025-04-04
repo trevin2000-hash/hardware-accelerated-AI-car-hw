@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="pwm_generator_v1_0_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="pwm_generator_v1_0_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="820.860782 us"></ZoomEndTime>
+      <Cursor1Time time="23.535096 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="276"></NameColumnWidth>
+      <ValueColumnWidth column_width="80"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="41" />
+   <wvobject type="logic" fp_name="/pwm_generator_v1_0_tb/s_axi_duty_aclk">
+      <obj_property name="ElementShortName">s_axi_duty_aclk</obj_property>
+      <obj_property name="ObjectShortName">s_axi_duty_aclk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/pwm_generator_v1_0_tb/s_axi_duty_aresetn">
+      <obj_property name="ElementShortName">s_axi_duty_aresetn</obj_property>
+      <obj_property name="ObjectShortName">s_axi_duty_aresetn</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/pwm_generator_v1_0_tb/dut/pwm_generator_v1_0_S_AXI_DUTY_inst/slv_reg0">
+      <obj_property name="ElementShortName">slv_reg0[31:0]</obj_property>
+      <obj_property name="ObjectShortName">slv_reg0[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/pwm_generator_v1_0_tb/dut/pwm_generator_v1_0_S_AXI_DUTY_inst/duty_received">
+      <obj_property name="ElementShortName">duty_received[15:0]</obj_property>
+      <obj_property name="ObjectShortName">duty_received[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/pwm_generator_v1_0_tb/dut/pwm_generator_v1_0_S_AXI_DUTY_inst/high_z">
+      <obj_property name="ElementShortName">high_z</obj_property>
+      <obj_property name="ObjectShortName">high_z</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/pwm_generator_v1_0_tb/dut/pwm_generator_v1_0_S_AXI_DUTY_inst/enable_motor">
+      <obj_property name="ElementShortName">enable_motor</obj_property>
+      <obj_property name="ObjectShortName">enable_motor</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/pwm_generator_v1_0_tb/pwm_o">
+      <obj_property name="ElementShortName">pwm_o</obj_property>
+      <obj_property name="ObjectShortName">pwm_o</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/pwm_generator_v1_0_tb/dut/pwm_generator_v1_0_S_AXI_DUTY_inst/pwm_state">
+      <obj_property name="ElementShortName">pwm_state</obj_property>
+      <obj_property name="ObjectShortName">pwm_state</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/pwm_generator_v1_0_tb/dut/pwm_generator_v1_0_S_AXI_DUTY_inst/current_duty_sig">
+      <obj_property name="ElementShortName">current_duty_sig[15:0]</obj_property>
+      <obj_property name="ObjectShortName">current_duty_sig[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/pwm_generator_v1_0_tb/dut/pwm_generator_v1_0_S_AXI_DUTY_inst/count_sig">
+      <obj_property name="ElementShortName">count_sig[15:0]</obj_property>
+      <obj_property name="ObjectShortName">count_sig[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/pwm_generator_v1_0_tb/s_axi_duty_aclk">
+      <obj_property name="ElementShortName">s_axi_duty_aclk</obj_property>
+      <obj_property name="ObjectShortName">s_axi_duty_aclk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/pwm_generator_v1_0_tb/s_axi_duty_aresetn">
+      <obj_property name="ElementShortName">s_axi_duty_aresetn</obj_property>
+      <obj_property name="ObjectShortName">s_axi_duty_aresetn</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/pwm_generator_v1_0_tb/s_axi_duty_awaddr">
+      <obj_property name="ElementShortName">s_axi_duty_awaddr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_duty_awaddr[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/pwm_generator_v1_0_tb/s_axi_duty_awprot">
+      <obj_property name="ElementShortName">s_axi_duty_awprot[2:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_duty_awprot[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/pwm_generator_v1_0_tb/s_axi_duty_awvalid">
+      <obj_property name="ElementShortName">s_axi_duty_awvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_duty_awvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/pwm_generator_v1_0_tb/s_axi_duty_awready">
+      <obj_property name="ElementShortName">s_axi_duty_awready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_duty_awready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/pwm_generator_v1_0_tb/s_axi_duty_wdata">
+      <obj_property name="ElementShortName">s_axi_duty_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_duty_wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/pwm_generator_v1_0_tb/s_axi_duty_wstrb">
+      <obj_property name="ElementShortName">s_axi_duty_wstrb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_duty_wstrb[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/pwm_generator_v1_0_tb/s_axi_duty_wvalid">
+      <obj_property name="ElementShortName">s_axi_duty_wvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_duty_wvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/pwm_generator_v1_0_tb/s_axi_duty_wready">
+      <obj_property name="ElementShortName">s_axi_duty_wready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_duty_wready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/pwm_generator_v1_0_tb/s_axi_duty_bresp">
+      <obj_property name="ElementShortName">s_axi_duty_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_duty_bresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/pwm_generator_v1_0_tb/s_axi_duty_bvalid">
+      <obj_property name="ElementShortName">s_axi_duty_bvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_duty_bvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/pwm_generator_v1_0_tb/s_axi_duty_bready">
+      <obj_property name="ElementShortName">s_axi_duty_bready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_duty_bready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/pwm_generator_v1_0_tb/s_axi_duty_araddr">
+      <obj_property name="ElementShortName">s_axi_duty_araddr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_duty_araddr[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/pwm_generator_v1_0_tb/s_axi_duty_arprot">
+      <obj_property name="ElementShortName">s_axi_duty_arprot[2:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_duty_arprot[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/pwm_generator_v1_0_tb/s_axi_duty_arvalid">
+      <obj_property name="ElementShortName">s_axi_duty_arvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_duty_arvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/pwm_generator_v1_0_tb/s_axi_duty_arready">
+      <obj_property name="ElementShortName">s_axi_duty_arready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_duty_arready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/pwm_generator_v1_0_tb/s_axi_duty_rdata">
+      <obj_property name="ElementShortName">s_axi_duty_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_duty_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/pwm_generator_v1_0_tb/s_axi_duty_rresp">
+      <obj_property name="ElementShortName">s_axi_duty_rresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_duty_rresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/pwm_generator_v1_0_tb/s_axi_duty_rvalid">
+      <obj_property name="ElementShortName">s_axi_duty_rvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_duty_rvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/pwm_generator_v1_0_tb/s_axi_duty_rready">
+      <obj_property name="ElementShortName">s_axi_duty_rready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_duty_rready</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/pwm_generator_v1_0_tb/pwm_o">
+      <obj_property name="ElementShortName">pwm_o</obj_property>
+      <obj_property name="ObjectShortName">pwm_o</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/pwm_generator_v1_0_tb/is_high_z">
+      <obj_property name="ElementShortName">is_high_z</obj_property>
+      <obj_property name="ObjectShortName">is_high_z</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/pwm_generator_v1_0_tb/duty_cycles">
+      <obj_property name="ElementShortName">duty_cycles[0:3][15:0]</obj_property>
+      <obj_property name="ObjectShortName">duty_cycles[0:3][15:0]</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/pwm_generator_v1_0_tb/CLK_PERIOD">
+      <obj_property name="ElementShortName">CLK_PERIOD</obj_property>
+      <obj_property name="ObjectShortName">CLK_PERIOD</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/pwm_generator_v1_0_tb/C_S_AXI_DATA_WIDTH">
+      <obj_property name="ElementShortName">C_S_AXI_DATA_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C_S_AXI_DATA_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/pwm_generator_v1_0_tb/C_S_AXI_ADDR_WIDTH">
+      <obj_property name="ElementShortName">C_S_AXI_ADDR_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C_S_AXI_ADDR_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/pwm_generator_v1_0_tb/DUTY_REG_ADDR">
+      <obj_property name="ElementShortName">DUTY_REG_ADDR[3:0]</obj_property>
+      <obj_property name="ObjectShortName">DUTY_REG_ADDR[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/pwm_generator_v1_0_tb/ENABLE_REG_ADDR">
+      <obj_property name="ElementShortName">ENABLE_REG_ADDR[3:0]</obj_property>
+      <obj_property name="ObjectShortName">ENABLE_REG_ADDR[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/pwm_generator_v1_0_tb/DUTY_MAX">
+      <obj_property name="ElementShortName">DUTY_MAX[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DUTY_MAX[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/pwm_generator_v1_0_tb/TEST_CASES">
+      <obj_property name="ElementShortName">TEST_CASES[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TEST_CASES[31:0]</obj_property>
+   </wvobject>
+</wave_config>

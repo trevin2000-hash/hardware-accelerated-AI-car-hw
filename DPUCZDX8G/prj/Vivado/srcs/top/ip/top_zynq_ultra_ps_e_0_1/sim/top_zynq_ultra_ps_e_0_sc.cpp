@@ -63,7 +63,7 @@ top_zynq_ultra_ps_e_0_sc::top_zynq_ultra_ps_e_0_sc(const sc_core::sc_module_name
     xsc::common_cpp::properties model_param_props;
     model_param_props.addLong("C_DP_USE_AUDIO", "0");
     model_param_props.addLong("C_DP_USE_VIDEO", "0");
-    model_param_props.addLong("C_MAXIGP0_DATA_WIDTH", "128");
+    model_param_props.addLong("C_MAXIGP0_DATA_WIDTH", "32");
     model_param_props.addLong("C_MAXIGP1_DATA_WIDTH", "128");
     model_param_props.addLong("C_MAXIGP2_DATA_WIDTH", "32");
     model_param_props.addLong("C_SAXIGP0_DATA_WIDTH", "128");
@@ -97,14 +97,16 @@ top_zynq_ultra_ps_e_0_sc::top_zynq_ultra_ps_e_0_sc(const sc_core::sc_module_name
     model_param_props.addString("C_PL_CLK0_BUF", "TRUE");
     model_param_props.addString("C_PL_CLK1_BUF", "TRUE");
     model_param_props.addString("C_PL_CLK2_BUF", "TRUE");
-    model_param_props.addString("C_PL_CLK3_BUF", "FALSE");
+    model_param_props.addString("C_PL_CLK3_BUF", "TRUE");
     model_param_props.addString("COMPONENT_NAME", "top_zynq_ultra_ps_e_0");
 
   mp_impl = new zynq_ultra_ps_e_tlm("inst", model_param_props);
 
   // initialize AXI sockets
-  M_AXI_HPM0_LPD_rd_socket = mp_impl->M_AXI_HPM0_LPD_rd_socket;
-  M_AXI_HPM0_LPD_wr_socket = mp_impl->M_AXI_HPM0_LPD_wr_socket;
+  M_AXI_HPM0_FPD_rd_socket = mp_impl->M_AXI_HPM0_FPD_rd_socket;
+  M_AXI_HPM0_FPD_wr_socket = mp_impl->M_AXI_HPM0_FPD_wr_socket;
+  M_AXI_HPM1_FPD_rd_socket = mp_impl->M_AXI_HPM1_FPD_rd_socket;
+  M_AXI_HPM1_FPD_wr_socket = mp_impl->M_AXI_HPM1_FPD_wr_socket;
   S_AXI_HP0_FPD_rd_socket = mp_impl->S_AXI_HP0_FPD_rd_socket;
   S_AXI_HP0_FPD_wr_socket = mp_impl->S_AXI_HP0_FPD_wr_socket;
   S_AXI_HP1_FPD_rd_socket = mp_impl->S_AXI_HP1_FPD_rd_socket;

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="servo_pwm_test" location="/home/jizz/Documents/kv260-DPU-TDR/vitis_workspace/servo_pwm_test" platform="/home/jizz/Documents/kv260-DPU-TDR/vitis_workspace/servo_pwm_test_platform/export/servo_pwm_test_platform/servo_pwm_test_platform.xpfm" platformUID="xilinx:kv260_som_som240_1_connector_kv260_carrier_som240_1_connector:kv260:0.0(custom)" systemProject="servo_pwm_test_system" sysConfig="servo_pwm_test_platform" runtime="C/C++" cpu="standalone_domain" cpuInstance="psu_cortexa53_0" os="standalone" mssSignature="544499e65af2567b5d92193f70ff129c">
+  <configuration name="Debug" id="xilinx.gnu.arm.a53.exe.debug.1645108746">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+    <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.arm.a53.exe.release.575927657" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="hello_world"/>
+</sdkproject:SdkProject>

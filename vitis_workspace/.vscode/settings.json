@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "xil_printf.h": "c"
+        "xil_printf.h": "c",
+        "pwm_generator.h": "c"
     }
 }

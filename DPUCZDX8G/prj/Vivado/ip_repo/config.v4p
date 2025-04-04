@@ -1,0 +1,10 @@
+[libraries]
+*.vhd = work      ; Your main working library for all VHDL files
+
+[excludes]
+**/*.bak.vhd = true  ; Exclude backup files
+
+[settings]
+V4p.Settings.Basics.Priority = 20
+V4p.Settings.Formatting.Indentation.TabWidth = 4
+V4p.Settings.Formatting.Indentation.UseTabs = false

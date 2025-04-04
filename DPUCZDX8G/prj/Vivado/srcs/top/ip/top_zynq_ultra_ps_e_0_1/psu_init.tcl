@@ -37,15 +37,15 @@ set psu_pll_init_data {
 		# PSU_CRL_APB_RPLL_CTRL_PRE_SRC                                                   0x0
 
 		# The integer portion of the feedback divider to the PLL
-		# PSU_CRL_APB_RPLL_CTRL_FBDIV                                                     0x51
+		# PSU_CRL_APB_RPLL_CTRL_FBDIV                                                     0x40
 
 		# This turns on the divide by 2 that is inside of the PLL. This does not c
     # hange the VCO frequency, just the output frequency
 		# PSU_CRL_APB_RPLL_CTRL_DIV2                                                      0x1
 
 		# PLL Basic Control
-		#(OFFSET, MASK, VALUE)      (0XFF5E0030, 0x00717F00U ,0x00015100U)  */
-    mask_write 0XFF5E0030 0x00717F00 0x00015100
+		#(OFFSET, MASK, VALUE)      (0XFF5E0030, 0x00717F00U ,0x00014000U)  */
+    mask_write 0XFF5E0030 0x00717F00 0x00014000
 		# : BY PASS PLL
 		# Register : RPLL_CTRL @ 0XFF5E0030</p>
 
@@ -99,12 +99,12 @@ set psu_pll_init_data {
 		# Register : RPLL_TO_FPD_CTRL @ 0XFF5E0048</p>
 
 		# Divisor value for this clock.
-		# PSU_CRL_APB_RPLL_TO_FPD_CTRL_DIVISOR0                                           0x3
+		# PSU_CRL_APB_RPLL_TO_FPD_CTRL_DIVISOR0                                           0x2
 
 		# Control for a clock that will be generated in the LPD, but used in the F
     # PD as a clock source for the peripheral clock muxes.
-		#(OFFSET, MASK, VALUE)      (0XFF5E0048, 0x00003F00U ,0x00000300U)  */
-    mask_write 0XFF5E0048 0x00003F00 0x00000300
+		#(OFFSET, MASK, VALUE)      (0XFF5E0048, 0x00003F00U ,0x00000200U)  */
+    mask_write 0XFF5E0048 0x00003F00 0x00000200
 		# : RPLL FRAC CFG
 		# : SYSMON CLOCK PRESET TO RPLL AGAIN TO AVOID GLITCH WHEN NEXT IOPLL WILL BE PUT IN BYPASS MODE
 		# Register : AMS_REF_CTRL @ 0XFF5E0108</p>
@@ -324,6 +324,19 @@ set psu_pll_init_data {
 		#(OFFSET, MASK, VALUE)      (0XFD1A0048, 0x00003F00U ,0x00000300U)  */
     mask_write 0XFD1A0048 0x00003F00 0x00000300
 		# : APLL FRAC CFG
+		# Register : APLL_FRAC_CFG @ 0XFD1A0028</p>
+
+		# Fractional SDM bypass control. When 0, PLL is in integer mode and it ign
+    # ores all fractional data. When 1, PLL is in fractional mode and uses DAT
+    # A of this register for the fractional portion of the feedback divider.
+		# PSU_CRF_APB_APLL_FRAC_CFG_ENABLED                                               0x1
+
+		# Fractional value for the Feedback value.
+		# PSU_CRF_APB_APLL_FRAC_CFG_DATA                                                  0x33
+
+		# Fractional control for the PLL
+		#(OFFSET, MASK, VALUE)      (0XFD1A0028, 0x8000FFFFU ,0x80000033U)  */
+    mask_write 0XFD1A0028 0x8000FFFF 0x80000033
 		# : DDR_PLL INIT
 		# Register : DPLL_CFG @ 0XFD1A0030</p>
 
@@ -690,25 +703,6 @@ set psu_clock_init_data {
 		# This register controls this reference clock
 		#(OFFSET, MASK, VALUE)      (0XFF5E0078, 0x013F3F07U ,0x01010F00U)  */
     mask_write 0XFF5E0078 0x013F3F07 0x01010F00
-		# Register : I2C0_REF_CTRL @ 0XFF5E0120</p>
-
-		# Clock active signal. Switch to 0 to disable the clock
-		# PSU_CRL_APB_I2C0_REF_CTRL_CLKACT                                                0x1
-
-		# 6 bit divider
-		# PSU_CRL_APB_I2C0_REF_CTRL_DIVISOR1                                              0x1
-
-		# 6 bit divider
-		# PSU_CRL_APB_I2C0_REF_CTRL_DIVISOR0                                              0xf
-
-		# 000 = IOPLL; 010 = RPLL; 011 = DPLL; (This signal may only be toggled af
-    # ter 4 cycles of the old clock and 4 cycles of the new clock. This is not
-    #  usually an issue, but designers must be aware.)
-		# PSU_CRL_APB_I2C0_REF_CTRL_SRCSEL                                                0x0
-
-		# This register controls this reference clock
-		#(OFFSET, MASK, VALUE)      (0XFF5E0120, 0x013F3F07U ,0x01010F00U)  */
-    mask_write 0XFF5E0120 0x013F3F07 0x01010F00
 		# Register : I2C1_REF_CTRL @ 0XFF5E0124</p>
 
 		# Clock active signal. Switch to 0 to disable the clock
@@ -728,25 +722,25 @@ set psu_clock_init_data {
 		# This register controls this reference clock
 		#(OFFSET, MASK, VALUE)      (0XFF5E0124, 0x013F3F07U ,0x01010F00U)  */
     mask_write 0XFF5E0124 0x013F3F07 0x01010F00
-		# Register : CAN1_REF_CTRL @ 0XFF5E0088</p>
+		# Register : SPI1_REF_CTRL @ 0XFF5E0080</p>
 
 		# Clock active signal. Switch to 0 to disable the clock
-		# PSU_CRL_APB_CAN1_REF_CTRL_CLKACT                                                0x1
+		# PSU_CRL_APB_SPI1_REF_CTRL_CLKACT                                                0x1
 
 		# 6 bit divider
-		# PSU_CRL_APB_CAN1_REF_CTRL_DIVISOR1                                              0x1
+		# PSU_CRL_APB_SPI1_REF_CTRL_DIVISOR1                                              0x1
 
 		# 6 bit divider
-		# PSU_CRL_APB_CAN1_REF_CTRL_DIVISOR0                                              0xf
+		# PSU_CRL_APB_SPI1_REF_CTRL_DIVISOR0                                              0x8
 
 		# 000 = IOPLL; 010 = RPLL; 011 = DPLL; (This signal may only be toggled af
     # ter 4 cycles of the old clock and 4 cycles of the new clock. This is not
     #  usually an issue, but designers must be aware.)
-		# PSU_CRL_APB_CAN1_REF_CTRL_SRCSEL                                                0x0
+		# PSU_CRL_APB_SPI1_REF_CTRL_SRCSEL                                                0x0
 
 		# This register controls this reference clock
-		#(OFFSET, MASK, VALUE)      (0XFF5E0088, 0x013F3F07U ,0x01010F00U)  */
-    mask_write 0XFF5E0088 0x013F3F07 0x01010F00
+		#(OFFSET, MASK, VALUE)      (0XFF5E0080, 0x013F3F07U ,0x01010800U)  */
+    mask_write 0XFF5E0080 0x013F3F07 0x01010800
 		# Register : CPU_R5_CTRL @ 0XFF5E0090</p>
 
 		# Turing this off will shut down the OCM, some parts of the APM, and preve
@@ -755,16 +749,16 @@ set psu_clock_init_data {
 		# PSU_CRL_APB_CPU_R5_CTRL_CLKACT                                                  0x1
 
 		# 6 bit divider
-		# PSU_CRL_APB_CPU_R5_CTRL_DIVISOR0                                                0x3
+		# PSU_CRL_APB_CPU_R5_CTRL_DIVISOR0                                                0x2
 
 		# 000 = RPLL; 010 = IOPLL; 011 = DPLL; (This signal may only be toggled af
     # ter 4 cycles of the old clock and 4 cycles of the new clock. This is not
     #  usually an issue, but designers must be aware.)
-		# PSU_CRL_APB_CPU_R5_CTRL_SRCSEL                                                  0x2
+		# PSU_CRL_APB_CPU_R5_CTRL_SRCSEL                                                  0x0
 
 		# This register controls this reference clock
-		#(OFFSET, MASK, VALUE)      (0XFF5E0090, 0x01003F07U ,0x01000302U)  */
-    mask_write 0XFF5E0090 0x01003F07 0x01000302
+		#(OFFSET, MASK, VALUE)      (0XFF5E0090, 0x01003F07U ,0x01000200U)  */
+    mask_write 0XFF5E0090 0x01003F07 0x01000200
 		# Register : IOU_SWITCH_CTRL @ 0XFF5E009C</p>
 
 		# Clock active signal. Switch to 0 to disable the clock
@@ -889,26 +883,26 @@ set psu_clock_init_data {
 		# PSU_CRL_APB_PL1_REF_CTRL_DIVISOR1                                               0x1
 
 		# 6 bit divider
-		# PSU_CRL_APB_PL1_REF_CTRL_DIVISOR0                                               0x5
+		# PSU_CRL_APB_PL1_REF_CTRL_DIVISOR0                                               0xf
 
 		# 000 = IOPLL; 010 = RPLL; 011 = DPLL; (This signal may only be toggled af
     # ter 4 cycles of the old clock and 4 cycles of the new clock. This is not
     #  usually an issue, but designers must be aware.)
-		# PSU_CRL_APB_PL1_REF_CTRL_SRCSEL                                                 0x2
+		# PSU_CRL_APB_PL1_REF_CTRL_SRCSEL                                                 0x0
 
 		# This register controls this reference clock
-		#(OFFSET, MASK, VALUE)      (0XFF5E00C4, 0x013F3F07U ,0x01010502U)  */
-    mask_write 0XFF5E00C4 0x013F3F07 0x01010502
+		#(OFFSET, MASK, VALUE)      (0XFF5E00C4, 0x013F3F07U ,0x01010F00U)  */
+    mask_write 0XFF5E00C4 0x013F3F07 0x01010F00
 		# Register : PL2_REF_CTRL @ 0XFF5E00C8</p>
 
 		# Clock active signal. Switch to 0 to disable the clock
 		# PSU_CRL_APB_PL2_REF_CTRL_CLKACT                                                 0x1
 
 		# 6 bit divider
-		# PSU_CRL_APB_PL2_REF_CTRL_DIVISOR1                                               0x19
+		# PSU_CRL_APB_PL2_REF_CTRL_DIVISOR1                                               0x11
 
 		# 6 bit divider
-		# PSU_CRL_APB_PL2_REF_CTRL_DIVISOR0                                               0x36
+		# PSU_CRL_APB_PL2_REF_CTRL_DIVISOR0                                               0x3f
 
 		# 000 = IOPLL; 010 = RPLL; 011 = DPLL; (This signal may only be toggled af
     # ter 4 cycles of the old clock and 4 cycles of the new clock. This is not
@@ -916,8 +910,27 @@ set psu_clock_init_data {
 		# PSU_CRL_APB_PL2_REF_CTRL_SRCSEL                                                 0x2
 
 		# This register controls this reference clock
-		#(OFFSET, MASK, VALUE)      (0XFF5E00C8, 0x013F3F07U ,0x01193602U)  */
-    mask_write 0XFF5E00C8 0x013F3F07 0x01193602
+		#(OFFSET, MASK, VALUE)      (0XFF5E00C8, 0x013F3F07U ,0x01113F02U)  */
+    mask_write 0XFF5E00C8 0x013F3F07 0x01113F02
+		# Register : PL3_REF_CTRL @ 0XFF5E00CC</p>
+
+		# Clock active signal. Switch to 0 to disable the clock
+		# PSU_CRL_APB_PL3_REF_CTRL_CLKACT                                                 0x1
+
+		# 6 bit divider
+		# PSU_CRL_APB_PL3_REF_CTRL_DIVISOR1                                               0xb
+
+		# 6 bit divider
+		# PSU_CRL_APB_PL3_REF_CTRL_DIVISOR0                                               0x13
+
+		# 000 = IOPLL; 010 = RPLL; 011 = DPLL; (This signal may only be toggled af
+    # ter 4 cycles of the old clock and 4 cycles of the new clock. This is not
+    #  usually an issue, but designers must be aware.)
+		# PSU_CRL_APB_PL3_REF_CTRL_SRCSEL                                                 0x2
+
+		# This register controls this reference clock
+		#(OFFSET, MASK, VALUE)      (0XFF5E00CC, 0x013F3F07U ,0x010B1302U)  */
+    mask_write 0XFF5E00CC 0x013F3F07 0x010B1302
 		# Register : AMS_REF_CTRL @ 0XFF5E0108</p>
 
 		# 6 bit divider
@@ -1005,7 +1018,7 @@ set psu_clock_init_data {
 		# PSU_CRF_APB_DP_AUDIO_REF_CTRL_DIVISOR1                                          0x1
 
 		# 6 bit divider
-		# PSU_CRF_APB_DP_AUDIO_REF_CTRL_DIVISOR0                                          0x12
+		# PSU_CRF_APB_DP_AUDIO_REF_CTRL_DIVISOR0                                          0x16
 
 		# 000 = VPLL; 010 = DPLL; 011 = RPLL_TO_FPD - might be using extra mux; (T
     # his signal may only be toggled after 4 cycles of the old clock and 4 cyc
@@ -1017,15 +1030,15 @@ set psu_clock_init_data {
 		# PSU_CRF_APB_DP_AUDIO_REF_CTRL_CLKACT                                            0x1
 
 		# This register controls this reference clock
-		#(OFFSET, MASK, VALUE)      (0XFD1A0074, 0x013F3F07U ,0x01011203U)  */
-    mask_write 0XFD1A0074 0x013F3F07 0x01011203
+		#(OFFSET, MASK, VALUE)      (0XFD1A0074, 0x013F3F07U ,0x01011603U)  */
+    mask_write 0XFD1A0074 0x013F3F07 0x01011603
 		# Register : DP_STC_REF_CTRL @ 0XFD1A007C</p>
 
 		# 6 bit divider
 		# PSU_CRF_APB_DP_STC_REF_CTRL_DIVISOR1                                            0x1
 
 		# 6 bit divider
-		# PSU_CRF_APB_DP_STC_REF_CTRL_DIVISOR0                                            0x11
+		# PSU_CRF_APB_DP_STC_REF_CTRL_DIVISOR0                                            0x14
 
 		# 000 = VPLL; 010 = DPLL; 011 = RPLL_TO_FPD; (This signal may only be togg
     # led after 4 cycles of the old clock and 4 cycles of the new clock. This
@@ -1036,8 +1049,8 @@ set psu_clock_init_data {
 		# PSU_CRF_APB_DP_STC_REF_CTRL_CLKACT                                              0x1
 
 		# This register controls this reference clock
-		#(OFFSET, MASK, VALUE)      (0XFD1A007C, 0x013F3F07U ,0x01011103U)  */
-    mask_write 0XFD1A007C 0x013F3F07 0x01011103
+		#(OFFSET, MASK, VALUE)      (0XFD1A007C, 0x013F3F07U ,0x01011403U)  */
+    mask_write 0XFD1A007C 0x013F3F07 0x01011403
 		# Register : ACPU_CTRL @ 0XFD1A0060</p>
 
 		# 6 bit divider
@@ -1121,18 +1134,18 @@ set psu_clock_init_data {
 		# 000 = APLL; 010 = VPLL; 011 = DPLL; (This signal may only be toggled aft
     # er 4 cycles of the old clock and 4 cycles of the new clock. This is not
     # usually an issue, but designers must be aware.)
-		# PSU_CRF_APB_GDMA_REF_CTRL_SRCSEL                                                0x0
+		# PSU_CRF_APB_GDMA_REF_CTRL_SRCSEL                                                0x3
 
 		# Clock active signal. Switch to 0 to disable the clock
 		# PSU_CRF_APB_GDMA_REF_CTRL_CLKACT                                                0x1
 
 		# This register controls this reference clock
-		#(OFFSET, MASK, VALUE)      (0XFD1A00B8, 0x01003F07U ,0x01000200U)  */
-    mask_write 0XFD1A00B8 0x01003F07 0x01000200
+		#(OFFSET, MASK, VALUE)      (0XFD1A00B8, 0x01003F07U ,0x01000203U)  */
+    mask_write 0XFD1A00B8 0x01003F07 0x01000203
 		# Register : DPDMA_REF_CTRL @ 0XFD1A00BC</p>
 
 		# 6 bit divider
-		# PSU_CRF_APB_DPDMA_REF_CTRL_DIVISOR0                                             0x2
+		# PSU_CRF_APB_DPDMA_REF_CTRL_DIVISOR0                                             0x3
 
 		# 000 = APLL; 010 = VPLL; 011 = DPLL; (This signal may only be toggled aft
     # er 4 cycles of the old clock and 4 cycles of the new clock. This is not
@@ -1143,8 +1156,8 @@ set psu_clock_init_data {
 		# PSU_CRF_APB_DPDMA_REF_CTRL_CLKACT                                               0x1
 
 		# This register controls this reference clock
-		#(OFFSET, MASK, VALUE)      (0XFD1A00BC, 0x01003F07U ,0x01000200U)  */
-    mask_write 0XFD1A00BC 0x01003F07 0x01000200
+		#(OFFSET, MASK, VALUE)      (0XFD1A00BC, 0x01003F07U ,0x01000300U)  */
+    mask_write 0XFD1A00BC 0x01003F07 0x01000300
 		# Register : TOPSW_MAIN_CTRL @ 0XFD1A00C0</p>
 
 		# 6 bit divider
@@ -1259,7 +1272,7 @@ set psu_ddr_init_data {
 
 		# Indicates the configuration of the device used in the system. - 00 - x4
     # device - 01 - x8 device - 10 - x16 device - 11 - x32 device
-		# PSU_DDRC_MSTR_DEVICE_CONFIG                                                     0x1
+		# PSU_DDRC_MSTR_DEVICE_CONFIG                                                     0x2
 
 		# Choose which registers are used. - 0 - Original registers - 1 - Shadow r
     # egisters
@@ -1344,8 +1357,8 @@ set psu_ddr_init_data {
 		# PSU_DDRC_MSTR_DDR3                                                              0x0
 
 		# Master Register
-		#(OFFSET, MASK, VALUE)      (0XFD070000, 0xE30FBE3DU ,0x41040010U)  */
-    mask_write 0XFD070000 0xE30FBE3D 0x41040010
+		#(OFFSET, MASK, VALUE)      (0XFD070000, 0xE30FBE3DU ,0x81040010U)  */
+    mask_write 0XFD070000 0xE30FBE3D 0x81040010
 		# Register : MRCTRL0 @ 0XFD070010</p>
 
 		# Setting this register bit to 1 triggers a mode register read or write op
@@ -1660,11 +1673,11 @@ set psu_ddr_init_data {
     # d the device density. The user should program the appropriate value from
     #  the spec based on the 'refresh_mode' and the device density that is use
     # d. Unit: Clocks.
-		# PSU_DDRC_RFSHTMG_T_RFC_MIN                                                      0x8b
+		# PSU_DDRC_RFSHTMG_T_RFC_MIN                                                      0xbb
 
 		# Refresh Timing Register
-		#(OFFSET, MASK, VALUE)      (0XFD070064, 0x0FFF83FFU ,0x0081808BU)  */
-    mask_write 0XFD070064 0x0FFF83FF 0x0081808B
+		#(OFFSET, MASK, VALUE)      (0XFD070064, 0x0FFF83FFU ,0x008180BBU)  */
+    mask_write 0XFD070064 0x0FFF83FF 0x008180BB
 		# Register : ECCCFG0 @ 0XFD070070</p>
 
 		# Disable ECC scrubs. Valid only when ECCCFG0.ecc_mode = 3'b100 and MEMC_U
@@ -1760,7 +1773,7 @@ set psu_ddr_init_data {
     # AX For configurations with MEMC_FREQ_RATIO=2, program this to tPAR_ALERT
     # _PW.MAX/2 and round up to next integer value. Values of 0, 1 and 2 are i
     # llegal. This value must be greater than CRCPARCTL2.t_crc_alert_pw_max.
-		# PSU_DDRC_CRCPARCTL2_T_PAR_ALERT_PW_MAX                                          0x40
+		# PSU_DDRC_CRCPARCTL2_T_PAR_ALERT_PW_MAX                                          0x48
 
 		# Value from the DRAM spec indicating the maximum width of the dfi_alert_n
     #  pulse when a CRC error occurs. Recommended values: - tCRC_ALERT_PW.MAX
@@ -1805,8 +1818,8 @@ set psu_ddr_init_data {
 		# PSU_DDRC_CRCPARCTL2_RETRY_FIFO_MAX_HOLD_TIMER_X4                                0x1f
 
 		# CRC Parity Control Register2
-		#(OFFSET, MASK, VALUE)      (0XFD0700C8, 0x01FF1F3FU ,0x0040051FU)  */
-    mask_write 0XFD0700C8 0x01FF1F3F 0x0040051F
+		#(OFFSET, MASK, VALUE)      (0XFD0700C8, 0x01FF1F3FU ,0x0048051FU)  */
+    mask_write 0XFD0700C8 0x01FF1F3F 0x0048051F
 		# Register : INIT0 @ 0XFD0700D0</p>
 
 		# If lower bit is enabled the SDRAM initialization routine is skipped. The
@@ -1880,7 +1893,7 @@ set psu_ddr_init_data {
     # re is ignored. The uMCTL2 sets this bit appropriately. DDR3/DDR4: Value
     # loaded into MR0 register. mDDR: Value to write to MR register. LPDDR2/LP
     # DDR3/LPDDR4 - Value to write to MR1 register
-		# PSU_DDRC_INIT3_MR                                                               0x730
+		# PSU_DDRC_INIT3_MR                                                               0x734
 
 		# DDR2: Value to write to EMR register. Bits 9:7 are for OCD and the setti
     # ng in this register is ignored. The uMCTL2 sets those bits appropriately
@@ -1891,8 +1904,8 @@ set psu_ddr_init_data {
 		# PSU_DDRC_INIT3_EMR                                                              0x301
 
 		# SDRAM Initialization Register 3
-		#(OFFSET, MASK, VALUE)      (0XFD0700DC, 0xFFFFFFFFU ,0x07300301U)  */
-    mask_write 0XFD0700DC 0xFFFFFFFF 0x07300301
+		#(OFFSET, MASK, VALUE)      (0XFD0700DC, 0xFFFFFFFFU ,0x07340301U)  */
+    mask_write 0XFD0700DC 0xFFFFFFFF 0x07340301
 		# Register : INIT4 @ 0XFD0700E0</p>
 
 		# DDR2: Value to write to EMR2 register. DDR3/DDR4: Value to write to MR2
@@ -2254,7 +2267,7 @@ set psu_ddr_init_data {
     # nk 'a' to bank 'b'For configurations with MEMC_FREQ_RATIO=2, program thi
     # s to (tRRD_L/2 or tRRD/2) and round it up to the next integer value. Uni
     # t: Clocks.
-		# PSU_DDRC_DRAMTMG4_T_RRD                                                         0x3
+		# PSU_DDRC_DRAMTMG4_T_RRD                                                         0x4
 
 		# tRP: Minimum time from precharge to activate of same bank. For MEMC_FREQ
     # _RATIO=1 configurations, t_rp should be set to RoundUp(tRP/tCK). For MEM
@@ -2264,8 +2277,8 @@ set psu_ddr_init_data {
 		# PSU_DDRC_DRAMTMG4_T_RP                                                          0x9
 
 		# SDRAM Timing Register 4
-		#(OFFSET, MASK, VALUE)      (0XFD070110, 0x1F0F0F1FU ,0x08030309U)  */
-    mask_write 0XFD070110 0x1F0F0F1F 0x08030309
+		#(OFFSET, MASK, VALUE)      (0XFD070110, 0x1F0F0F1FU ,0x08030409U)  */
+    mask_write 0XFD070110 0x1F0F0F1F 0x08030409
 		# Register : DRAMTMG5 @ 0XFD070114</p>
 
 		# This is the time before Self Refresh Exit that CK is maintained as a val
@@ -2361,14 +2374,14 @@ set psu_ddr_init_data {
     # to the above value divided by 2 and round up to next integer value. Unit
     # : Multiples of 32 clocks. Note: This is applicable to only ZQCL/ZQCS com
     # mands. Note: Ensure this is less than or equal to t_xs_x32.
-		# PSU_DDRC_DRAMTMG8_T_XS_FAST_X32                                                 0x3
+		# PSU_DDRC_DRAMTMG8_T_XS_FAST_X32                                                 0x4
 
 		# tXS_ABORT: Exit Self Refresh to commands not requiring a locked DLL in S
     # elf Refresh Abort. For configurations with MEMC_FREQ_RATIO=2, program th
     # is to the above value divided by 2 and round up to next integer value. U
     # nit: Multiples of 32 clocks. Note: Ensure this is less than or equal to
     # t_xs_x32.
-		# PSU_DDRC_DRAMTMG8_T_XS_ABORT_X32                                                0x3
+		# PSU_DDRC_DRAMTMG8_T_XS_ABORT_X32                                                0x4
 
 		# tXSDLL: Exit Self Refresh to commands requiring a locked DLL. For config
     # urations with MEMC_FREQ_RATIO=2, program this to the above value divided
@@ -2380,11 +2393,11 @@ set psu_ddr_init_data {
     # gurations with MEMC_FREQ_RATIO=2, program this to the above value divide
     # d by 2 and round up to next integer value. Unit: Multiples of 32 clocks.
     #  Note: Used only for DDR2, DDR3 and DDR4 SDRAMs.
-		# PSU_DDRC_DRAMTMG8_T_XS_X32                                                      0x6
+		# PSU_DDRC_DRAMTMG8_T_XS_X32                                                      0x7
 
 		# SDRAM Timing Register 8
-		#(OFFSET, MASK, VALUE)      (0XFD070120, 0x7F7F7F7FU ,0x03030D06U)  */
-    mask_write 0XFD070120 0x7F7F7F7F 0x03030D06
+		#(OFFSET, MASK, VALUE)      (0XFD070120, 0x7F7F7F7FU ,0x04040D07U)  */
+    mask_write 0XFD070120 0x7F7F7F7F 0x04040D07
 		# Register : DRAMTMG9 @ 0XFD070124</p>
 
 		# DDR4 Write preamble mode - 0: 1tCK preamble - 1: 2tCK preamble Present o
@@ -2402,7 +2415,7 @@ set psu_ddr_init_data {
     # ferent bank group. For configurations with MEMC_FREQ_RATIO=2, program th
     # is to (tRRD_S/2) and round it up to the next integer value. Present only
     #  in designs configured to support DDR4. Unit: Clocks.
-		# PSU_DDRC_DRAMTMG9_T_RRD_S                                                       0x2
+		# PSU_DDRC_DRAMTMG9_T_RRD_S                                                       0x3
 
 		# CWL + PL + BL/2 + tWTR_S Minimum time from write command to read command
     #  for different bank group. Includes time for bus turnaround, recovery ti
@@ -2417,15 +2430,15 @@ set psu_ddr_init_data {
 		# PSU_DDRC_DRAMTMG9_WR2RD_S                                                       0xb
 
 		# SDRAM Timing Register 9
-		#(OFFSET, MASK, VALUE)      (0XFD070124, 0x40070F3FU ,0x0002020BU)  */
-    mask_write 0XFD070124 0x40070F3F 0x0002020B
+		#(OFFSET, MASK, VALUE)      (0XFD070124, 0x40070F3FU ,0x0002030BU)  */
+    mask_write 0XFD070124 0x40070F3F 0x0002030B
 		# Register : DRAMTMG11 @ 0XFD07012C</p>
 
 		# tXMPDLL: This is the minimum Exit MPSM to commands requiring a locked DL
     # L. For configurations with MEMC_FREQ_RATIO=2, program this to (tXMPDLL/2
     # ) and round it up to the next integer value. Present only in designs con
     # figured to support DDR4. Unit: Multiples of 32 clocks.
-		# PSU_DDRC_DRAMTMG11_POST_MPSM_GAP_X32                                            0x11
+		# PSU_DDRC_DRAMTMG11_POST_MPSM_GAP_X32                                            0x12
 
 		# tMPX_LH: This is the minimum CS_n Low hold time to CKE rising edge. For
     # configurations with MEMC_FREQ_RATIO=2, program this to RoundUp(tMPX_LH/2
@@ -2445,8 +2458,8 @@ set psu_ddr_init_data {
 		# PSU_DDRC_DRAMTMG11_T_CKMPE                                                      0xe
 
 		# SDRAM Timing Register 11
-		#(OFFSET, MASK, VALUE)      (0XFD07012C, 0x7F1F031FU ,0x1107010EU)  */
-    mask_write 0XFD07012C 0x7F1F031F 0x1107010E
+		#(OFFSET, MASK, VALUE)      (0XFD07012C, 0x7F1F031FU ,0x1207010EU)  */
+    mask_write 0XFD07012C 0x7F1F031F 0x1207010E
 		# Register : DRAMTMG12 @ 0XFD070130</p>
 
 		# tCMDCKE: Delay from valid command to CKE input LOW. Set this to the larg
@@ -2534,11 +2547,11 @@ set psu_ddr_init_data {
     # 4 devices. Meaningless, if ZQCTL0.dis_auto_zq=1. Unit: 1024 clock cycles
     # . This is only present for designs supporting DDR3/DDR4 or LPDDR2/LPDDR3
     # /LPDDR4 devices.
-		# PSU_DDRC_ZQCTL1_T_ZQ_SHORT_INTERVAL_X1024                                       0x196dc
+		# PSU_DDRC_ZQCTL1_T_ZQ_SHORT_INTERVAL_X1024                                       0x196e5
 
 		# ZQ Control Register 1
-		#(OFFSET, MASK, VALUE)      (0XFD070184, 0x3FFFFFFFU ,0x020196DCU)  */
-    mask_write 0XFD070184 0x3FFFFFFF 0x020196DC
+		#(OFFSET, MASK, VALUE)      (0XFD070184, 0x3FFFFFFFU ,0x020196E5U)  */
+    mask_write 0XFD070184 0x3FFFFFFF 0x020196E5
 		# Register : DFITMG0 @ 0XFD070190</p>
 
 		# Specifies the number of DFI clock cycles after an assertion or de-assert
@@ -2563,7 +2576,7 @@ set psu_ddr_init_data {
     # depending on the PHY, if using RDIMM, it may be necessary to use the val
     # ue (CL + 1) in the calculation of trddata_en. This is to compensate for
     # the extra cycle of latency through the RDIMM. Unit: Clocks
-		# PSU_DDRC_DFITMG0_DFI_T_RDDATA_EN                                                0xb
+		# PSU_DDRC_DFITMG0_DFI_T_RDDATA_EN                                                0xc
 
 		# Defines whether dfi_wrdata_en/dfi_wrdata/dfi_wrdata_mask is generated us
     # ing HDR or SDR values Selects whether value in DFITMG0.dfi_tphy_wrlat is
@@ -2589,8 +2602,8 @@ set psu_ddr_init_data {
 		# PSU_DDRC_DFITMG0_DFI_TPHY_WRLAT                                                 0xb
 
 		# DFI Timing Register 0
-		#(OFFSET, MASK, VALUE)      (0XFD070190, 0x1FBFBF3FU ,0x048B820BU)  */
-    mask_write 0XFD070190 0x1FBFBF3F 0x048B820B
+		#(OFFSET, MASK, VALUE)      (0XFD070190, 0x1FBFBF3FU ,0x048C820BU)  */
+    mask_write 0XFD070190 0x1FBFBF3F 0x048C820B
 		# Register : DFITMG1 @ 0XFD070194</p>
 
 		# Specifies the number of DFI PHY clocks between when the dfi_cs signal is
@@ -2776,7 +2789,7 @@ set psu_ddr_init_data {
     #  interface and when the associated dfi_rddata_cs signal is asserted. Thi
     # s corresponds to the DFI timing parameter tphy_rdcslat. Refer to PHY spe
     # cification for correct value.
-		# PSU_DDRC_DFITMG2_DFI_TPHY_RDCSLAT                                               0x9
+		# PSU_DDRC_DFITMG2_DFI_TPHY_RDCSLAT                                               0xa
 
 		# Number of clocks between when a write command is sent on the DFI control
     #  interface and when the associated dfi_wrdata_cs signal is asserted. Thi
@@ -2785,8 +2798,8 @@ set psu_ddr_init_data {
 		# PSU_DDRC_DFITMG2_DFI_TPHY_WRCSLAT                                               0x9
 
 		# DFI Timing Register 2
-		#(OFFSET, MASK, VALUE)      (0XFD0701B4, 0x00003F3FU ,0x00000909U)  */
-    mask_write 0XFD0701B4 0x00003F3F 0x00000909
+		#(OFFSET, MASK, VALUE)      (0XFD0701B4, 0x00003F3FU ,0x00000A09U)  */
+    mask_write 0XFD0701B4 0x00003F3F 0x00000A09
 		# Register : DBICTL @ 0XFD0701C0</p>
 
 		# Read DBI enable signal in DDRC. - 0 - Read DBI is disabled. - 1 - Read D
@@ -2834,17 +2847,17 @@ set psu_ddr_init_data {
     # to 30 Internal Base: 3 The selected HIF address bit for each of the bank
     #  address bits is determined by adding the internal base to the value of
     # this field.
-		# PSU_DDRC_ADDRMAP1_ADDRMAP_BANK_B1                                               0xa
+		# PSU_DDRC_ADDRMAP1_ADDRMAP_BANK_B1                                               0x9
 
 		# Selects the HIF address bits used as bank address bit 0. Valid Range: 0
     # to 30 Internal Base: 2 The selected HIF address bit for each of the bank
     #  address bits is determined by adding the internal base to the value of
     # this field.
-		# PSU_DDRC_ADDRMAP1_ADDRMAP_BANK_B0                                               0xa
+		# PSU_DDRC_ADDRMAP1_ADDRMAP_BANK_B0                                               0x9
 
 		# Address Map Register 1
-		#(OFFSET, MASK, VALUE)      (0XFD070204, 0x001F1F1FU ,0x001F0A0AU)  */
-    mask_write 0XFD070204 0x001F1F1F 0x001F0A0A
+		#(OFFSET, MASK, VALUE)      (0XFD070204, 0x001F1F1FU ,0x001F0909U)  */
+    mask_write 0XFD070204 0x001F1F1F 0x001F0909
 		# Register : ADDRMAP2 @ 0XFD070208</p>
 
 		# - Full bus width mode: Selects the HIF address bit used as column addres
@@ -2973,7 +2986,7 @@ set psu_ddr_init_data {
     # o 11, and 15 Internal Base: 17 The selected HIF address bit is determine
     # d by adding the internal base to the value of this field. If set to 15,
     # row address bit 11 is set to 0.
-		# PSU_DDRC_ADDRMAP5_ADDRMAP_ROW_B11                                               0x8
+		# PSU_DDRC_ADDRMAP5_ADDRMAP_ROW_B11                                               0x7
 
 		# Selects the HIF address bits used as row address bits 2 to 10. Valid Ran
     # ge: 0 to 11, and 15 Internal Base: 8 (for row address bit 2), 9 (for row
@@ -2988,17 +3001,17 @@ set psu_ddr_init_data {
     # o 11 Internal Base: 7 The selected HIF address bit for each of the row a
     # ddress bits is determined by adding the internal base to the value of th
     # is field.
-		# PSU_DDRC_ADDRMAP5_ADDRMAP_ROW_B1                                                0x8
+		# PSU_DDRC_ADDRMAP5_ADDRMAP_ROW_B1                                                0x7
 
 		# Selects the HIF address bits used as row address bit 0. Valid Range: 0 t
     # o 11 Internal Base: 6 The selected HIF address bit for each of the row a
     # ddress bits is determined by adding the internal base to the value of th
     # is field.
-		# PSU_DDRC_ADDRMAP5_ADDRMAP_ROW_B0                                                0x8
+		# PSU_DDRC_ADDRMAP5_ADDRMAP_ROW_B0                                                0x7
 
 		# Address Map Register 5
-		#(OFFSET, MASK, VALUE)      (0XFD070214, 0x0F0F0F0FU ,0x080F0808U)  */
-    mask_write 0XFD070214 0x0F0F0F0F 0x080F0808
+		#(OFFSET, MASK, VALUE)      (0XFD070214, 0x0F0F0F0FU ,0x070F0707U)  */
+    mask_write 0XFD070214 0x0F0F0F0F 0x070F0707
 		# Register : ADDRMAP6 @ 0XFD070218</p>
 
 		# Set this to 1 if there is an LPDDR3 SDRAM 6Gb or 12Gb device in use. - 1
@@ -3012,29 +3025,29 @@ set psu_ddr_init_data {
     # o 11, and 15 Internal Base: 21 The selected HIF address bit is determine
     # d by adding the internal base to the value of this field. If set to 15,
     # row address bit 15 is set to 0.
-		# PSU_DDRC_ADDRMAP6_ADDRMAP_ROW_B15                                               0xf
+		# PSU_DDRC_ADDRMAP6_ADDRMAP_ROW_B15                                               0x7
 
 		# Selects the HIF address bit used as row address bit 14. Valid Range: 0 t
     # o 11, and 15 Internal Base: 20 The selected HIF address bit is determine
     # d by adding the internal base to the value of this field. If set to 15,
     # row address bit 14 is set to 0.
-		# PSU_DDRC_ADDRMAP6_ADDRMAP_ROW_B14                                               0x8
+		# PSU_DDRC_ADDRMAP6_ADDRMAP_ROW_B14                                               0x7
 
 		# Selects the HIF address bit used as row address bit 13. Valid Range: 0 t
     # o 11, and 15 Internal Base: 19 The selected HIF address bit is determine
     # d by adding the internal base to the value of this field. If set to 15,
     # row address bit 13 is set to 0.
-		# PSU_DDRC_ADDRMAP6_ADDRMAP_ROW_B13                                               0x8
+		# PSU_DDRC_ADDRMAP6_ADDRMAP_ROW_B13                                               0x7
 
 		# Selects the HIF address bit used as row address bit 12. Valid Range: 0 t
     # o 11, and 15 Internal Base: 18 The selected HIF address bit is determine
     # d by adding the internal base to the value of this field. If set to 15,
     # row address bit 12 is set to 0.
-		# PSU_DDRC_ADDRMAP6_ADDRMAP_ROW_B12                                               0x8
+		# PSU_DDRC_ADDRMAP6_ADDRMAP_ROW_B12                                               0x7
 
 		# Address Map Register 6
-		#(OFFSET, MASK, VALUE)      (0XFD070218, 0x8F0F0F0FU ,0x0F080808U)  */
-    mask_write 0XFD070218 0x8F0F0F0F 0x0F080808
+		#(OFFSET, MASK, VALUE)      (0XFD070218, 0x8F0F0F0FU ,0x07070707U)  */
+    mask_write 0XFD070218 0x8F0F0F0F 0x07070707
 		# Register : ADDRMAP7 @ 0XFD07021C</p>
 
 		# Selects the HIF address bit used as row address bit 17. Valid Range: 0 t
@@ -3059,7 +3072,7 @@ set psu_ddr_init_data {
     # ch of the bank group address bits is determined by adding the internal b
     # ase to the value of this field. If set to 31, bank group address bit 1 i
     # s set to 0.
-		# PSU_DDRC_ADDRMAP8_ADDRMAP_BG_B1                                                 0x8
+		# PSU_DDRC_ADDRMAP8_ADDRMAP_BG_B1                                                 0x1f
 
 		# Selects the HIF address bits used as bank group address bit 0. Valid Ran
     # ge: 0 to 30 Internal Base: 2 The selected HIF address bit for each of th
@@ -3068,8 +3081,8 @@ set psu_ddr_init_data {
 		# PSU_DDRC_ADDRMAP8_ADDRMAP_BG_B0                                                 0x1
 
 		# Address Map Register 8
-		#(OFFSET, MASK, VALUE)      (0XFD070220, 0x00001F1FU ,0x00000801U)  */
-    mask_write 0XFD070220 0x00001F1F 0x00000801
+		#(OFFSET, MASK, VALUE)      (0XFD070220, 0x00001F1FU ,0x00001F01U)  */
+    mask_write 0XFD070220 0x00001F1F 0x00001F01
 		# Register : ADDRMAP9 @ 0XFD070224</p>
 
 		# Selects the HIF address bits used as row address bit 5. Valid Range: 0 t
@@ -3077,32 +3090,32 @@ set psu_ddr_init_data {
     # address bits is determined by adding the internal base to the value of t
     # his field. This register field is used only when ADDRMAP5.addrmap_row_b2
     # _10 is set to value 15.
-		# PSU_DDRC_ADDRMAP9_ADDRMAP_ROW_B5                                                0x8
+		# PSU_DDRC_ADDRMAP9_ADDRMAP_ROW_B5                                                0x7
 
 		# Selects the HIF address bits used as row address bit 4. Valid Range: 0 t
     # o 11 Internal Base: 10 The selected HIF address bit for each of the row
     # address bits is determined by adding the internal base to the value of t
     # his field. This register field is used only when ADDRMAP5.addrmap_row_b2
     # _10 is set to value 15.
-		# PSU_DDRC_ADDRMAP9_ADDRMAP_ROW_B4                                                0x8
+		# PSU_DDRC_ADDRMAP9_ADDRMAP_ROW_B4                                                0x7
 
 		# Selects the HIF address bits used as row address bit 3. Valid Range: 0 t
     # o 11 Internal Base: 9 The selected HIF address bit for each of the row a
     # ddress bits is determined by adding the internal base to the value of th
     # is field. This register field is used only when ADDRMAP5.addrmap_row_b2_
     # 10 is set to value 15.
-		# PSU_DDRC_ADDRMAP9_ADDRMAP_ROW_B3                                                0x8
+		# PSU_DDRC_ADDRMAP9_ADDRMAP_ROW_B3                                                0x7
 
 		# Selects the HIF address bits used as row address bit 2. Valid Range: 0 t
     # o 11 Internal Base: 8 The selected HIF address bit for each of the row a
     # ddress bits is determined by adding the internal base to the value of th
     # is field. This register field is used only when ADDRMAP5.addrmap_row_b2_
     # 10 is set to value 15.
-		# PSU_DDRC_ADDRMAP9_ADDRMAP_ROW_B2                                                0x8
+		# PSU_DDRC_ADDRMAP9_ADDRMAP_ROW_B2                                                0x7
 
 		# Address Map Register 9
-		#(OFFSET, MASK, VALUE)      (0XFD070224, 0x0F0F0F0FU ,0x08080808U)  */
-    mask_write 0XFD070224 0x0F0F0F0F 0x08080808
+		#(OFFSET, MASK, VALUE)      (0XFD070224, 0x0F0F0F0FU ,0x07070707U)  */
+    mask_write 0XFD070224 0x0F0F0F0F 0x07070707
 		# Register : ADDRMAP10 @ 0XFD070228</p>
 
 		# Selects the HIF address bits used as row address bit 9. Valid Range: 0 t
@@ -3110,32 +3123,32 @@ set psu_ddr_init_data {
     # address bits is determined by adding the internal base to the value of t
     # his field. This register field is used only when ADDRMAP5.addrmap_row_b2
     # _10 is set to value 15.
-		# PSU_DDRC_ADDRMAP10_ADDRMAP_ROW_B9                                               0x8
+		# PSU_DDRC_ADDRMAP10_ADDRMAP_ROW_B9                                               0x7
 
 		# Selects the HIF address bits used as row address bit 8. Valid Range: 0 t
     # o 11 Internal Base: 14 The selected HIF address bit for each of the row
     # address bits is determined by adding the internal base to the value of t
     # his field. This register field is used only when ADDRMAP5.addrmap_row_b2
     # _10 is set to value 15.
-		# PSU_DDRC_ADDRMAP10_ADDRMAP_ROW_B8                                               0x8
+		# PSU_DDRC_ADDRMAP10_ADDRMAP_ROW_B8                                               0x7
 
 		# Selects the HIF address bits used as row address bit 7. Valid Range: 0 t
     # o 11 Internal Base: 13 The selected HIF address bit for each of the row
     # address bits is determined by adding the internal base to the value of t
     # his field. This register field is used only when ADDRMAP5.addrmap_row_b2
     # _10 is set to value 15.
-		# PSU_DDRC_ADDRMAP10_ADDRMAP_ROW_B7                                               0x8
+		# PSU_DDRC_ADDRMAP10_ADDRMAP_ROW_B7                                               0x7
 
 		# Selects the HIF address bits used as row address bit 6. Valid Range: 0 t
     # o 11 Internal Base: 12 The selected HIF address bit for each of the row
     # address bits is determined by adding the internal base to the value of t
     # his field. This register field is used only when ADDRMAP5.addrmap_row_b2
     # _10 is set to value 15.
-		# PSU_DDRC_ADDRMAP10_ADDRMAP_ROW_B6                                               0x8
+		# PSU_DDRC_ADDRMAP10_ADDRMAP_ROW_B6                                               0x7
 
 		# Address Map Register 10
-		#(OFFSET, MASK, VALUE)      (0XFD070228, 0x0F0F0F0FU ,0x08080808U)  */
-    mask_write 0XFD070228 0x0F0F0F0F 0x08080808
+		#(OFFSET, MASK, VALUE)      (0XFD070228, 0x0F0F0F0FU ,0x07070707U)  */
+    mask_write 0XFD070228 0x0F0F0F0F 0x07070707
 		# Register : ADDRMAP11 @ 0XFD07022C</p>
 
 		# Selects the HIF address bits used as row address bit 10. Valid Range: 0
@@ -3143,11 +3156,11 @@ set psu_ddr_init_data {
     #  address bits is determined by adding the internal base to the value of
     # this field. This register field is used only when ADDRMAP5.addrmap_row_b
     # 2_10 is set to value 15.
-		# PSU_DDRC_ADDRMAP11_ADDRMAP_ROW_B10                                              0x8
+		# PSU_DDRC_ADDRMAP11_ADDRMAP_ROW_B10                                              0x7
 
 		# Address Map Register 11
-		#(OFFSET, MASK, VALUE)      (0XFD07022C, 0x0000000FU ,0x00000008U)  */
-    mask_write 0XFD07022C 0x0000000F 0x00000008
+		#(OFFSET, MASK, VALUE)      (0XFD07022C, 0x0000000FU ,0x00000007U)  */
+    mask_write 0XFD07022C 0x0000000F 0x00000007
 		# Register : ODTCFG @ 0XFD070240</p>
 
 		# Cycles to hold ODT for a write command. The minimum supported value is 2
@@ -3186,11 +3199,11 @@ set psu_ddr_init_data {
     # amble) If (CL - CWL - RD_PREAMBLE + WR_PREAMBLE) < 0, uMCTL2 does not su
     # pport ODT for read operation. LPDDR3: - RL + RD(tDQSCK(min)/tCK) - 1 - R
     # U(tODTon(max)/tCK)
-		# PSU_DDRC_ODTCFG_RD_ODT_DELAY                                                    0x0
+		# PSU_DDRC_ODTCFG_RD_ODT_DELAY                                                    0x1
 
 		# ODT Configuration Register
-		#(OFFSET, MASK, VALUE)      (0XFD070240, 0x0F1F0F7CU ,0x06000600U)  */
-    mask_write 0XFD070240 0x0F1F0F7C 0x06000600
+		#(OFFSET, MASK, VALUE)      (0XFD070240, 0x0F1F0F7CU ,0x06000604U)  */
+    mask_write 0XFD070240 0x0F1F0F7C 0x06000604
 		# Register : ODTMAP @ 0XFD070244</p>
 
 		# Indicates which remote ODTs must be turned on during a read from rank 1.
@@ -4700,7 +4713,7 @@ set psu_ddr_init_data {
 		# Register : PTR1 @ 0XFD080044</p>
 
 		# PLL Lock Time
-		# PSU_DDR_PHY_PTR1_TPLLLOCK                                                       0xd051
+		# PSU_DDR_PHY_PTR1_TPLLLOCK                                                       0xd055
 
 		# Reserved. Returns zeroes on reads.
 		# PSU_DDR_PHY_PTR1_RESERVED_15_13                                                 0x0
@@ -4709,8 +4722,8 @@ set psu_ddr_init_data {
 		# PSU_DDR_PHY_PTR1_TPLLRST                                                        0x12c0
 
 		# PHY Timing Register 1
-		#(OFFSET, MASK, VALUE)      (0XFD080044, 0xFFFFFFFFU ,0xD05112C0U)  */
-    mask_write 0XFD080044 0xFFFFFFFF 0xD05112C0
+		#(OFFSET, MASK, VALUE)      (0XFD080044, 0xFFFFFFFFU ,0xD05512C0U)  */
+    mask_write 0XFD080044 0xFFFFFFFF 0xD05512C0
 		# Register : PLLCR0 @ 0XFD080068</p>
 
 		# PLL Bypass
@@ -4885,7 +4898,7 @@ set psu_ddr_init_data {
 		# PSU_DDR_PHY_DTPR0_RESERVED_31_29                                                0x0
 
 		# Activate to activate command delay (different banks)
-		# PSU_DDR_PHY_DTPR0_TRRD                                                          0x6
+		# PSU_DDR_PHY_DTPR0_TRRD                                                          0x7
 
 		# Reserved. Return zeroes on reads.
 		# PSU_DDR_PHY_DTPR0_RESERVED_23                                                   0x0
@@ -4897,7 +4910,7 @@ set psu_ddr_init_data {
 		# PSU_DDR_PHY_DTPR0_RESERVED_15                                                   0x0
 
 		# Precharge command period
-		# PSU_DDR_PHY_DTPR0_TRP                                                           0xf
+		# PSU_DDR_PHY_DTPR0_TRP                                                           0x10
 
 		# Reserved. Return zeroes on reads.
 		# PSU_DDR_PHY_DTPR0_RESERVED_7_5                                                  0x0
@@ -4906,8 +4919,8 @@ set psu_ddr_init_data {
 		# PSU_DDR_PHY_DTPR0_TRTP                                                          0x8
 
 		# DRAM Timing Parameters Register 0
-		#(OFFSET, MASK, VALUE)      (0XFD080110, 0xFFFFFFFFU ,0x06240F08U)  */
-    mask_write 0XFD080110 0xFFFFFFFF 0x06240F08
+		#(OFFSET, MASK, VALUE)      (0XFD080110, 0xFFFFFFFFU ,0x07241008U)  */
+    mask_write 0XFD080110 0xFFFFFFFF 0x07241008
 		# Register : DTPR1 @ 0XFD080114</p>
 
 		# Reserved. Return zeroes on reads.
@@ -5005,7 +5018,7 @@ set psu_ddr_init_data {
 		# PSU_DDR_PHY_DTPR4_RESERVED_27_26                                                0x0
 
 		# Refresh-to-Refresh
-		# PSU_DDR_PHY_DTPR4_TRFC                                                          0x116
+		# PSU_DDR_PHY_DTPR4_TRFC                                                          0x176
 
 		# Reserved. Return zeroes on reads.
 		# PSU_DDR_PHY_DTPR4_RESERVED_15_14                                                0x0
@@ -5020,8 +5033,8 @@ set psu_ddr_init_data {
 		# PSU_DDR_PHY_DTPR4_TXP                                                           0x7
 
 		# DRAM Timing Parameters Register 4
-		#(OFFSET, MASK, VALUE)      (0XFD080120, 0xFFFFFFFFU ,0x01162B07U)  */
-    mask_write 0XFD080120 0xFFFFFFFF 0x01162B07
+		#(OFFSET, MASK, VALUE)      (0XFD080120, 0xFFFFFFFFU ,0x01762B07U)  */
+    mask_write 0XFD080120 0xFFFFFFFF 0x01762B07
 		# Register : DTPR5 @ 0XFD080124</p>
 
 		# Reserved. Return zeroes on reads.
@@ -5034,7 +5047,7 @@ set psu_ddr_init_data {
 		# PSU_DDR_PHY_DTPR5_RESERVED_15                                                   0x0
 
 		# Activate to read or write delay
-		# PSU_DDR_PHY_DTPR5_TRCD                                                          0xf
+		# PSU_DDR_PHY_DTPR5_TRCD                                                          0x10
 
 		# Reserved. Return zeroes on reads.
 		# PSU_DDR_PHY_DTPR5_RESERVED_7_5                                                  0x0
@@ -5043,8 +5056,8 @@ set psu_ddr_init_data {
 		# PSU_DDR_PHY_DTPR5_TWTR                                                          0x8
 
 		# DRAM Timing Parameters Register 5
-		#(OFFSET, MASK, VALUE)      (0XFD080124, 0xFFFFFFFFU ,0x00330F08U)  */
-    mask_write 0XFD080124 0xFFFFFFFF 0x00330F08
+		#(OFFSET, MASK, VALUE)      (0XFD080124, 0xFFFFFFFFU ,0x00331008U)  */
+    mask_write 0XFD080124 0xFFFFFFFF 0x00331008
 		# Register : DTPR6 @ 0XFD080128</p>
 
 		# PUB Write Latency Enable
@@ -5063,11 +5076,11 @@ set psu_ddr_init_data {
 		# PSU_DDR_PHY_DTPR6_RESERVED_7_6                                                  0x0
 
 		# Read Latency
-		# PSU_DDR_PHY_DTPR6_PUBRL                                                         0xf
+		# PSU_DDR_PHY_DTPR6_PUBRL                                                         0x10
 
 		# DRAM Timing Parameters Register 6
-		#(OFFSET, MASK, VALUE)      (0XFD080128, 0xFFFFFFFFU ,0x00000E0FU)  */
-    mask_write 0XFD080128 0xFFFFFFFF 0x00000E0F
+		#(OFFSET, MASK, VALUE)      (0XFD080128, 0xFFFFFFFFU ,0x00000E10U)  */
+    mask_write 0XFD080128 0xFFFFFFFF 0x00000E10
 		# Register : RDIMMGCR0 @ 0XFD080140</p>
 
 		# Reserved. Return zeroes on reads.
@@ -5247,11 +5260,11 @@ set psu_ddr_init_data {
 
 		# Reserved. These are JEDEC reserved bits and are recommended by JEDEC to
     # be programmed to 0x0.
-		# PSU_DDR_PHY_MR0_RSVD_2_0                                                        0x0
+		# PSU_DDR_PHY_MR0_RSVD_2_0                                                        0x4
 
 		# LPDDR4 Mode Register 0
-		#(OFFSET, MASK, VALUE)      (0XFD080180, 0xFFFFFFFFU ,0x00000630U)  */
-    mask_write 0XFD080180 0xFFFFFFFF 0x00000630
+		#(OFFSET, MASK, VALUE)      (0XFD080180, 0xFFFFFFFFU ,0x00000634U)  */
+    mask_write 0XFD080180 0xFFFFFFFF 0x00000634
 		# Register : MR1 @ 0XFD080184</p>
 
 		# Reserved. Return zeroes on reads.
@@ -6531,17 +6544,17 @@ set psu_ddr_init_data {
 		# PSU_DDR_PHY_DX0GCR5_RESERVED_15                                                 0x0
 
 		# Byte Lane internal VREF Select for Rank 1
-		# PSU_DDR_PHY_DX0GCR5_DXREFISELR1                                                 0x55
+		# PSU_DDR_PHY_DX0GCR5_DXREFISELR1                                                 0x4f
 
 		# Reserved. Returns zeros on reads.
 		# PSU_DDR_PHY_DX0GCR5_RESERVED_7                                                  0x0
 
 		# Byte Lane internal VREF Select for Rank 0
-		# PSU_DDR_PHY_DX0GCR5_DXREFISELR0                                                 0x55
+		# PSU_DDR_PHY_DX0GCR5_DXREFISELR0                                                 0x4f
 
 		# DATX8 n General Configuration Register 5
-		#(OFFSET, MASK, VALUE)      (0XFD080714, 0xFFFFFFFFU ,0x09095555U)  */
-    mask_write 0XFD080714 0xFFFFFFFF 0x09095555
+		#(OFFSET, MASK, VALUE)      (0XFD080714, 0xFFFFFFFFU ,0x09094F4FU)  */
+    mask_write 0XFD080714 0xFFFFFFFF 0x09094F4F
 		# Register : DX0GCR6 @ 0XFD080718</p>
 
 		# Reserved. Returns zeros on reads.
@@ -6784,17 +6797,17 @@ set psu_ddr_init_data {
 		# PSU_DDR_PHY_DX1GCR5_RESERVED_15                                                 0x0
 
 		# Byte Lane internal VREF Select for Rank 1
-		# PSU_DDR_PHY_DX1GCR5_DXREFISELR1                                                 0x55
+		# PSU_DDR_PHY_DX1GCR5_DXREFISELR1                                                 0x4f
 
 		# Reserved. Returns zeros on reads.
 		# PSU_DDR_PHY_DX1GCR5_RESERVED_7                                                  0x0
 
 		# Byte Lane internal VREF Select for Rank 0
-		# PSU_DDR_PHY_DX1GCR5_DXREFISELR0                                                 0x55
+		# PSU_DDR_PHY_DX1GCR5_DXREFISELR0                                                 0x4f
 
 		# DATX8 n General Configuration Register 5
-		#(OFFSET, MASK, VALUE)      (0XFD080814, 0xFFFFFFFFU ,0x09095555U)  */
-    mask_write 0XFD080814 0xFFFFFFFF 0x09095555
+		#(OFFSET, MASK, VALUE)      (0XFD080814, 0xFFFFFFFFU ,0x09094F4FU)  */
+    mask_write 0XFD080814 0xFFFFFFFF 0x09094F4F
 		# Register : DX1GCR6 @ 0XFD080818</p>
 
 		# Reserved. Returns zeros on reads.
@@ -7037,17 +7050,17 @@ set psu_ddr_init_data {
 		# PSU_DDR_PHY_DX2GCR5_RESERVED_15                                                 0x0
 
 		# Byte Lane internal VREF Select for Rank 1
-		# PSU_DDR_PHY_DX2GCR5_DXREFISELR1                                                 0x55
+		# PSU_DDR_PHY_DX2GCR5_DXREFISELR1                                                 0x4f
 
 		# Reserved. Returns zeros on reads.
 		# PSU_DDR_PHY_DX2GCR5_RESERVED_7                                                  0x0
 
 		# Byte Lane internal VREF Select for Rank 0
-		# PSU_DDR_PHY_DX2GCR5_DXREFISELR0                                                 0x55
+		# PSU_DDR_PHY_DX2GCR5_DXREFISELR0                                                 0x4f
 
 		# DATX8 n General Configuration Register 5
-		#(OFFSET, MASK, VALUE)      (0XFD080914, 0xFFFFFFFFU ,0x09095555U)  */
-    mask_write 0XFD080914 0xFFFFFFFF 0x09095555
+		#(OFFSET, MASK, VALUE)      (0XFD080914, 0xFFFFFFFFU ,0x09094F4FU)  */
+    mask_write 0XFD080914 0xFFFFFFFF 0x09094F4F
 		# Register : DX2GCR6 @ 0XFD080918</p>
 
 		# Reserved. Returns zeros on reads.
@@ -7290,17 +7303,17 @@ set psu_ddr_init_data {
 		# PSU_DDR_PHY_DX3GCR5_RESERVED_15                                                 0x0
 
 		# Byte Lane internal VREF Select for Rank 1
-		# PSU_DDR_PHY_DX3GCR5_DXREFISELR1                                                 0x55
+		# PSU_DDR_PHY_DX3GCR5_DXREFISELR1                                                 0x4f
 
 		# Reserved. Returns zeros on reads.
 		# PSU_DDR_PHY_DX3GCR5_RESERVED_7                                                  0x0
 
 		# Byte Lane internal VREF Select for Rank 0
-		# PSU_DDR_PHY_DX3GCR5_DXREFISELR0                                                 0x55
+		# PSU_DDR_PHY_DX3GCR5_DXREFISELR0                                                 0x4f
 
 		# DATX8 n General Configuration Register 5
-		#(OFFSET, MASK, VALUE)      (0XFD080A14, 0xFFFFFFFFU ,0x09095555U)  */
-    mask_write 0XFD080A14 0xFFFFFFFF 0x09095555
+		#(OFFSET, MASK, VALUE)      (0XFD080A14, 0xFFFFFFFFU ,0x09094F4FU)  */
+    mask_write 0XFD080A14 0xFFFFFFFF 0x09094F4F
 		# Register : DX3GCR6 @ 0XFD080A18</p>
 
 		# Reserved. Returns zeros on reads.
@@ -7554,17 +7567,17 @@ set psu_ddr_init_data {
 		# PSU_DDR_PHY_DX4GCR5_RESERVED_15                                                 0x0
 
 		# Byte Lane internal VREF Select for Rank 1
-		# PSU_DDR_PHY_DX4GCR5_DXREFISELR1                                                 0x55
+		# PSU_DDR_PHY_DX4GCR5_DXREFISELR1                                                 0x4f
 
 		# Reserved. Returns zeros on reads.
 		# PSU_DDR_PHY_DX4GCR5_RESERVED_7                                                  0x0
 
 		# Byte Lane internal VREF Select for Rank 0
-		# PSU_DDR_PHY_DX4GCR5_DXREFISELR0                                                 0x55
+		# PSU_DDR_PHY_DX4GCR5_DXREFISELR0                                                 0x4f
 
 		# DATX8 n General Configuration Register 5
-		#(OFFSET, MASK, VALUE)      (0XFD080B14, 0xFFFFFFFFU ,0x09095555U)  */
-    mask_write 0XFD080B14 0xFFFFFFFF 0x09095555
+		#(OFFSET, MASK, VALUE)      (0XFD080B14, 0xFFFFFFFFU ,0x09094F4FU)  */
+    mask_write 0XFD080B14 0xFFFFFFFF 0x09094F4F
 		# Register : DX4GCR6 @ 0XFD080B18</p>
 
 		# Reserved. Returns zeros on reads.
@@ -7818,17 +7831,17 @@ set psu_ddr_init_data {
 		# PSU_DDR_PHY_DX5GCR5_RESERVED_15                                                 0x0
 
 		# Byte Lane internal VREF Select for Rank 1
-		# PSU_DDR_PHY_DX5GCR5_DXREFISELR1                                                 0x55
+		# PSU_DDR_PHY_DX5GCR5_DXREFISELR1                                                 0x4f
 
 		# Reserved. Returns zeros on reads.
 		# PSU_DDR_PHY_DX5GCR5_RESERVED_7                                                  0x0
 
 		# Byte Lane internal VREF Select for Rank 0
-		# PSU_DDR_PHY_DX5GCR5_DXREFISELR0                                                 0x55
+		# PSU_DDR_PHY_DX5GCR5_DXREFISELR0                                                 0x4f
 
 		# DATX8 n General Configuration Register 5
-		#(OFFSET, MASK, VALUE)      (0XFD080C14, 0xFFFFFFFFU ,0x09095555U)  */
-    mask_write 0XFD080C14 0xFFFFFFFF 0x09095555
+		#(OFFSET, MASK, VALUE)      (0XFD080C14, 0xFFFFFFFFU ,0x09094F4FU)  */
+    mask_write 0XFD080C14 0xFFFFFFFF 0x09094F4F
 		# Register : DX5GCR6 @ 0XFD080C18</p>
 
 		# Reserved. Returns zeros on reads.
@@ -8082,17 +8095,17 @@ set psu_ddr_init_data {
 		# PSU_DDR_PHY_DX6GCR5_RESERVED_15                                                 0x0
 
 		# Byte Lane internal VREF Select for Rank 1
-		# PSU_DDR_PHY_DX6GCR5_DXREFISELR1                                                 0x55
+		# PSU_DDR_PHY_DX6GCR5_DXREFISELR1                                                 0x4f
 
 		# Reserved. Returns zeros on reads.
 		# PSU_DDR_PHY_DX6GCR5_RESERVED_7                                                  0x0
 
 		# Byte Lane internal VREF Select for Rank 0
-		# PSU_DDR_PHY_DX6GCR5_DXREFISELR0                                                 0x55
+		# PSU_DDR_PHY_DX6GCR5_DXREFISELR0                                                 0x4f
 
 		# DATX8 n General Configuration Register 5
-		#(OFFSET, MASK, VALUE)      (0XFD080D14, 0xFFFFFFFFU ,0x09095555U)  */
-    mask_write 0XFD080D14 0xFFFFFFFF 0x09095555
+		#(OFFSET, MASK, VALUE)      (0XFD080D14, 0xFFFFFFFFU ,0x09094F4FU)  */
+    mask_write 0XFD080D14 0xFFFFFFFF 0x09094F4F
 		# Register : DX6GCR6 @ 0XFD080D18</p>
 
 		# Reserved. Returns zeros on reads.
@@ -8346,17 +8359,17 @@ set psu_ddr_init_data {
 		# PSU_DDR_PHY_DX7GCR5_RESERVED_15                                                 0x0
 
 		# Byte Lane internal VREF Select for Rank 1
-		# PSU_DDR_PHY_DX7GCR5_DXREFISELR1                                                 0x55
+		# PSU_DDR_PHY_DX7GCR5_DXREFISELR1                                                 0x4f
 
 		# Reserved. Returns zeros on reads.
 		# PSU_DDR_PHY_DX7GCR5_RESERVED_7                                                  0x0
 
 		# Byte Lane internal VREF Select for Rank 0
-		# PSU_DDR_PHY_DX7GCR5_DXREFISELR0                                                 0x55
+		# PSU_DDR_PHY_DX7GCR5_DXREFISELR0                                                 0x4f
 
 		# DATX8 n General Configuration Register 5
-		#(OFFSET, MASK, VALUE)      (0XFD080E14, 0xFFFFFFFFU ,0x09095555U)  */
-    mask_write 0XFD080E14 0xFFFFFFFF 0x09095555
+		#(OFFSET, MASK, VALUE)      (0XFD080E14, 0xFFFFFFFFU ,0x09094F4FU)  */
+    mask_write 0XFD080E14 0xFFFFFFFF 0x09094F4F
 		# Register : DX7GCR6 @ 0XFD080E18</p>
 
 		# Reserved. Returns zeros on reads.
@@ -8610,17 +8623,17 @@ set psu_ddr_init_data {
 		# PSU_DDR_PHY_DX8GCR5_RESERVED_15                                                 0x0
 
 		# Byte Lane internal VREF Select for Rank 1
-		# PSU_DDR_PHY_DX8GCR5_DXREFISELR1                                                 0x55
+		# PSU_DDR_PHY_DX8GCR5_DXREFISELR1                                                 0x4f
 
 		# Reserved. Returns zeros on reads.
 		# PSU_DDR_PHY_DX8GCR5_RESERVED_7                                                  0x0
 
 		# Byte Lane internal VREF Select for Rank 0
-		# PSU_DDR_PHY_DX8GCR5_DXREFISELR0                                                 0x55
+		# PSU_DDR_PHY_DX8GCR5_DXREFISELR0                                                 0x4f
 
 		# DATX8 n General Configuration Register 5
-		#(OFFSET, MASK, VALUE)      (0XFD080F14, 0xFFFFFFFFU ,0x09095555U)  */
-    mask_write 0XFD080F14 0xFFFFFFFF 0x09095555
+		#(OFFSET, MASK, VALUE)      (0XFD080F14, 0xFFFFFFFFU ,0x09094F4FU)  */
+    mask_write 0XFD080F14 0xFFFFFFFF 0x09094F4F
 		# Register : DX8GCR6 @ 0XFD080F18</p>
 
 		# Reserved. Returns zeros on reads.
@@ -10151,7 +10164,7 @@ set psu_mio_init_data {
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= qspi, Output, qspi_clk_for_l
     # pbk- (QSPI Clock to be fed-back)
-		# PSU_IOU_SLCR_MIO_PIN_6_L0_SEL                                                   1
+		# PSU_IOU_SLCR_MIO_PIN_6_L0_SEL                                                   0
 
 		# Level 1 Mux Select 0= Level 2 Mux Output 1= Not Used
 		# PSU_IOU_SLCR_MIO_PIN_6_L1_SEL                                                   0
@@ -10169,16 +10182,16 @@ set psu_mio_init_data {
     # pi1, Output, spi1_sclk_out- (SPI Clock) 5= ttc0, Input, ttc0_clk_in- (TT
     # C Clock) 6= ua0, Input, ua0_rxd- (UART receiver serial input) 7= trace,
     # Output, tracedq[4]- (Trace Port Databus)
-		# PSU_IOU_SLCR_MIO_PIN_6_L3_SEL                                                   0
+		# PSU_IOU_SLCR_MIO_PIN_6_L3_SEL                                                   4
 
 		# Configures MIO Pin 6 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF180018, 0x000000FEU ,0x00000002U)  */
-    mask_write 0XFF180018 0x000000FE 0x00000002
+		#(OFFSET, MASK, VALUE)      (0XFF180018, 0x000000FEU ,0x00000080U)  */
+    mask_write 0XFF180018 0x000000FE 0x00000080
 		# Register : MIO_PIN_7 @ 0XFF18001C</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= qspi, Output, qspi_n_ss_out_
     # upper- (QSPI Slave Select upper)
-		# PSU_IOU_SLCR_MIO_PIN_7_L0_SEL                                                   1
+		# PSU_IOU_SLCR_MIO_PIN_7_L0_SEL                                                   0
 
 		# Level 1 Mux Select 0= Level 2 Mux Output 1= Not Used
 		# PSU_IOU_SLCR_MIO_PIN_7_L1_SEL                                                   0
@@ -10199,14 +10212,14 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_MIO_PIN_7_L3_SEL                                                   0
 
 		# Configures MIO Pin 7 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF18001C, 0x000000FEU ,0x00000002U)  */
-    mask_write 0XFF18001C 0x000000FE 0x00000002
+		#(OFFSET, MASK, VALUE)      (0XFF18001C, 0x000000FEU ,0x00000000U)  */
+    mask_write 0XFF18001C 0x000000FE 0x00000000
 		# Register : MIO_PIN_8 @ 0XFF180020</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= qspi, Input, qspi_mi_upper[0
     # ]- (QSPI Upper Databus) 1= qspi, Output, qspi_mo_upper[0]- (QSPI Upper D
     # atabus)
-		# PSU_IOU_SLCR_MIO_PIN_8_L0_SEL                                                   1
+		# PSU_IOU_SLCR_MIO_PIN_8_L0_SEL                                                   0
 
 		# Level 1 Mux Select 0= Level 2 Mux Output 1= Not Used
 		# PSU_IOU_SLCR_MIO_PIN_8_L1_SEL                                                   0
@@ -10227,14 +10240,14 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_MIO_PIN_8_L3_SEL                                                   0
 
 		# Configures MIO Pin 8 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF180020, 0x000000FEU ,0x00000002U)  */
-    mask_write 0XFF180020 0x000000FE 0x00000002
+		#(OFFSET, MASK, VALUE)      (0XFF180020, 0x000000FEU ,0x00000000U)  */
+    mask_write 0XFF180020 0x000000FE 0x00000000
 		# Register : MIO_PIN_9 @ 0XFF180024</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= qspi, Input, qspi_mi_upper[1
     # ]- (QSPI Upper Databus) 1= qspi, Output, qspi_mo_upper[1]- (QSPI Upper D
     # atabus)
-		# PSU_IOU_SLCR_MIO_PIN_9_L0_SEL                                                   1
+		# PSU_IOU_SLCR_MIO_PIN_9_L0_SEL                                                   0
 
 		# Level 1 Mux Select 0= Level 2 Mux Output 1= nand, Output, nfc_ce[1]- (NA
     # ND chip enable)
@@ -10254,17 +10267,17 @@ set psu_mio_init_data {
     #  Output, ttc3_wave_out- (TTC Waveform Clock) 6= ua1, Input, ua1_rxd- (UA
     # RT receiver serial input) 7= trace, Output, tracedq[7]- (Trace Port Data
     # bus)
-		# PSU_IOU_SLCR_MIO_PIN_9_L3_SEL                                                   0
+		# PSU_IOU_SLCR_MIO_PIN_9_L3_SEL                                                   4
 
 		# Configures MIO Pin 9 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF180024, 0x000000FEU ,0x00000002U)  */
-    mask_write 0XFF180024 0x000000FE 0x00000002
+		#(OFFSET, MASK, VALUE)      (0XFF180024, 0x000000FEU ,0x00000080U)  */
+    mask_write 0XFF180024 0x000000FE 0x00000080
 		# Register : MIO_PIN_10 @ 0XFF180028</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= qspi, Input, qspi_mi_upper[2
     # ]- (QSPI Upper Databus) 1= qspi, Output, qspi_mo_upper[2]- (QSPI Upper D
     # atabus)
-		# PSU_IOU_SLCR_MIO_PIN_10_L0_SEL                                                  1
+		# PSU_IOU_SLCR_MIO_PIN_10_L0_SEL                                                  0
 
 		# Level 1 Mux Select 0= Level 2 Mux Output 1= nand, Input, nfc_rb_n[0]- (N
     # AND Ready/Busy)
@@ -10283,17 +10296,17 @@ set psu_mio_init_data {
     # i1, Output, spi1_so- (MISO signal) 5= ttc2, Input, ttc2_clk_in- (TTC Clo
     # ck) 6= ua0, Input, ua0_rxd- (UART receiver serial input) 7= trace, Outpu
     # t, tracedq[8]- (Trace Port Databus)
-		# PSU_IOU_SLCR_MIO_PIN_10_L3_SEL                                                  0
+		# PSU_IOU_SLCR_MIO_PIN_10_L3_SEL                                                  4
 
 		# Configures MIO Pin 10 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF180028, 0x000000FEU ,0x00000002U)  */
-    mask_write 0XFF180028 0x000000FE 0x00000002
+		#(OFFSET, MASK, VALUE)      (0XFF180028, 0x000000FEU ,0x00000080U)  */
+    mask_write 0XFF180028 0x000000FE 0x00000080
 		# Register : MIO_PIN_11 @ 0XFF18002C</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= qspi, Input, qspi_mi_upper[3
     # ]- (QSPI Upper Databus) 1= qspi, Output, qspi_mo_upper[3]- (QSPI Upper D
     # atabus)
-		# PSU_IOU_SLCR_MIO_PIN_11_L0_SEL                                                  1
+		# PSU_IOU_SLCR_MIO_PIN_11_L0_SEL                                                  0
 
 		# Level 1 Mux Select 0= Level 2 Mux Output 1= nand, Input, nfc_rb_n[1]- (N
     # AND Ready/Busy)
@@ -10312,16 +10325,16 @@ set psu_mio_init_data {
     # 4= spi1, Input, spi1_si- (MOSI signal) 5= ttc2, Output, ttc2_wave_out- (
     # TTC Waveform Clock) 6= ua0, Output, ua0_txd- (UART transmitter serial ou
     # tput) 7= trace, Output, tracedq[9]- (Trace Port Databus)
-		# PSU_IOU_SLCR_MIO_PIN_11_L3_SEL                                                  0
+		# PSU_IOU_SLCR_MIO_PIN_11_L3_SEL                                                  4
 
 		# Configures MIO Pin 11 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF18002C, 0x000000FEU ,0x00000002U)  */
-    mask_write 0XFF18002C 0x000000FE 0x00000002
+		#(OFFSET, MASK, VALUE)      (0XFF18002C, 0x000000FEU ,0x00000080U)  */
+    mask_write 0XFF18002C 0x000000FE 0x00000080
 		# Register : MIO_PIN_12 @ 0XFF180030</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= qspi, Output, qspi_sclk_out_
     # upper- (QSPI Upper Clock)
-		# PSU_IOU_SLCR_MIO_PIN_12_L0_SEL                                                  1
+		# PSU_IOU_SLCR_MIO_PIN_12_L0_SEL                                                  0
 
 		# Level 1 Mux Select 0= Level 2 Mux Output 1= nand, Input, nfc_dqs_in- (NA
     # ND Strobe) 1= nand, Output, nfc_dqs_out- (NAND Strobe)
@@ -10343,8 +10356,8 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_MIO_PIN_12_L3_SEL                                                  0
 
 		# Configures MIO Pin 12 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF180030, 0x000000FEU ,0x00000002U)  */
-    mask_write 0XFF180030 0x000000FE 0x00000002
+		#(OFFSET, MASK, VALUE)      (0XFF180030, 0x000000FEU ,0x00000000U)  */
+    mask_write 0XFF180030 0x000000FE 0x00000000
 		# Register : MIO_PIN_13 @ 0XFF180034</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= Not Used
@@ -10395,11 +10408,11 @@ set psu_mio_init_data {
     # AG TDO) 4= spi0, Output, spi0_n_ss_out[1]- (SPI Master Selects) 5= ttc0,
     #  Input, ttc0_clk_in- (TTC Clock) 6= ua0, Input, ua0_rxd- (UART receiver
     # serial input) 7= trace, Output, tracedq[12]- (Trace Port Databus)
-		# PSU_IOU_SLCR_MIO_PIN_14_L3_SEL                                                  2
+		# PSU_IOU_SLCR_MIO_PIN_14_L3_SEL                                                  0
 
 		# Configures MIO Pin 14 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF180038, 0x000000FEU ,0x00000040U)  */
-    mask_write 0XFF180038 0x000000FE 0x00000040
+		#(OFFSET, MASK, VALUE)      (0XFF180038, 0x000000FEU ,0x00000000U)  */
+    mask_write 0XFF180038 0x000000FE 0x00000000
 		# Register : MIO_PIN_15 @ 0XFF18003C</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= Not Used
@@ -10423,11 +10436,11 @@ set psu_mio_init_data {
     # ut, spi0_n_ss_out[0]- (SPI Master Selects) 5= ttc0, Output, ttc0_wave_ou
     # t- (TTC Waveform Clock) 6= ua0, Output, ua0_txd- (UART transmitter seria
     # l output) 7= trace, Output, tracedq[13]- (Trace Port Databus)
-		# PSU_IOU_SLCR_MIO_PIN_15_L3_SEL                                                  2
+		# PSU_IOU_SLCR_MIO_PIN_15_L3_SEL                                                  0
 
 		# Configures MIO Pin 15 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF18003C, 0x000000FEU ,0x00000040U)  */
-    mask_write 0XFF18003C 0x000000FE 0x00000040
+		#(OFFSET, MASK, VALUE)      (0XFF18003C, 0x000000FEU ,0x00000000U)  */
+    mask_write 0XFF18003C 0x000000FE 0x00000000
 		# Register : MIO_PIN_16 @ 0XFF180040</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= Not Used
@@ -10451,11 +10464,11 @@ set psu_mio_init_data {
     # pi0, Output, spi0_so- (MISO signal) 5= ttc3, Input, ttc3_clk_in- (TTC Cl
     # ock) 6= ua1, Output, ua1_txd- (UART transmitter serial output) 7= trace,
     #  Output, tracedq[14]- (Trace Port Databus)
-		# PSU_IOU_SLCR_MIO_PIN_16_L3_SEL                                                  2
+		# PSU_IOU_SLCR_MIO_PIN_16_L3_SEL                                                  0
 
 		# Configures MIO Pin 16 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF180040, 0x000000FEU ,0x00000040U)  */
-    mask_write 0XFF180040 0x000000FE 0x00000040
+		#(OFFSET, MASK, VALUE)      (0XFF180040, 0x000000FEU ,0x00000000U)  */
+    mask_write 0XFF180040 0x000000FE 0x00000000
 		# Register : MIO_PIN_17 @ 0XFF180044</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= Not Used
@@ -10479,11 +10492,11 @@ set psu_mio_init_data {
     # = spi0, Input, spi0_si- (MOSI signal) 5= ttc3, Output, ttc3_wave_out- (T
     # TC Waveform Clock) 6= ua1, Input, ua1_rxd- (UART receiver serial input)
     # 7= trace, Output, tracedq[15]- (Trace Port Databus)
-		# PSU_IOU_SLCR_MIO_PIN_17_L3_SEL                                                  2
+		# PSU_IOU_SLCR_MIO_PIN_17_L3_SEL                                                  0
 
 		# Configures MIO Pin 17 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF180044, 0x000000FEU ,0x00000040U)  */
-    mask_write 0XFF180044 0x000000FE 0x00000040
+		#(OFFSET, MASK, VALUE)      (0XFF180044, 0x000000FEU ,0x00000000U)  */
+    mask_write 0XFF180044 0x000000FE 0x00000000
 		# Register : MIO_PIN_18 @ 0XFF180048</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= Not Used
@@ -10563,11 +10576,11 @@ set psu_mio_init_data {
     # Watch Dog Timer Input clock) 4= spi1, Output, spi1_n_ss_out[1]- (SPI Mas
     # ter Selects) 5= ttc1, Input, ttc1_clk_in- (TTC Clock) 6= ua1, Output, ua
     # 1_txd- (UART transmitter serial output) 7= Not Used
-		# PSU_IOU_SLCR_MIO_PIN_20_L3_SEL                                                  6
+		# PSU_IOU_SLCR_MIO_PIN_20_L3_SEL                                                  0
 
 		# Configures MIO Pin 20 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF180050, 0x000000FEU ,0x000000C0U)  */
-    mask_write 0XFF180050 0x000000FE 0x000000C0
+		#(OFFSET, MASK, VALUE)      (0XFF180050, 0x000000FEU ,0x00000000U)  */
+    mask_write 0XFF180050 0x000000FE 0x00000000
 		# Register : MIO_PIN_21 @ 0XFF180054</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= Not Used
@@ -10592,11 +10605,11 @@ set psu_mio_init_data {
     #  Selects) 4= spi1, Output, spi1_n_ss_out[0]- (SPI Master Selects) 5= ttc
     # 1, Output, ttc1_wave_out- (TTC Waveform Clock) 6= ua1, Input, ua1_rxd- (
     # UART receiver serial input) 7= Not Used
-		# PSU_IOU_SLCR_MIO_PIN_21_L3_SEL                                                  6
+		# PSU_IOU_SLCR_MIO_PIN_21_L3_SEL                                                  0
 
 		# Configures MIO Pin 21 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF180054, 0x000000FEU ,0x000000C0U)  */
-    mask_write 0XFF180054 0x000000FE 0x000000C0
+		#(OFFSET, MASK, VALUE)      (0XFF180054, 0x000000FEU ,0x00000000U)  */
+    mask_write 0XFF180054 0x000000FE 0x00000000
 		# Register : MIO_PIN_22 @ 0XFF180058</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= Not Used
@@ -10675,11 +10688,11 @@ set psu_mio_init_data {
     # Watch Dog Timer Input clock) 4= Not Used 5= ttc3, Input, ttc3_clk_in- (T
     # TC Clock) 6= ua1, Output, ua1_txd- (UART transmitter serial output) 7= N
     # ot Used
-		# PSU_IOU_SLCR_MIO_PIN_24_L3_SEL                                                  1
+		# PSU_IOU_SLCR_MIO_PIN_24_L3_SEL                                                  2
 
 		# Configures MIO Pin 24 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF180060, 0x000000FEU ,0x00000020U)  */
-    mask_write 0XFF180060 0x000000FE 0x00000020
+		#(OFFSET, MASK, VALUE)      (0XFF180060, 0x000000FEU ,0x00000040U)  */
+    mask_write 0XFF180060 0x000000FE 0x00000040
 		# Register : MIO_PIN_25 @ 0XFF180064</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= Not Used
@@ -10702,11 +10715,11 @@ set psu_mio_init_data {
     # (Watch Dog Timer Output clock) 4= Not Used 5= ttc3, Output, ttc3_wave_ou
     # t- (TTC Waveform Clock) 6= ua1, Input, ua1_rxd- (UART receiver serial in
     # put) 7= Not Used
-		# PSU_IOU_SLCR_MIO_PIN_25_L3_SEL                                                  1
+		# PSU_IOU_SLCR_MIO_PIN_25_L3_SEL                                                  2
 
 		# Configures MIO Pin 25 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF180064, 0x000000FEU ,0x00000020U)  */
-    mask_write 0XFF180064 0x000000FE 0x00000020
+		#(OFFSET, MASK, VALUE)      (0XFF180064, 0x000000FEU ,0x00000040U)  */
+    mask_write 0XFF180064 0x000000FE 0x00000040
 		# Register : MIO_PIN_26 @ 0XFF180068</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= gem0, Output, gem0_rgmii_tx_
@@ -10721,7 +10734,7 @@ set psu_mio_init_data {
     #  GPI) 2= test_scan, Input, test_scan_in[26]- (Test Scan Port) = test_sca
     # n, Output, test_scan_out[26]- (Test Scan Port) 3= csu, Input, csu_ext_ta
     # mper- (CSU Ext Tamper)
-		# PSU_IOU_SLCR_MIO_PIN_26_L2_SEL                                                  0
+		# PSU_IOU_SLCR_MIO_PIN_26_L2_SEL                                                  1
 
 		# Level 3 Mux Select 0= gpio1, Input, gpio_1_pin_in[0]- (GPIO bank 1) 0= g
     # pio1, Output, gpio_1_pin_out[0]- (GPIO bank 1) 1= can0, Input, can0_phy_
@@ -10734,8 +10747,8 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_MIO_PIN_26_L3_SEL                                                  0
 
 		# Configures MIO Pin 26 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF180068, 0x000000FEU ,0x00000000U)  */
-    mask_write 0XFF180068 0x000000FE 0x00000000
+		#(OFFSET, MASK, VALUE)      (0XFF180068, 0x000000FEU ,0x00000008U)  */
+    mask_write 0XFF180068 0x000000FE 0x00000008
 		# Register : MIO_PIN_27 @ 0XFF18006C</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= gem0, Output, gem0_rgmii_txd
@@ -10865,7 +10878,7 @@ set psu_mio_init_data {
     #  GPI) 2= test_scan, Input, test_scan_in[31]- (Test Scan Port) = test_sca
     # n, Output, test_scan_out[31]- (Test Scan Port) 3= csu, Input, csu_ext_ta
     # mper- (CSU Ext Tamper)
-		# PSU_IOU_SLCR_MIO_PIN_31_L2_SEL                                                  0
+		# PSU_IOU_SLCR_MIO_PIN_31_L2_SEL                                                  1
 
 		# Level 3 Mux Select 0= gpio1, Input, gpio_1_pin_in[5]- (GPIO bank 1) 0= g
     # pio1, Output, gpio_1_pin_out[5]- (GPIO bank 1) 1= can0, Output, can0_phy
@@ -10878,8 +10891,8 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_MIO_PIN_31_L3_SEL                                                  0
 
 		# Configures MIO Pin 31 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF18007C, 0x000000FEU ,0x00000000U)  */
-    mask_write 0XFF18007C 0x000000FE 0x00000000
+		#(OFFSET, MASK, VALUE)      (0XFF18007C, 0x000000FEU ,0x00000008U)  */
+    mask_write 0XFF18007C 0x000000FE 0x00000008
 		# Register : MIO_PIN_32 @ 0XFF180080</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= gem0, Input, gem0_rgmii_rx_c
@@ -10938,6 +10951,64 @@ set psu_mio_init_data {
 		# Configures MIO Pin 33 peripheral interface mapping
 		#(OFFSET, MASK, VALUE)      (0XFF180084, 0x000000FEU ,0x00000008U)  */
     mask_write 0XFF180084 0x000000FE 0x00000008
+		# Register : MIO_PIN_36 @ 0XFF180090</p>
+
+		# Level 0 Mux Select 0= Level 1 Mux Output 1= gem0, Input, gem0_rgmii_rxd[
+    # 3]- (RX RGMII data)
+		# PSU_IOU_SLCR_MIO_PIN_36_L0_SEL                                                  0
+
+		# Level 1 Mux Select 0= Level 2 Mux Output 1= pcie, Input, pcie_reset_n- (
+    # PCIE Reset signal)
+		# PSU_IOU_SLCR_MIO_PIN_36_L1_SEL                                                  0
+
+		# Level 2 Mux Select 0= Level 3 Mux Output 1= pmu, Output, pmu_gpo[4]- (PM
+    # U GPI) 2= test_scan, Input, test_scan_in[36]- (Test Scan Port) = test_sc
+    # an, Output, test_scan_out[36]- (Test Scan Port) 3= dpaux, Input, dp_aux_
+    # data_in- (Dp Aux Data) = dpaux, Output, dp_aux_data_out- (Dp Aux Data)
+		# PSU_IOU_SLCR_MIO_PIN_36_L2_SEL                                                  0
+
+		# Level 3 Mux Select 0= gpio1, Input, gpio_1_pin_in[10]- (GPIO bank 1) 0=
+    # gpio1, Output, gpio_1_pin_out[10]- (GPIO bank 1) 1= can1, Output, can1_p
+    # hy_tx- (Can TX signal) 2= i2c1, Input, i2c1_scl_input- (SCL signal) 2= i
+    # 2c1, Output, i2c1_scl_out- (SCL signal) 3= swdt1, Input, swdt1_clk_in- (
+    # Watch Dog Timer Input clock) 4= spi1, Input, spi1_mi- (MISO signal) 4= s
+    # pi1, Output, spi1_so- (MISO signal) 5= ttc1, Input, ttc1_clk_in- (TTC Cl
+    # ock) 6= ua1, Output, ua1_txd- (UART transmitter serial output) 7= trace,
+    #  Output, tracedq[14]- (Trace Port Databus)
+		# PSU_IOU_SLCR_MIO_PIN_36_L3_SEL                                                  6
+
+		# Configures MIO Pin 36 peripheral interface mapping
+		#(OFFSET, MASK, VALUE)      (0XFF180090, 0x000000FEU ,0x000000C0U)  */
+    mask_write 0XFF180090 0x000000FE 0x000000C0
+		# Register : MIO_PIN_37 @ 0XFF180094</p>
+
+		# Level 0 Mux Select 0= Level 1 Mux Output 1= gem0, Input, gem0_rgmii_rx_c
+    # tl- (RX RGMII control )
+		# PSU_IOU_SLCR_MIO_PIN_37_L0_SEL                                                  0
+
+		# Level 1 Mux Select 0= Level 2 Mux Output 1= pcie, Input, pcie_reset_n- (
+    # PCIE Reset signal)
+		# PSU_IOU_SLCR_MIO_PIN_37_L1_SEL                                                  0
+
+		# Level 2 Mux Select 0= Level 3 Mux Output 1= pmu, Output, pmu_gpo[5]- (PM
+    # U GPI) 2= test_scan, Input, test_scan_in[37]- (Test Scan Port) = test_sc
+    # an, Output, test_scan_out[37]- (Test Scan Port) 3= dpaux, Input, dp_hot_
+    # plug_detect- (Dp Aux Hot Plug)
+		# PSU_IOU_SLCR_MIO_PIN_37_L2_SEL                                                  0
+
+		# Level 3 Mux Select 0= gpio1, Input, gpio_1_pin_in[11]- (GPIO bank 1) 0=
+    # gpio1, Output, gpio_1_pin_out[11]- (GPIO bank 1) 1= can1, Input, can1_ph
+    # y_rx- (Can RX signal) 2= i2c1, Input, i2c1_sda_input- (SDA signal) 2= i2
+    # c1, Output, i2c1_sda_out- (SDA signal) 3= swdt1, Output, swdt1_rst_out-
+    # (Watch Dog Timer Output clock) 4= spi1, Output, spi1_mo- (MOSI signal) 4
+    # = spi1, Input, spi1_si- (MOSI signal) 5= ttc1, Output, ttc1_wave_out- (T
+    # TC Waveform Clock) 6= ua1, Input, ua1_rxd- (UART receiver serial input)
+    # 7= trace, Output, tracedq[15]- (Trace Port Databus)
+		# PSU_IOU_SLCR_MIO_PIN_37_L3_SEL                                                  6
+
+		# Configures MIO Pin 37 peripheral interface mapping
+		#(OFFSET, MASK, VALUE)      (0XFF180094, 0x000000FEU ,0x000000C0U)  */
+    mask_write 0XFF180094 0x000000FE 0x000000C0
 		# Register : MIO_PIN_38 @ 0XFF180098</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= gem1, Output, gem1_rgmii_tx_
@@ -11086,7 +11157,7 @@ set psu_mio_init_data {
 		# Level 2 Mux Select 0= Level 3 Mux Output 1= sd0, Input, sd0_data_in[2]-
     # (8-bit Data bus) = sd0, Output, sdio0_data_out[2]- (8-bit Data bus) 2= s
     # d1, Output, sdio1_bus_pow- (SD card bus power) 3= Not Used
-		# PSU_IOU_SLCR_MIO_PIN_43_L2_SEL                                                  0
+		# PSU_IOU_SLCR_MIO_PIN_43_L2_SEL                                                  2
 
 		# Level 3 Mux Select 0= gpio1, Input, gpio_1_pin_in[17]- (GPIO bank 1) 0=
     # gpio1, Output, gpio_1_pin_out[17]- (GPIO bank 1) 1= can0, Output, can0_p
@@ -11099,8 +11170,8 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_MIO_PIN_43_L3_SEL                                                  0
 
 		# Configures MIO Pin 43 peripheral interface mapping
-		#(OFFSET, MASK, VALUE)      (0XFF1800AC, 0x000000FEU ,0x00000000U)  */
-    mask_write 0XFF1800AC 0x000000FE 0x00000000
+		#(OFFSET, MASK, VALUE)      (0XFF1800AC, 0x000000FEU ,0x00000010U)  */
+    mask_write 0XFF1800AC 0x000000FE 0x00000010
 		# Register : MIO_PIN_44 @ 0XFF1800B0</p>
 
 		# Level 0 Mux Select 0= Level 1 Mux Output 1= gem1, Input, gem1_rgmii_rx_c
@@ -12104,7 +12175,7 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_MIO_MST_TRI0_PIN_20_TRI                                            0
 
 		# Master Tri-state Enable for pin 21, active high
-		# PSU_IOU_SLCR_MIO_MST_TRI0_PIN_21_TRI                                            1
+		# PSU_IOU_SLCR_MIO_MST_TRI0_PIN_21_TRI                                            0
 
 		# Master Tri-state Enable for pin 22, active high
 		# PSU_IOU_SLCR_MIO_MST_TRI0_PIN_22_TRI                                            0
@@ -12116,10 +12187,10 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_MIO_MST_TRI0_PIN_24_TRI                                            0
 
 		# Master Tri-state Enable for pin 25, active high
-		# PSU_IOU_SLCR_MIO_MST_TRI0_PIN_25_TRI                                            1
+		# PSU_IOU_SLCR_MIO_MST_TRI0_PIN_25_TRI                                            0
 
 		# Master Tri-state Enable for pin 26, active high
-		# PSU_IOU_SLCR_MIO_MST_TRI0_PIN_26_TRI                                            0
+		# PSU_IOU_SLCR_MIO_MST_TRI0_PIN_26_TRI                                            1
 
 		# Master Tri-state Enable for pin 27, active high
 		# PSU_IOU_SLCR_MIO_MST_TRI0_PIN_27_TRI                                            0
@@ -12134,11 +12205,11 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_MIO_MST_TRI0_PIN_30_TRI                                            1
 
 		# Master Tri-state Enable for pin 31, active high
-		# PSU_IOU_SLCR_MIO_MST_TRI0_PIN_31_TRI                                            0
+		# PSU_IOU_SLCR_MIO_MST_TRI0_PIN_31_TRI                                            1
 
 		# MIO pin Tri-state Enables, 31:0
-		#(OFFSET, MASK, VALUE)      (0XFF180204, 0xFFFFFFFFU ,0x52240000U)  */
-    mask_write 0XFF180204 0xFFFFFFFF 0x52240000
+		#(OFFSET, MASK, VALUE)      (0XFF180204, 0xFFFFFFFFU ,0xD4040000U)  */
+    mask_write 0XFF180204 0xFFFFFFFF 0xD4040000
 		# Register : MIO_MST_TRI1 @ 0XFF180208</p>
 
 		# Master Tri-state Enable for pin 32, active high
@@ -12157,7 +12228,7 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_MIO_MST_TRI1_PIN_36_TRI                                            0
 
 		# Master Tri-state Enable for pin 37, active high
-		# PSU_IOU_SLCR_MIO_MST_TRI1_PIN_37_TRI                                            0
+		# PSU_IOU_SLCR_MIO_MST_TRI1_PIN_37_TRI                                            1
 
 		# Master Tri-state Enable for pin 38, active high
 		# PSU_IOU_SLCR_MIO_MST_TRI1_PIN_38_TRI                                            0
@@ -12238,8 +12309,8 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_MIO_MST_TRI1_PIN_63_TRI                                            0
 
 		# MIO pin Tri-state Enables, 63:32
-		#(OFFSET, MASK, VALUE)      (0XFF180208, 0xFFFFFFFFU ,0x00B03000U)  */
-    mask_write 0XFF180208 0xFFFFFFFF 0x00B03000
+		#(OFFSET, MASK, VALUE)      (0XFF180208, 0xFFFFFFFFU ,0x00B03020U)  */
+    mask_write 0XFF180208 0xFFFFFFFF 0x00B03020
 		# Register : MIO_MST_TRI2 @ 0XFF18020C</p>
 
 		# Master Tri-state Enable for pin 64, active high
@@ -12290,86 +12361,86 @@ set psu_mio_init_data {
 		# Register : bank0_ctrl0 @ 0XFF180138</p>
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_0                                           1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_0                                           0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_1                                           1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_1                                           0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_2                                           1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_2                                           0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_3                                           1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_3                                           0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_4                                           1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_4                                           0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_5                                           1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_5                                           0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_6                                           1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_6                                           0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_7                                           1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_7                                           0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_8                                           1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_8                                           0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_9                                           1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_9                                           0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_10                                          1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_10                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_11                                          1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_11                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_12                                          1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_12                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_13                                          1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_13                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_14                                          1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_14                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_15                                          1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_15                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_16                                          1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_16                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_17                                          1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_17                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
 		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_18                                          1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_19                                          1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_19                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_20                                          1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_20                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_21                                          1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_21                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_22                                          1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_22                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_23                                          1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_23                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_24                                          1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_24                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_25                                          1
+		# PSU_IOU_SLCR_BANK0_CTRL0_DRIVE0_BIT_25                                          0
 
 		# Drive0 control to MIO Bank 0 - control MIO[25:0]
-		#(OFFSET, MASK, VALUE)      (0XFF180138, 0x03FFFFFFU ,0x03FFFFFFU)  */
-    mask_write 0XFF180138 0x03FFFFFF 0x03FFFFFF
+		#(OFFSET, MASK, VALUE)      (0XFF180138, 0x03FFFFFFU ,0x00040000U)  */
+    mask_write 0XFF180138 0x03FFFFFF 0x00040000
 		# Register : bank0_ctrl1 @ 0XFF18013C</p>
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
@@ -12707,99 +12778,99 @@ set psu_mio_init_data {
 		# Register : bank0_ctrl6 @ 0XFF18014C</p>
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_0                                 0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_0                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_1                                 0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_1                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_2                                 0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_2                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_3                                 0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_3                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_4                                 0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_4                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_5                                 0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_5                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_6                                 0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_6                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_7                                 0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_7                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_8                                 0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_8                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_9                                 0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_9                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_10                                0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_10                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_11                                0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_11                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_12                                0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_12                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_13                                0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_13                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_14                                0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_14                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_15                                0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_15                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_16                                0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_16                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_17                                0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_17                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
 		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_18                                0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_19                                0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_19                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_20                                0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_20                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_21                                0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_21                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_22                                0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_22                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_23                                0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_23                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_24                                0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_24                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[0].
-		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_25                                0
+		# PSU_IOU_SLCR_BANK0_CTRL6_SLOW_FAST_SLEW_N_BIT_25                                1
 
 		# Slew rate control to MIO Bank 0 - control MIO[25:0]
-		#(OFFSET, MASK, VALUE)      (0XFF18014C, 0x03FFFFFFU ,0x00000000U)  */
-    mask_write 0XFF18014C 0x03FFFFFF 0x00000000
+		#(OFFSET, MASK, VALUE)      (0XFF18014C, 0x03FFFFFFU ,0x03FBFFFFU)  */
+    mask_write 0XFF18014C 0x03FFFFFF 0x03FBFFFF
 		# Register : bank1_ctrl0 @ 0XFF180154</p>
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
 		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_0                                           1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_1                                           1
+		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_1                                           0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
 		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_2                                           1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_3                                           1
+		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_3                                           0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
 		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_4                                           1
@@ -12808,40 +12879,40 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_5                                           1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_6                                           1
+		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_6                                           0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_7                                           1
+		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_7                                           0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_8                                           1
+		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_8                                           0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_9                                           1
+		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_9                                           0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_10                                          1
+		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_10                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
 		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_11                                          1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_12                                          1
+		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_12                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_13                                          1
+		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_13                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_14                                          1
+		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_14                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_15                                          1
+		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_15                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_16                                          1
+		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_16                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_17                                          1
+		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_17                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
 		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_18                                          1
@@ -12850,26 +12921,26 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_19                                          1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_20                                          1
+		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_20                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_21                                          1
+		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_21                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_22                                          1
+		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_22                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_23                                          1
+		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_23                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_24                                          1
+		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_24                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_25                                          1
+		# PSU_IOU_SLCR_BANK1_CTRL0_DRIVE0_BIT_25                                          0
 
 		# Drive0 control to MIO Bank 1 - control MIO[51:26]
-		#(OFFSET, MASK, VALUE)      (0XFF180154, 0x03FFFFFFU ,0x03FFFFFFU)  */
-    mask_write 0XFF180154 0x03FFFFFF 0x03FFFFFF
+		#(OFFSET, MASK, VALUE)      (0XFF180154, 0x03FFFFFFU ,0x000C0835U)  */
+    mask_write 0XFF180154 0x03FFFFFF 0x000C0835
 		# Register : bank1_ctrl1 @ 0XFF180158</p>
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
@@ -13210,13 +13281,13 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_0                                 0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_1                                 0
+		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_1                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
 		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_2                                 0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_3                                 0
+		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_3                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
 		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_4                                 0
@@ -13225,40 +13296,40 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_5                                 0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_6                                 0
+		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_6                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_7                                 0
+		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_7                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_8                                 0
+		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_8                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_9                                 0
+		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_9                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_10                                0
+		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_10                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
 		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_11                                0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_12                                0
+		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_12                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_13                                0
+		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_13                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_14                                0
+		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_14                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_15                                0
+		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_15                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_16                                0
+		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_16                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_17                                0
+		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_17                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
 		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_18                                0
@@ -13267,26 +13338,26 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_19                                0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_20                                0
+		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_20                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_21                                0
+		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_21                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_22                                0
+		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_22                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_23                                0
+		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_23                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_24                                0
+		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_24                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[26].
-		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_25                                0
+		# PSU_IOU_SLCR_BANK1_CTRL6_SLOW_FAST_SLEW_N_BIT_25                                1
 
 		# Slew rate control to MIO Bank 1 - control MIO[51:26]
-		#(OFFSET, MASK, VALUE)      (0XFF180168, 0x03FFFFFFU ,0x00000000U)  */
-    mask_write 0XFF180168 0x03FFFFFF 0x00000000
+		#(OFFSET, MASK, VALUE)      (0XFF180168, 0x03FFFFFFU ,0x03F3F7CAU)  */
+    mask_write 0XFF180168 0x03FFFFFF 0x03F3F7CA
 		# Register : bank2_ctrl0 @ 0XFF180170</p>
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
@@ -13296,52 +13367,52 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_1                                           1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_2                                           1
+		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_2                                           0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
 		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_3                                           1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_4                                           1
+		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_4                                           0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_5                                           1
+		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_5                                           0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_6                                           1
+		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_6                                           0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_7                                           1
+		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_7                                           0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_8                                           1
+		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_8                                           0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_9                                           1
+		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_9                                           0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_10                                          1
+		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_10                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_11                                          1
+		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_11                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_12                                          1
+		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_12                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_13                                          1
+		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_13                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_14                                          1
+		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_14                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_15                                          1
+		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_15                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_16                                          1
+		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_16                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_17                                          1
+		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_17                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
 		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_18                                          1
@@ -13362,14 +13433,14 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_23                                          1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_24                                          1
+		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_24                                          0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_25                                          1
+		# PSU_IOU_SLCR_BANK2_CTRL0_DRIVE0_BIT_25                                          0
 
 		# Drive0 control to MIO Bank 2 - control MIO[77:52]
-		#(OFFSET, MASK, VALUE)      (0XFF180170, 0x03FFFFFFU ,0x03FFFFFFU)  */
-    mask_write 0XFF180170 0x03FFFFFF 0x03FFFFFF
+		#(OFFSET, MASK, VALUE)      (0XFF180170, 0x03FFFFFFU ,0x00FC000BU)  */
+    mask_write 0XFF180170 0x03FFFFFF 0x00FC000B
 		# Register : bank2_ctrl1 @ 0XFF180174</p>
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
@@ -13596,19 +13667,10 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_BANK2_CTRL4_PULL_HIGH_LOW_N_BIT_18                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL4_PULL_HIGH_LOW_N_BIT_19                                 1
-
-		# Each bit applies to a single IO. Bit 0 for MIO[52].
 		# PSU_IOU_SLCR_BANK2_CTRL4_PULL_HIGH_LOW_N_BIT_20                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL4_PULL_HIGH_LOW_N_BIT_21                                 1
-
-		# Each bit applies to a single IO. Bit 0 for MIO[52].
 		# PSU_IOU_SLCR_BANK2_CTRL4_PULL_HIGH_LOW_N_BIT_22                                 1
-
-		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL4_PULL_HIGH_LOW_N_BIT_23                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
 		# PSU_IOU_SLCR_BANK2_CTRL4_PULL_HIGH_LOW_N_BIT_24                                 1
@@ -13618,8 +13680,8 @@ set psu_mio_init_data {
 
 		# When mio_bank2_pull_enable is set, this selects pull up or pull down for
     #  MIO Bank 2 - control MIO[77:52]
-		#(OFFSET, MASK, VALUE)      (0XFF18017C, 0x03FFFFFFU ,0x03FFFFFFU)  */
-    mask_write 0XFF18017C 0x03FFFFFF 0x03FFFFFF
+		#(OFFSET, MASK, VALUE)      (0XFF18017C, 0x0357FFFFU ,0x0357FFFFU)  */
+    mask_write 0XFF18017C 0x0357FFFF 0x0357FFFF
 		# Register : bank2_ctrl5 @ 0XFF180180</p>
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
@@ -13680,19 +13742,19 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_BANK2_CTRL5_PULL_ENABLE_BIT_18                                     1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL5_PULL_ENABLE_BIT_19                                     1
+		# PSU_IOU_SLCR_BANK2_CTRL5_PULL_ENABLE_BIT_19                                     0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
 		# PSU_IOU_SLCR_BANK2_CTRL5_PULL_ENABLE_BIT_20                                     1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL5_PULL_ENABLE_BIT_21                                     1
+		# PSU_IOU_SLCR_BANK2_CTRL5_PULL_ENABLE_BIT_21                                     0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
 		# PSU_IOU_SLCR_BANK2_CTRL5_PULL_ENABLE_BIT_22                                     1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL5_PULL_ENABLE_BIT_23                                     1
+		# PSU_IOU_SLCR_BANK2_CTRL5_PULL_ENABLE_BIT_23                                     0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
 		# PSU_IOU_SLCR_BANK2_CTRL5_PULL_ENABLE_BIT_24                                     1
@@ -13702,8 +13764,8 @@ set psu_mio_init_data {
 
 		# When set, this enables mio_bank2_pullupdown to selects pull up or pull d
     # own for MIO Bank 2 - control MIO[77:52]
-		#(OFFSET, MASK, VALUE)      (0XFF180180, 0x03FFFFFFU ,0x03FFFFFFU)  */
-    mask_write 0XFF180180 0x03FFFFFF 0x03FFFFFF
+		#(OFFSET, MASK, VALUE)      (0XFF180180, 0x03FFFFFFU ,0x0357FFFFU)  */
+    mask_write 0XFF180180 0x03FFFFFF 0x0357FFFF
 		# Register : bank2_ctrl6 @ 0XFF180184</p>
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
@@ -13713,52 +13775,52 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_1                                 0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_2                                 0
+		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_2                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
 		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_3                                 0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_4                                 0
+		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_4                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_5                                 0
+		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_5                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_6                                 0
+		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_6                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_7                                 0
+		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_7                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_8                                 0
+		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_8                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_9                                 0
+		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_9                                 1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_10                                0
+		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_10                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_11                                0
+		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_11                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_12                                0
+		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_12                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_13                                0
+		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_13                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_14                                0
+		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_14                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_15                                0
+		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_15                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_16                                0
+		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_16                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_17                                0
+		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_17                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
 		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_18                                0
@@ -13779,14 +13841,14 @@ set psu_mio_init_data {
 		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_23                                0
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_24                                0
+		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_24                                1
 
 		# Each bit applies to a single IO. Bit 0 for MIO[52].
-		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_25                                0
+		# PSU_IOU_SLCR_BANK2_CTRL6_SLOW_FAST_SLEW_N_BIT_25                                1
 
 		# Slew rate control to MIO Bank 2 - control MIO[77:52]
-		#(OFFSET, MASK, VALUE)      (0XFF180184, 0x03FFFFFFU ,0x00000000U)  */
-    mask_write 0XFF180184 0x03FFFFFF 0x00000000
+		#(OFFSET, MASK, VALUE)      (0XFF180184, 0x03FFFFFFU ,0x0303FFF4U)  */
+    mask_write 0XFF180184 0x03FFFFFF 0x0303FFF4
 		# : LOOPBACK
 		# Register : MIO_LOOPBACK @ 0XFF180200</p>
 
@@ -14039,28 +14101,16 @@ set psu_peripherals_init_data {
 		#(OFFSET, MASK, VALUE)      (0XFF180324, 0x03C00000U ,0x00000000U)  */
     mask_write 0XFF180324 0x03C00000 0x00000000
 		# : CAN
-		# Register : RST_LPD_IOU2 @ 0XFF5E0238</p>
-
-		# Block level reset
-		# PSU_CRL_APB_RST_LPD_IOU2_CAN1_RESET                                             0
-
-		# Software control register for the IOU block. Each bit will cause a singl
-    # erperipheral or part of the peripheral to be reset.
-		#(OFFSET, MASK, VALUE)      (0XFF5E0238, 0x00000100U ,0x00000000U)  */
-    mask_write 0XFF5E0238 0x00000100 0x00000000
 		# : I2C
 		# Register : RST_LPD_IOU2 @ 0XFF5E0238</p>
-
-		# Block level reset
-		# PSU_CRL_APB_RST_LPD_IOU2_I2C0_RESET                                             0
 
 		# Block level reset
 		# PSU_CRL_APB_RST_LPD_IOU2_I2C1_RESET                                             0
 
 		# Software control register for the IOU block. Each bit will cause a singl
     # erperipheral or part of the peripheral to be reset.
-		#(OFFSET, MASK, VALUE)      (0XFF5E0238, 0x00000600U ,0x00000000U)  */
-    mask_write 0XFF5E0238 0x00000600 0x00000000
+		#(OFFSET, MASK, VALUE)      (0XFF5E0238, 0x00000400U ,0x00000000U)  */
+    mask_write 0XFF5E0238 0x00000400 0x00000000
 		# : SWDT
 		# Register : RST_LPD_IOU2 @ 0XFF5E0238</p>
 
@@ -14072,6 +14122,15 @@ set psu_peripherals_init_data {
 		#(OFFSET, MASK, VALUE)      (0XFF5E0238, 0x00008000U ,0x00000000U)  */
     mask_write 0XFF5E0238 0x00008000 0x00000000
 		# : SPI
+		# Register : RST_LPD_IOU2 @ 0XFF5E0238</p>
+
+		# Block level reset
+		# PSU_CRL_APB_RST_LPD_IOU2_SPI1_RESET                                             0
+
+		# Software control register for the IOU block. Each bit will cause a singl
+    # erperipheral or part of the peripheral to be reset.
+		#(OFFSET, MASK, VALUE)      (0XFF5E0238, 0x00000010U ,0x00000000U)  */
+    mask_write 0XFF5E0238 0x00000010 0x00000000
 		# : TTC
 		# Register : RST_LPD_IOU2 @ 0XFF5E0238</p>
 
@@ -14108,20 +14167,20 @@ set psu_peripherals_init_data {
 		# Register : Baud_rate_divider_reg0 @ 0XFF000034</p>
 
 		# Baud rate divider value: 0 - 3: ignored 4 - 255: Baud rate
-		# PSU_UART0_BAUD_RATE_DIVIDER_REG0_BDIV                                           0x10
+		# PSU_UART0_BAUD_RATE_DIVIDER_REG0_BDIV                                           0x6
 
 		# Baud Rate Divider Register
-		#(OFFSET, MASK, VALUE)      (0XFF000034, 0x000000FFU ,0x00000010U)  */
-    mask_write 0XFF000034 0x000000FF 0x00000010
+		#(OFFSET, MASK, VALUE)      (0XFF000034, 0x000000FFU ,0x00000006U)  */
+    mask_write 0XFF000034 0x000000FF 0x00000006
 		# Register : Baud_rate_gen_reg0 @ 0XFF000018</p>
 
 		# Baud Rate Clock Divisor Value: 0: Disables baud_sample 1: Clock divisor
     # bypass (baud_sample = sel_clk) 2 - 65535: baud_sample
-		# PSU_UART0_BAUD_RATE_GEN_REG0_CD                                                 0x33
+		# PSU_UART0_BAUD_RATE_GEN_REG0_CD                                                 0x7c
 
 		# Baud Rate Generator Register.
-		#(OFFSET, MASK, VALUE)      (0XFF000018, 0x0000FFFFU ,0x00000033U)  */
-    mask_write 0XFF000018 0x0000FFFF 0x00000033
+		#(OFFSET, MASK, VALUE)      (0XFF000018, 0x0000FFFFU ,0x0000007CU)  */
+    mask_write 0XFF000018 0x0000FFFF 0x0000007C
 		# Register : Control_reg0 @ 0XFF000000</p>
 
 		# Stop transmitter break: 0: no affect 1: stop transmission of the break a
@@ -14198,20 +14257,20 @@ set psu_peripherals_init_data {
 		# Register : Baud_rate_divider_reg0 @ 0XFF010034</p>
 
 		# Baud rate divider value: 0 - 3: ignored 4 - 255: Baud rate
-		# PSU_UART1_BAUD_RATE_DIVIDER_REG0_BDIV                                           0x10
+		# PSU_UART1_BAUD_RATE_DIVIDER_REG0_BDIV                                           0x6
 
 		# Baud Rate Divider Register
-		#(OFFSET, MASK, VALUE)      (0XFF010034, 0x000000FFU ,0x00000010U)  */
-    mask_write 0XFF010034 0x000000FF 0x00000010
+		#(OFFSET, MASK, VALUE)      (0XFF010034, 0x000000FFU ,0x00000006U)  */
+    mask_write 0XFF010034 0x000000FF 0x00000006
 		# Register : Baud_rate_gen_reg0 @ 0XFF010018</p>
 
 		# Baud Rate Clock Divisor Value: 0: Disables baud_sample 1: Clock divisor
     # bypass (baud_sample = sel_clk) 2 - 65535: baud_sample
-		# PSU_UART1_BAUD_RATE_GEN_REG0_CD                                                 0x33
+		# PSU_UART1_BAUD_RATE_GEN_REG0_CD                                                 0x7c
 
 		# Baud Rate Generator Register.
-		#(OFFSET, MASK, VALUE)      (0XFF010018, 0x0000FFFFU ,0x00000033U)  */
-    mask_write 0XFF010018 0x0000FFFF 0x00000033
+		#(OFFSET, MASK, VALUE)      (0XFF010018, 0x0000FFFFU ,0x0000007CU)  */
+    mask_write 0XFF010018 0x0000FFFF 0x0000007C
 		# Register : Control_reg0 @ 0XFF010000</p>
 
 		# Stop transmitter break: 0: no affect 1: stop transmission of the break a
@@ -14382,14 +14441,14 @@ set psu_peripherals_init_data {
 
 		# Frequency in number of ticks per second. Valid range from 10 MHz to 100
     # MHz.
-		# PSU_IOU_SCNTRS_BASE_FREQUENCY_ID_REGISTER_FREQ                                  0x5f5b9f8
+		# PSU_IOU_SCNTRS_BASE_FREQUENCY_ID_REGISTER_FREQ                                  0x5f5dd18
 
 		# Program this register to match the clock frequency of the timestamp gene
     # rator, in ticks per second. For example, for a 50 MHz clock, program 0x0
     # 2FAF080. This register is not accessible to the read-only programming in
     # terface.
-		#(OFFSET, MASK, VALUE)      (0XFF260020, 0xFFFFFFFFU ,0x05F5B9F8U)  */
-    mask_write 0XFF260020 0xFFFFFFFF 0x05F5B9F8
+		#(OFFSET, MASK, VALUE)      (0XFF260020, 0xFFFFFFFFU ,0x05F5DD18U)  */
+    mask_write 0XFF260020 0xFFFFFFFF 0x05F5DD18
 		# Register : counter_control_register @ 0XFF260000</p>
 
 		# Enable 0: The counter is disabled and not incrementing. 1: The counter i
@@ -15206,50 +15265,50 @@ set psu_serdes_init_data {
 
 		# Sel of lane 0 ref clock local mux. Set to 1 to select lane 0 slicer outp
     # ut. Set to 0 to select lane0 ref clock mux output.
-		# PSU_SERDES_L0_L0_REF_CLK_SEL_L0_REF_CLK_LCL_SEL                                 0x0
-
-		# Bit 3 of lane 0 ref clock mux one hot sel. Set to 1 to select lane 3 sli
-    # cer output from ref clock network
-		# PSU_SERDES_L0_L0_REF_CLK_SEL_L0_REF_CLK_SEL_3                                   0x1
+		# PSU_SERDES_L0_L0_REF_CLK_SEL_L0_REF_CLK_LCL_SEL                                 0x1
 
 		# Lane0 Ref Clock Selection Register
-		#(OFFSET, MASK, VALUE)      (0XFD402860, 0x00000088U ,0x00000008U)  */
-    mask_write 0XFD402860 0x00000088 0x00000008
+		#(OFFSET, MASK, VALUE)      (0XFD402860, 0x00000080U ,0x00000080U)  */
+    mask_write 0XFD402860 0x00000080 0x00000080
 		# Register : L0_L1_REF_CLK_SEL @ 0XFD402864</p>
 
 		# Sel of lane 1 ref clock local mux. Set to 1 to select lane 1 slicer outp
     # ut. Set to 0 to select lane1 ref clock mux output.
 		# PSU_SERDES_L0_L1_REF_CLK_SEL_L1_REF_CLK_LCL_SEL                                 0x0
 
-		# Bit 3 of lane 1 ref clock mux one hot sel. Set to 1 to select lane 3 sli
+		# Bit 0 of lane 1 ref clock mux one hot sel. Set to 1 to select lane 0 sli
     # cer output from ref clock network
-		# PSU_SERDES_L0_L1_REF_CLK_SEL_L1_REF_CLK_SEL_3                                   0x1
+		# PSU_SERDES_L0_L1_REF_CLK_SEL_L1_REF_CLK_SEL_0                                   0x1
 
 		# Lane1 Ref Clock Selection Register
-		#(OFFSET, MASK, VALUE)      (0XFD402864, 0x00000088U ,0x00000008U)  */
-    mask_write 0XFD402864 0x00000088 0x00000008
+		#(OFFSET, MASK, VALUE)      (0XFD402864, 0x00000081U ,0x00000001U)  */
+    mask_write 0XFD402864 0x00000081 0x00000001
 		# Register : L0_L2_REF_CLK_SEL @ 0XFD402868</p>
 
 		# Sel of lane 2 ref clock local mux. Set to 1 to select lane 1 slicer outp
     # ut. Set to 0 to select lane2 ref clock mux output.
-		# PSU_SERDES_L0_L2_REF_CLK_SEL_L2_REF_CLK_LCL_SEL                                 0x1
+		# PSU_SERDES_L0_L2_REF_CLK_SEL_L2_REF_CLK_LCL_SEL                                 0x0
+
+		# Bit 1 of lane 2 ref clock mux one hot sel. Set to 1 to select lane 1 sli
+    # cer output from ref clock network
+		# PSU_SERDES_L0_L2_REF_CLK_SEL_L2_REF_CLK_SEL_1                                   0x1
 
 		# Lane2 Ref Clock Selection Register
-		#(OFFSET, MASK, VALUE)      (0XFD402868, 0x00000080U ,0x00000080U)  */
-    mask_write 0XFD402868 0x00000080 0x00000080
+		#(OFFSET, MASK, VALUE)      (0XFD402868, 0x00000082U ,0x00000002U)  */
+    mask_write 0XFD402868 0x00000082 0x00000002
 		# Register : L0_L3_REF_CLK_SEL @ 0XFD40286C</p>
 
 		# Sel of lane 3 ref clock local mux. Set to 1 to select lane 3 slicer outp
     # ut. Set to 0 to select lane3 ref clock mux output.
 		# PSU_SERDES_L0_L3_REF_CLK_SEL_L3_REF_CLK_LCL_SEL                                 0x0
 
-		# Bit 1 of lane 3 ref clock mux one hot sel. Set to 1 to select lane 1 sli
+		# Bit 2 of lane 3 ref clock mux one hot sel. Set to 1 to select lane 2 sli
     # cer output from ref clock network
-		# PSU_SERDES_L0_L3_REF_CLK_SEL_L3_REF_CLK_SEL_1                                   0x1
+		# PSU_SERDES_L0_L3_REF_CLK_SEL_L3_REF_CLK_SEL_2                                   0x1
 
 		# Lane3 Ref Clock Selection Register
-		#(OFFSET, MASK, VALUE)      (0XFD40286C, 0x00000082U ,0x00000002U)  */
-    mask_write 0XFD40286C 0x00000082 0x00000002
+		#(OFFSET, MASK, VALUE)      (0XFD40286C, 0x00000084U ,0x00000004U)  */
+    mask_write 0XFD40286C 0x00000084 0x00000004
 		# : ENABLE SPREAD SPECTRUM
 		# Register : L2_TM_PLL_DIG_37 @ 0XFD40A094</p>
 
@@ -16756,16 +16815,22 @@ set psu_afi_config {
 		#(OFFSET, MASK, VALUE)      (0XFF5E023C, 0x00080000U ,0x00000000U)  */
     mask_write 0XFF5E023C 0x00080000 0x00000000
 		# : AFIFM INTERFACE WIDTH
-		# Register : afi_fs @ 0XFF419000</p>
+		# Register : afi_fs @ 0XFD615000</p>
 
 		# Select the 32/64/128-bit data width selection for the Slave 0 00: 32-bit
     #  AXI data width (default) 01: 64-bit AXI data width 10: 128-bit AXI data
     #  width 11: reserved
-		# PSU_LPD_SLCR_AFI_FS_DW_SS2_SEL                                                  0x0
+		# PSU_FPD_SLCR_AFI_FS_DW_SS0_SEL                                                  0x0
 
-		# afi fs SLCR control register. Do not change the bits durin
-		#(OFFSET, MASK, VALUE)      (0XFF419000, 0x00000300U ,0x00000000U)  */
-    mask_write 0XFF419000 0x00000300 0x00000000
+		# Select the 32/64/128-bit data width selection for the Slave 1 00: 32-bit
+    #  AXI data width (default) 01: 64-bit AXI data width 10: 128-bit AXI data
+    #  width 11: reserved
+		# PSU_FPD_SLCR_AFI_FS_DW_SS1_SEL                                                  0x2
+
+		# afi fs SLCR control register. This register is static and should not be
+    # modified during operation.
+		#(OFFSET, MASK, VALUE)      (0XFD615000, 0x00000F00U ,0x00000800U)  */
+    mask_write 0XFD615000 0x00000F00 0x00000800
 		# Register : AFIFM_RDCTRL @ 0XFD380000</p>
 
 		# Configures the Read Channel Fabric interface width. 2'b11 : Reserved 2'b

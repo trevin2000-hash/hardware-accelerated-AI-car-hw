@@ -1,0 +1,8 @@
+0.7
+2020.2
+Apr 18 2022
+15:53:03
+/home/jizz/Documents/kv260-DPU-TDR/DPUCZDX8G/prj/Vivado/ip_repo/edit_pwm_generator_v1_0.sim/sim_1/behav/xsim/glbl.v,1649976174,verilog,,,,glbl,,uvm,,,,,,
+/home/jizz/Documents/kv260-DPU-TDR/DPUCZDX8G/prj/Vivado/ip_repo/edit_pwm_generator_v1_0.srcs/sim_1/new/pwm_gen_tb.sv,1743600219,systemVerilog,,,,pwm_generator_v1_0_tb,,uvm,,,,,,
+/home/jizz/Documents/kv260-DPU-TDR/DPUCZDX8G/prj/Vivado/ip_repo/pwm_generator_1.0/hdl/pwm_generator_v1_0.vhd,1743375939,vhdl,,,,pwm_generator_v1_0,,,,,,,,
+/home/jizz/Documents/kv260-DPU-TDR/DPUCZDX8G/prj/Vivado/ip_repo/pwm_generator_1.0/hdl/pwm_generator_v1_0_S_AXI_DUTY.vhd,1743630353,vhdl,,,,pwm_generator_v1_0_s_axi_duty,,,,,,,,

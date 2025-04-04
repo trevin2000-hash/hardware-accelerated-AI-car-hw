@@ -1,0 +1,10 @@
+
+
+OPTION psf_version = 2.1;
+
+BEGIN DRIVER servo_generator
+	OPTION supported_peripherals = (servo_generator);
+	OPTION copyfiles = all;
+	OPTION VERSION = 1.0;
+	OPTION NAME = servo_generator;
+END DRIVER

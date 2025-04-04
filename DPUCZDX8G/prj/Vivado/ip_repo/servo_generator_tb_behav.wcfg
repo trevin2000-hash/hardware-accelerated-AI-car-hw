@@ -11,23 +11,18 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="280,023,755.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="280,034,470.001 ns"></ZoomEndTime>
-      <Cursor1Time time="280,027,500.000 ns"></Cursor1Time>
+      <ZoomStartTime time="107.980500000 ms"></ZoomStartTime>
+      <ZoomEndTime time="167.180500001 ms"></ZoomEndTime>
+      <Cursor1Time time="111.380500000 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="276"></NameColumnWidth>
-      <ValueColumnWidth column_width="100"></ValueColumnWidth>
+      <ValueColumnWidth column_width="92"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="31" />
+   <WVObjectSize size="30" />
    <wvobject type="array" fp_name="/servo_generator_tb/dut/servo_generator_v1_0_S00_AXI_inst/slv_reg0">
       <obj_property name="ElementShortName">slv_reg0[31:0]</obj_property>
       <obj_property name="ObjectShortName">slv_reg0[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/servo_generator_tb/dut/servo_generator_v1_0_S00_AXI_inst/period_reg">
-      <obj_property name="ElementShortName">period_reg[15:0]</obj_property>
-      <obj_property name="ObjectShortName">period_reg[15:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/servo_generator_tb/dut/servo_generator_v1_0_S00_AXI_inst/current_period_sig">

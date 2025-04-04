@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.1 (lin64) Build 3526262 Mon Apr 18 15:47:01 MDT 2022
-// Date        : Fri Mar 28 23:56:48 2025
+// Date        : Wed Apr  2 17:52:43 2025
 // Host        : cummy running 64-bit Ubuntu 20.04.6 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /home/jizz/Documents/kv260-DPU-TDR/DPUCZDX8G/prj/Vivado/prj/KV260.gen/sources_1/bd/servo_test/ip/servo_test_servo_generator_0_0/servo_test_servo_generator_0_0_sim_netlist.v
@@ -242,14 +242,12 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
   wire axi_rvalid_i_1_n_0;
   wire axi_wready0;
   wire [15:0]count_sig;
-  wire \count_sig[11]_i_1_n_0 ;
-  wire \count_sig[12]_i_1_n_0 ;
   wire \count_sig[12]_i_2_n_0 ;
+  wire \count_sig[13]_i_2_n_0 ;
   wire \count_sig[15]_i_3_n_0 ;
   wire \count_sig[1]_i_1_n_0 ;
   wire \count_sig[5]_i_2_n_0 ;
-  wire \count_sig[9]_i_1_n_0 ;
-  wire \count_sig[9]_i_2_n_0 ;
+  wire \count_sig[8]_i_2_n_0 ;
   wire count_sig_1;
   wire \count_sig_reg_n_0_[0] ;
   wire \count_sig_reg_n_0_[10] ;
@@ -267,7 +265,25 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
   wire \count_sig_reg_n_0_[7] ;
   wire \count_sig_reg_n_0_[8] ;
   wire \count_sig_reg_n_0_[9] ;
-  wire [15:0]current_period_sig;
+  wire [10:0]current_period_sig;
+  wire \current_period_sig[10]_i_2_n_0 ;
+  wire \current_period_sig[10]_i_3_n_0 ;
+  wire \current_period_sig[10]_i_4_n_0 ;
+  wire \current_period_sig[10]_i_5_n_0 ;
+  wire \current_period_sig[10]_i_6_n_0 ;
+  wire \current_period_sig[5]_i_2_n_0 ;
+  wire \current_period_sig[5]_i_3_n_0 ;
+  wire \current_period_sig[5]_i_4_n_0 ;
+  wire \current_period_sig[8]_i_2_n_0 ;
+  wire \current_period_sig[8]_i_3_n_0 ;
+  wire \current_period_sig[8]_i_4_n_0 ;
+  wire \current_period_sig[8]_i_5_n_0 ;
+  wire \current_period_sig[9]_i_2_n_0 ;
+  wire \current_period_sig[9]_i_3_n_0 ;
+  wire \current_period_sig[9]_i_4_n_0 ;
+  wire \current_period_sig[9]_i_5_n_0 ;
+  wire \current_period_sig[9]_i_6_n_0 ;
+  wire \current_period_sig[9]_i_7_n_0 ;
   wire current_period_sig_0;
   wire i__carry_i_10__0_n_0;
   wire i__carry_i_10_n_0;
@@ -279,9 +295,7 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
   wire i__carry_i_13_n_0;
   wire i__carry_i_14__0_n_0;
   wire i__carry_i_14_n_0;
-  wire i__carry_i_15__0_n_0;
   wire i__carry_i_15_n_0;
-  wire i__carry_i_16__0_n_0;
   wire i__carry_i_16_n_0;
   wire i__carry_i_1__0_n_0;
   wire i__carry_i_1_n_0;
@@ -303,6 +317,7 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
   wire i__carry_i_9_n_0;
   wire [1:0]p_0_in;
   wire [31:7]p_1_in;
+  wire [10:0]period_sig;
   wire [31:0]reg_data_out;
   wire s00_axi_aclk;
   wire [1:0]s00_axi_araddr;
@@ -319,6 +334,9 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
   wire [3:0]s00_axi_wstrb;
   wire s00_axi_wvalid;
   wire servo_o;
+  wire servo_o_i_10_n_0;
+  wire servo_o_i_11_n_0;
+  wire servo_o_i_12_n_0;
   wire servo_o_i_1_n_0;
   wire servo_o_i_2_n_0;
   wire servo_o_i_3_n_0;
@@ -383,7 +401,7 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I3(\servo_state1_inferred__0/i__carry_n_0 ),
         .I4(current_period_sig_0),
         .O(\FSM_sequential_servo_state[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT4 #(
     .INIT(16'h23E3)) 
     \FSM_sequential_servo_state[1]_i_2 
@@ -393,25 +411,26 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I3(\servo_state1_inferred__1/i__carry_n_0 ),
         .O(servo_state__0));
   LUT6 #(
-    .INIT(64'h0000005455555555)) 
+    .INIT(64'h0100010155555555)) 
     \FSM_sequential_servo_state[1]_i_3 
        (.I0(\count_sig_reg_n_0_[15] ),
-        .I1(\FSM_sequential_servo_state[1]_i_4_n_0 ),
-        .I2(\FSM_sequential_servo_state[1]_i_5_n_0 ),
-        .I3(\count_sig_reg_n_0_[13] ),
-        .I4(\count_sig_reg_n_0_[12] ),
+        .I1(\count_sig_reg_n_0_[13] ),
+        .I2(\count_sig_reg_n_0_[12] ),
+        .I3(\FSM_sequential_servo_state[1]_i_4_n_0 ),
+        .I4(\FSM_sequential_servo_state[1]_i_5_n_0 ),
         .I5(\count_sig_reg_n_0_[14] ),
         .O(\FSM_sequential_servo_state[1]_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT3 #(
     .INIT(8'h7F)) 
     \FSM_sequential_servo_state[1]_i_4 
-       (.I0(\count_sig_reg_n_0_[11] ),
+       (.I0(\count_sig_reg_n_0_[10] ),
         .I1(\count_sig_reg_n_0_[9] ),
-        .I2(\count_sig_reg_n_0_[10] ),
+        .I2(\count_sig_reg_n_0_[11] ),
         .O(\FSM_sequential_servo_state[1]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT4 #(
-    .INIT(16'h0001)) 
+    .INIT(16'hFFFE)) 
     \FSM_sequential_servo_state[1]_i_5 
        (.I0(\count_sig_reg_n_0_[8] ),
         .I1(\count_sig_reg_n_0_[7] ),
@@ -550,34 +569,34 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I5(slv_reg2[11]),
         .O(reg_data_out[11]));
   LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
+    .INIT(64'hFFCCF0AA00CCF0AA)) 
     \axi_rdata[12]_i_1 
-       (.I0(slv_reg1[12]),
-        .I1(slv_reg3[12]),
-        .I2(slv_reg0[12]),
-        .I3(axi_araddr[2]),
-        .I4(axi_araddr[3]),
-        .I5(slv_reg2[12]),
+       (.I0(slv_reg0[12]),
+        .I1(slv_reg1[12]),
+        .I2(slv_reg2[12]),
+        .I3(axi_araddr[3]),
+        .I4(axi_araddr[2]),
+        .I5(slv_reg3[12]),
         .O(reg_data_out[12]));
   LUT6 #(
-    .INIT(64'hF0FFCCAAF000CCAA)) 
+    .INIT(64'hFFCCAAF000CCAAF0)) 
     \axi_rdata[13]_i_1 
-       (.I0(slv_reg0[13]),
-        .I1(slv_reg1[13]),
-        .I2(slv_reg3[13]),
+       (.I0(slv_reg1[13]),
+        .I1(slv_reg2[13]),
+        .I2(slv_reg0[13]),
         .I3(axi_araddr[2]),
         .I4(axi_araddr[3]),
-        .I5(slv_reg2[13]),
+        .I5(slv_reg3[13]),
         .O(reg_data_out[13]));
   LUT6 #(
-    .INIT(64'hF0FFCCAAF000CCAA)) 
+    .INIT(64'hFFCCF0AA00CCF0AA)) 
     \axi_rdata[14]_i_1 
        (.I0(slv_reg0[14]),
         .I1(slv_reg1[14]),
-        .I2(slv_reg3[14]),
-        .I3(axi_araddr[2]),
-        .I4(axi_araddr[3]),
-        .I5(slv_reg2[14]),
+        .I2(slv_reg2[14]),
+        .I3(axi_araddr[3]),
+        .I4(axi_araddr[2]),
+        .I5(slv_reg3[14]),
         .O(reg_data_out[14]));
   LUT6 #(
     .INIT(64'hF0FFCCAAF000CCAA)) 
@@ -590,24 +609,24 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I5(slv_reg2[15]),
         .O(reg_data_out[15]));
   LUT6 #(
-    .INIT(64'hFFCCAAF000CCAAF0)) 
+    .INIT(64'hCCFFAAF0CC00AAF0)) 
     \axi_rdata[16]_i_1 
        (.I0(slv_reg1[16]),
-        .I1(slv_reg2[16]),
+        .I1(slv_reg3[16]),
         .I2(slv_reg0[16]),
         .I3(axi_araddr[2]),
         .I4(axi_araddr[3]),
-        .I5(slv_reg3[16]),
+        .I5(slv_reg2[16]),
         .O(reg_data_out[16]));
   LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
+    .INIT(64'hFFCCF0AA00CCF0AA)) 
     \axi_rdata[17]_i_1 
-       (.I0(slv_reg1[17]),
-        .I1(slv_reg3[17]),
-        .I2(slv_reg0[17]),
-        .I3(axi_araddr[2]),
-        .I4(axi_araddr[3]),
-        .I5(slv_reg2[17]),
+       (.I0(slv_reg0[17]),
+        .I1(slv_reg1[17]),
+        .I2(slv_reg2[17]),
+        .I3(axi_araddr[3]),
+        .I4(axi_araddr[2]),
+        .I5(slv_reg3[17]),
         .O(reg_data_out[17]));
   LUT6 #(
     .INIT(64'hF0FFCCAAF000CCAA)) 
@@ -620,23 +639,23 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I5(slv_reg2[18]),
         .O(reg_data_out[18]));
   LUT6 #(
-    .INIT(64'hFFCCAAF000CCAAF0)) 
+    .INIT(64'hF0FFCCAAF000CCAA)) 
     \axi_rdata[19]_i_1 
-       (.I0(slv_reg1[19]),
-        .I1(slv_reg2[19]),
-        .I2(slv_reg0[19]),
+       (.I0(slv_reg0[19]),
+        .I1(slv_reg1[19]),
+        .I2(slv_reg3[19]),
         .I3(axi_araddr[2]),
         .I4(axi_araddr[3]),
-        .I5(slv_reg3[19]),
+        .I5(slv_reg2[19]),
         .O(reg_data_out[19]));
   LUT6 #(
-    .INIT(64'hFFCCF0AA00CCF0AA)) 
+    .INIT(64'hFFCCAAF000CCAAF0)) 
     \axi_rdata[1]_i_1 
-       (.I0(slv_reg0[1]),
-        .I1(slv_reg1[1]),
-        .I2(slv_reg2[1]),
-        .I3(axi_araddr[3]),
-        .I4(axi_araddr[2]),
+       (.I0(slv_reg1[1]),
+        .I1(slv_reg2[1]),
+        .I2(slv_reg0[1]),
+        .I3(axi_araddr[2]),
+        .I4(axi_araddr[3]),
         .I5(slv_reg3[1]),
         .O(reg_data_out[1]));
   LUT6 #(
@@ -660,14 +679,14 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I5(slv_reg2[21]),
         .O(reg_data_out[21]));
   LUT6 #(
-    .INIT(64'hF0FFCCAAF000CCAA)) 
+    .INIT(64'hFFCCF0AA00CCF0AA)) 
     \axi_rdata[22]_i_1 
        (.I0(slv_reg0[22]),
         .I1(slv_reg1[22]),
-        .I2(slv_reg3[22]),
-        .I3(axi_araddr[2]),
-        .I4(axi_araddr[3]),
-        .I5(slv_reg2[22]),
+        .I2(slv_reg2[22]),
+        .I3(axi_araddr[3]),
+        .I4(axi_araddr[2]),
+        .I5(slv_reg3[22]),
         .O(reg_data_out[22]));
   LUT6 #(
     .INIT(64'hF0FFCCAAF000CCAA)) 
@@ -680,21 +699,21 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I5(slv_reg2[23]),
         .O(reg_data_out[23]));
   LUT6 #(
-    .INIT(64'hFFCCAAF000CCAAF0)) 
+    .INIT(64'hF0FFCCAAF000CCAA)) 
     \axi_rdata[24]_i_1 
-       (.I0(slv_reg1[24]),
-        .I1(slv_reg2[24]),
-        .I2(slv_reg0[24]),
+       (.I0(slv_reg0[24]),
+        .I1(slv_reg1[24]),
+        .I2(slv_reg3[24]),
         .I3(axi_araddr[2]),
         .I4(axi_araddr[3]),
-        .I5(slv_reg3[24]),
+        .I5(slv_reg2[24]),
         .O(reg_data_out[24]));
   LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
+    .INIT(64'hF0FFCCAAF000CCAA)) 
     \axi_rdata[25]_i_1 
-       (.I0(slv_reg1[25]),
-        .I1(slv_reg3[25]),
-        .I2(slv_reg0[25]),
+       (.I0(slv_reg0[25]),
+        .I1(slv_reg1[25]),
+        .I2(slv_reg3[25]),
         .I3(axi_araddr[2]),
         .I4(axi_araddr[3]),
         .I5(slv_reg2[25]),
@@ -710,44 +729,44 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I5(slv_reg2[26]),
         .O(reg_data_out[26]));
   LUT6 #(
-    .INIT(64'hFFCCAAF000CCAAF0)) 
+    .INIT(64'hF0FFCCAAF000CCAA)) 
     \axi_rdata[27]_i_1 
-       (.I0(slv_reg1[27]),
-        .I1(slv_reg2[27]),
-        .I2(slv_reg0[27]),
+       (.I0(slv_reg0[27]),
+        .I1(slv_reg1[27]),
+        .I2(slv_reg3[27]),
         .I3(axi_araddr[2]),
         .I4(axi_araddr[3]),
-        .I5(slv_reg3[27]),
+        .I5(slv_reg2[27]),
         .O(reg_data_out[27]));
   LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
+    .INIT(64'hF0FFCCAAF000CCAA)) 
     \axi_rdata[28]_i_1 
-       (.I0(slv_reg1[28]),
-        .I1(slv_reg3[28]),
-        .I2(slv_reg0[28]),
+       (.I0(slv_reg0[28]),
+        .I1(slv_reg1[28]),
+        .I2(slv_reg3[28]),
         .I3(axi_araddr[2]),
         .I4(axi_araddr[3]),
         .I5(slv_reg2[28]),
         .O(reg_data_out[28]));
   LUT6 #(
-    .INIT(64'hF0FFCCAAF000CCAA)) 
+    .INIT(64'hFFCCF0AA00CCF0AA)) 
     \axi_rdata[29]_i_1 
        (.I0(slv_reg0[29]),
         .I1(slv_reg1[29]),
-        .I2(slv_reg3[29]),
-        .I3(axi_araddr[2]),
-        .I4(axi_araddr[3]),
-        .I5(slv_reg2[29]),
+        .I2(slv_reg2[29]),
+        .I3(axi_araddr[3]),
+        .I4(axi_araddr[2]),
+        .I5(slv_reg3[29]),
         .O(reg_data_out[29]));
   LUT6 #(
-    .INIT(64'hF0FFCCAAF000CCAA)) 
+    .INIT(64'hFFCCF0AA00CCF0AA)) 
     \axi_rdata[2]_i_1 
        (.I0(slv_reg0[2]),
         .I1(slv_reg1[2]),
-        .I2(slv_reg3[2]),
-        .I3(axi_araddr[2]),
-        .I4(axi_araddr[3]),
-        .I5(slv_reg2[2]),
+        .I2(slv_reg2[2]),
+        .I3(axi_araddr[3]),
+        .I4(axi_araddr[2]),
+        .I5(slv_reg3[2]),
         .O(reg_data_out[2]));
   LUT6 #(
     .INIT(64'hF0FFCCAAF000CCAA)) 
@@ -767,13 +786,13 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I2(s00_axi_rvalid),
         .O(slv_reg_rden));
   LUT6 #(
-    .INIT(64'hFFCCF0AA00CCF0AA)) 
+    .INIT(64'hFFCCAAF000CCAAF0)) 
     \axi_rdata[31]_i_2 
-       (.I0(slv_reg0[31]),
-        .I1(slv_reg1[31]),
-        .I2(slv_reg2[31]),
-        .I3(axi_araddr[3]),
-        .I4(axi_araddr[2]),
+       (.I0(slv_reg1[31]),
+        .I1(slv_reg2[31]),
+        .I2(slv_reg0[31]),
+        .I3(axi_araddr[2]),
+        .I4(axi_araddr[3]),
         .I5(slv_reg3[31]),
         .O(reg_data_out[31]));
   LUT6 #(
@@ -787,34 +806,34 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I5(slv_reg2[3]),
         .O(reg_data_out[3]));
   LUT6 #(
-    .INIT(64'hFFCCAAF000CCAAF0)) 
+    .INIT(64'hF0FFCCAAF000CCAA)) 
     \axi_rdata[4]_i_1 
-       (.I0(slv_reg1[4]),
-        .I1(slv_reg2[4]),
-        .I2(slv_reg0[4]),
+       (.I0(slv_reg0[4]),
+        .I1(slv_reg1[4]),
+        .I2(slv_reg3[4]),
         .I3(axi_araddr[2]),
         .I4(axi_araddr[3]),
-        .I5(slv_reg3[4]),
+        .I5(slv_reg2[4]),
         .O(reg_data_out[4]));
   LUT6 #(
-    .INIT(64'hFFCCAAF000CCAAF0)) 
+    .INIT(64'hF0FFCCAAF000CCAA)) 
     \axi_rdata[5]_i_1 
-       (.I0(slv_reg1[5]),
-        .I1(slv_reg2[5]),
-        .I2(slv_reg0[5]),
+       (.I0(slv_reg0[5]),
+        .I1(slv_reg1[5]),
+        .I2(slv_reg3[5]),
         .I3(axi_araddr[2]),
         .I4(axi_araddr[3]),
-        .I5(slv_reg3[5]),
+        .I5(slv_reg2[5]),
         .O(reg_data_out[5]));
   LUT6 #(
-    .INIT(64'hF0FFCCAAF000CCAA)) 
+    .INIT(64'hFFCCF0AA00CCF0AA)) 
     \axi_rdata[6]_i_1 
        (.I0(slv_reg0[6]),
         .I1(slv_reg1[6]),
-        .I2(slv_reg3[6]),
-        .I3(axi_araddr[2]),
-        .I4(axi_araddr[3]),
-        .I5(slv_reg2[6]),
+        .I2(slv_reg2[6]),
+        .I3(axi_araddr[3]),
+        .I4(axi_araddr[2]),
+        .I5(slv_reg3[6]),
         .O(reg_data_out[6]));
   LUT6 #(
     .INIT(64'hF0FFCCAAF000CCAA)) 
@@ -827,24 +846,24 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I5(slv_reg2[7]),
         .O(reg_data_out[7]));
   LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
+    .INIT(64'hFFCCAAF000CCAAF0)) 
     \axi_rdata[8]_i_1 
        (.I0(slv_reg1[8]),
-        .I1(slv_reg3[8]),
+        .I1(slv_reg2[8]),
         .I2(slv_reg0[8]),
         .I3(axi_araddr[2]),
         .I4(axi_araddr[3]),
-        .I5(slv_reg2[8]),
+        .I5(slv_reg3[8]),
         .O(reg_data_out[8]));
   LUT6 #(
-    .INIT(64'hF0FFCCAAF000CCAA)) 
+    .INIT(64'hFFCCAAF000CCAAF0)) 
     \axi_rdata[9]_i_1 
-       (.I0(slv_reg0[9]),
-        .I1(slv_reg1[9]),
-        .I2(slv_reg3[9]),
+       (.I0(slv_reg1[9]),
+        .I1(slv_reg2[9]),
+        .I2(slv_reg0[9]),
         .I3(axi_araddr[2]),
         .I4(axi_araddr[3]),
-        .I5(slv_reg2[9]),
+        .I5(slv_reg3[9]),
         .O(reg_data_out[9]));
   FDRE \axi_rdata_reg[0] 
        (.C(s00_axi_aclk),
@@ -1052,7 +1071,7 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .D(axi_rvalid_i_1_n_0),
         .Q(s00_axi_rvalid),
         .R(servo_o_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT4 #(
     .INIT(16'h0080)) 
     axi_wready_i_1
@@ -1067,67 +1086,76 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .D(axi_wready0),
         .Q(S_AXI_WREADY),
         .R(servo_o_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \count_sig[0]_i_1 
        (.I0(current_period_sig_0),
         .I1(\count_sig_reg_n_0_[0] ),
         .O(count_sig[0]));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT4 #(
-    .INIT(16'h1540)) 
+    .INIT(16'h5104)) 
     \count_sig[10]_i_1 
        (.I0(current_period_sig_0),
         .I1(\count_sig_reg_n_0_[9] ),
         .I2(\count_sig[12]_i_2_n_0 ),
         .I3(\count_sig_reg_n_0_[10] ),
         .O(count_sig[10]));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT5 #(
-    .INIT(32'h00007F80)) 
+    .INIT(32'h55150040)) 
     \count_sig[11]_i_1 
-       (.I0(\count_sig[12]_i_2_n_0 ),
-        .I1(\count_sig_reg_n_0_[9] ),
-        .I2(\count_sig_reg_n_0_[10] ),
-        .I3(\count_sig_reg_n_0_[11] ),
-        .I4(current_period_sig_0),
-        .O(\count_sig[11]_i_1_n_0 ));
+       (.I0(current_period_sig_0),
+        .I1(\count_sig_reg_n_0_[10] ),
+        .I2(\count_sig_reg_n_0_[9] ),
+        .I3(\count_sig[12]_i_2_n_0 ),
+        .I4(\count_sig_reg_n_0_[11] ),
+        .O(count_sig[11]));
   LUT6 #(
-    .INIT(64'h000000007FFF8000)) 
+    .INIT(64'h5555155500004000)) 
     \count_sig[12]_i_1 
+       (.I0(current_period_sig_0),
+        .I1(\count_sig_reg_n_0_[11] ),
+        .I2(\count_sig_reg_n_0_[9] ),
+        .I3(\count_sig_reg_n_0_[10] ),
+        .I4(\count_sig[12]_i_2_n_0 ),
+        .I5(\count_sig_reg_n_0_[12] ),
+        .O(count_sig[12]));
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  LUT4 #(
+    .INIT(16'hDFFF)) 
+    \count_sig[12]_i_2 
+       (.I0(\count_sig_reg_n_0_[7] ),
+        .I1(\count_sig[8]_i_2_n_0 ),
+        .I2(\count_sig_reg_n_0_[6] ),
+        .I3(\count_sig_reg_n_0_[8] ),
+        .O(\count_sig[12]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  LUT3 #(
+    .INIT(8'h41)) 
+    \count_sig[13]_i_1 
+       (.I0(current_period_sig_0),
+        .I1(\count_sig[13]_i_2_n_0 ),
+        .I2(\count_sig_reg_n_0_[13] ),
+        .O(count_sig[13]));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT5 #(
+    .INIT(32'hBFFFFFFF)) 
+    \count_sig[13]_i_2 
        (.I0(\count_sig[12]_i_2_n_0 ),
         .I1(\count_sig_reg_n_0_[10] ),
         .I2(\count_sig_reg_n_0_[9] ),
         .I3(\count_sig_reg_n_0_[11] ),
         .I4(\count_sig_reg_n_0_[12] ),
-        .I5(current_period_sig_0),
-        .O(\count_sig[12]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
-  LUT4 #(
-    .INIT(16'h0800)) 
-    \count_sig[12]_i_2 
-       (.I0(\count_sig_reg_n_0_[8] ),
-        .I1(\count_sig_reg_n_0_[7] ),
-        .I2(\count_sig[9]_i_2_n_0 ),
-        .I3(\count_sig_reg_n_0_[6] ),
-        .O(\count_sig[12]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+        .O(\count_sig[13]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT3 #(
     .INIT(8'h41)) 
-    \count_sig[13]_i_1 
-       (.I0(current_period_sig_0),
-        .I1(\count_sig[15]_i_3_n_0 ),
-        .I2(\count_sig_reg_n_0_[13] ),
-        .O(count_sig[13]));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT4 #(
-    .INIT(16'h5104)) 
     \count_sig[14]_i_1 
        (.I0(current_period_sig_0),
-        .I1(\count_sig_reg_n_0_[13] ),
-        .I2(\count_sig[15]_i_3_n_0 ),
-        .I3(\count_sig_reg_n_0_[14] ),
+        .I1(\count_sig[15]_i_3_n_0 ),
+        .I2(\count_sig_reg_n_0_[14] ),
         .O(count_sig[14]));
   LUT4 #(
     .INIT(16'h5A5B)) 
@@ -1137,27 +1165,26 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I2(servo_state),
         .I3(servo_o_i_3_n_0),
         .O(count_sig_1));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT5 #(
-    .INIT(32'h45551000)) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  LUT4 #(
+    .INIT(16'h5104)) 
     \count_sig[15]_i_2 
        (.I0(current_period_sig_0),
-        .I1(\count_sig[15]_i_3_n_0 ),
-        .I2(\count_sig_reg_n_0_[13] ),
-        .I3(\count_sig_reg_n_0_[14] ),
-        .I4(\count_sig_reg_n_0_[15] ),
+        .I1(\count_sig_reg_n_0_[14] ),
+        .I2(\count_sig[15]_i_3_n_0 ),
+        .I3(\count_sig_reg_n_0_[15] ),
         .O(count_sig[15]));
   LUT6 #(
-    .INIT(64'hFFFFDFFFFFFFFFFF)) 
+    .INIT(64'hFFFF7FFFFFFFFFFF)) 
     \count_sig[15]_i_3 
        (.I0(\count_sig_reg_n_0_[12] ),
-        .I1(\FSM_sequential_servo_state[1]_i_4_n_0 ),
-        .I2(\count_sig_reg_n_0_[8] ),
-        .I3(\count_sig_reg_n_0_[7] ),
-        .I4(\count_sig[9]_i_2_n_0 ),
-        .I5(\count_sig_reg_n_0_[6] ),
+        .I1(\count_sig_reg_n_0_[11] ),
+        .I2(\count_sig_reg_n_0_[9] ),
+        .I3(\count_sig_reg_n_0_[10] ),
+        .I4(\count_sig[12]_i_2_n_0 ),
+        .I5(\count_sig_reg_n_0_[13] ),
         .O(\count_sig[15]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT3 #(
     .INIT(8'h06)) 
     \count_sig[1]_i_1 
@@ -1165,7 +1192,7 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I1(\count_sig_reg_n_0_[0] ),
         .I2(current_period_sig_0),
         .O(\count_sig[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT4 #(
     .INIT(16'h1540)) 
     \count_sig[2]_i_1 
@@ -1174,7 +1201,7 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I2(\count_sig_reg_n_0_[1] ),
         .I3(\count_sig_reg_n_0_[2] ),
         .O(count_sig[2]));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT5 #(
     .INIT(32'h15554000)) 
     \count_sig[3]_i_1 
@@ -1194,7 +1221,6 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I4(\count_sig_reg_n_0_[3] ),
         .I5(\count_sig_reg_n_0_[4] ),
         .O(count_sig[4]));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT3 #(
     .INIT(8'h41)) 
     \count_sig[5]_i_1 
@@ -1211,53 +1237,51 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I3(\count_sig_reg_n_0_[2] ),
         .I4(\count_sig_reg_n_0_[4] ),
         .O(\count_sig[5]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT3 #(
     .INIT(8'h41)) 
     \count_sig[6]_i_1 
        (.I0(current_period_sig_0),
-        .I1(\count_sig[9]_i_2_n_0 ),
+        .I1(\count_sig[8]_i_2_n_0 ),
         .I2(\count_sig_reg_n_0_[6] ),
         .O(count_sig[6]));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT4 #(
     .INIT(16'h4510)) 
     \count_sig[7]_i_1 
        (.I0(current_period_sig_0),
-        .I1(\count_sig[9]_i_2_n_0 ),
+        .I1(\count_sig[8]_i_2_n_0 ),
         .I2(\count_sig_reg_n_0_[6] ),
         .I3(\count_sig_reg_n_0_[7] ),
         .O(count_sig[7]));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT5 #(
     .INIT(32'h51550400)) 
     \count_sig[8]_i_1 
        (.I0(current_period_sig_0),
         .I1(\count_sig_reg_n_0_[6] ),
-        .I2(\count_sig[9]_i_2_n_0 ),
+        .I2(\count_sig[8]_i_2_n_0 ),
         .I3(\count_sig_reg_n_0_[7] ),
         .I4(\count_sig_reg_n_0_[8] ),
         .O(count_sig[8]));
   LUT6 #(
-    .INIT(64'h00000000F7FF0800)) 
-    \count_sig[9]_i_1 
-       (.I0(\count_sig_reg_n_0_[8] ),
-        .I1(\count_sig_reg_n_0_[7] ),
-        .I2(\count_sig[9]_i_2_n_0 ),
-        .I3(\count_sig_reg_n_0_[6] ),
-        .I4(\count_sig_reg_n_0_[9] ),
-        .I5(current_period_sig_0),
-        .O(\count_sig[9]_i_1_n_0 ));
-  LUT6 #(
     .INIT(64'h7FFFFFFFFFFFFFFF)) 
-    \count_sig[9]_i_2 
+    \count_sig[8]_i_2 
        (.I0(\count_sig_reg_n_0_[4] ),
         .I1(\count_sig_reg_n_0_[2] ),
         .I2(\count_sig_reg_n_0_[0] ),
         .I3(\count_sig_reg_n_0_[1] ),
         .I4(\count_sig_reg_n_0_[3] ),
         .I5(\count_sig_reg_n_0_[5] ),
-        .O(\count_sig[9]_i_2_n_0 ));
+        .O(\count_sig[8]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  LUT3 #(
+    .INIT(8'h41)) 
+    \count_sig[9]_i_1 
+       (.I0(current_period_sig_0),
+        .I1(\count_sig[12]_i_2_n_0 ),
+        .I2(\count_sig_reg_n_0_[9] ),
+        .O(count_sig[9]));
   FDRE \count_sig_reg[0] 
        (.C(s00_axi_aclk),
         .CE(count_sig_1),
@@ -1273,13 +1297,13 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
   FDRE \count_sig_reg[11] 
        (.C(s00_axi_aclk),
         .CE(count_sig_1),
-        .D(\count_sig[11]_i_1_n_0 ),
+        .D(count_sig[11]),
         .Q(\count_sig_reg_n_0_[11] ),
         .R(servo_o_i_1_n_0));
   FDRE \count_sig_reg[12] 
        (.C(s00_axi_aclk),
         .CE(count_sig_1),
-        .D(\count_sig[12]_i_1_n_0 ),
+        .D(count_sig[12]),
         .Q(\count_sig_reg_n_0_[12] ),
         .R(servo_o_i_1_n_0));
   FDRE \count_sig_reg[13] 
@@ -1351,144 +1375,364 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
   FDRE \count_sig_reg[9] 
        (.C(s00_axi_aclk),
         .CE(count_sig_1),
-        .D(\count_sig[9]_i_1_n_0 ),
+        .D(count_sig[9]),
         .Q(\count_sig_reg_n_0_[9] ),
         .R(servo_o_i_1_n_0));
+  LUT5 #(
+    .INIT(32'h00000020)) 
+    \current_period_sig[0]_i_1 
+       (.I0(slv_reg0[0]),
+        .I1(\current_period_sig[9]_i_2_n_0 ),
+        .I2(\current_period_sig[9]_i_3_n_0 ),
+        .I3(\current_period_sig[10]_i_2_n_0 ),
+        .I4(\current_period_sig[9]_i_4_n_0 ),
+        .O(period_sig[0]));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFFE)) 
+    \current_period_sig[10]_i_1 
+       (.I0(slv_reg0[10]),
+        .I1(\current_period_sig[10]_i_2_n_0 ),
+        .I2(\current_period_sig[10]_i_3_n_0 ),
+        .I3(\current_period_sig[10]_i_4_n_0 ),
+        .I4(\current_period_sig[10]_i_5_n_0 ),
+        .I5(\current_period_sig[10]_i_6_n_0 ),
+        .O(period_sig[10]));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT5 #(
+    .INIT(32'hFFFFFFFE)) 
+    \current_period_sig[10]_i_2 
+       (.I0(slv_reg0[21]),
+        .I1(slv_reg0[22]),
+        .I2(slv_reg0[18]),
+        .I3(slv_reg0[12]),
+        .I4(slv_reg0[17]),
+        .O(\current_period_sig[10]_i_2_n_0 ));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \current_period_sig[10]_i_3 
+       (.I0(slv_reg0[23]),
+        .I1(slv_reg0[28]),
+        .I2(slv_reg0[16]),
+        .I3(slv_reg0[20]),
+        .O(\current_period_sig[10]_i_3_n_0 ));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \current_period_sig[10]_i_4 
+       (.I0(slv_reg0[25]),
+        .I1(slv_reg0[30]),
+        .I2(slv_reg0[26]),
+        .I3(slv_reg0[29]),
+        .O(\current_period_sig[10]_i_4_n_0 ));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \current_period_sig[10]_i_5 
+       (.I0(slv_reg0[11]),
+        .I1(slv_reg0[31]),
+        .I2(slv_reg0[13]),
+        .I3(slv_reg0[14]),
+        .O(\current_period_sig[10]_i_5_n_0 ));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \current_period_sig[10]_i_6 
+       (.I0(slv_reg0[24]),
+        .I1(slv_reg0[27]),
+        .I2(slv_reg0[15]),
+        .I3(slv_reg0[19]),
+        .O(\current_period_sig[10]_i_6_n_0 ));
+  LUT5 #(
+    .INIT(32'h00000020)) 
+    \current_period_sig[1]_i_1 
+       (.I0(slv_reg0[1]),
+        .I1(\current_period_sig[9]_i_2_n_0 ),
+        .I2(\current_period_sig[9]_i_3_n_0 ),
+        .I3(\current_period_sig[10]_i_2_n_0 ),
+        .I4(\current_period_sig[9]_i_4_n_0 ),
+        .O(period_sig[1]));
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
+    \current_period_sig[2]_i_1 
+       (.I0(slv_reg0[2]),
+        .I1(\current_period_sig[8]_i_2_n_0 ),
+        .O(period_sig[2]));
+  LUT5 #(
+    .INIT(32'h000010FF)) 
+    \current_period_sig[3]_i_1 
+       (.I0(\current_period_sig[10]_i_2_n_0 ),
+        .I1(\current_period_sig[9]_i_4_n_0 ),
+        .I2(slv_reg0[3]),
+        .I3(\current_period_sig[9]_i_3_n_0 ),
+        .I4(\current_period_sig[9]_i_2_n_0 ),
+        .O(period_sig[3]));
+  LUT5 #(
+    .INIT(32'hFAFAFAF8)) 
+    \current_period_sig[4]_i_1 
+       (.I0(\current_period_sig[9]_i_3_n_0 ),
+        .I1(\current_period_sig[10]_i_2_n_0 ),
+        .I2(\current_period_sig[9]_i_2_n_0 ),
+        .I3(\current_period_sig[9]_i_4_n_0 ),
+        .I4(slv_reg0[4]),
+        .O(period_sig[4]));
+  LUT3 #(
+    .INIT(8'h75)) 
+    \current_period_sig[5]_i_1 
+       (.I0(\current_period_sig[5]_i_2_n_0 ),
+        .I1(\current_period_sig[5]_i_3_n_0 ),
+        .I2(slv_reg0[5]),
+        .O(period_sig[5]));
+  LUT6 #(
+    .INIT(64'hFEFEFEEEEEEEEEEE)) 
+    \current_period_sig[5]_i_2 
+       (.I0(\current_period_sig[9]_i_2_n_0 ),
+        .I1(\current_period_sig[9]_i_6_n_0 ),
+        .I2(\current_period_sig[9]_i_5_n_0 ),
+        .I3(slv_reg0[3]),
+        .I4(slv_reg0[4]),
+        .I5(slv_reg0[5]),
+        .O(\current_period_sig[5]_i_2_n_0 ));
+  LUT4 #(
+    .INIT(16'hEAAA)) 
+    \current_period_sig[5]_i_3 
+       (.I0(\current_period_sig[5]_i_4_n_0 ),
+        .I1(slv_reg0[10]),
+        .I2(\current_period_sig[9]_i_5_n_0 ),
+        .I3(\current_period_sig[9]_i_7_n_0 ),
+        .O(\current_period_sig[5]_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT5 #(
+    .INIT(32'hFFFFFFFE)) 
+    \current_period_sig[5]_i_4 
+       (.I0(\current_period_sig[10]_i_6_n_0 ),
+        .I1(\current_period_sig[10]_i_5_n_0 ),
+        .I2(\current_period_sig[10]_i_4_n_0 ),
+        .I3(\current_period_sig[10]_i_3_n_0 ),
+        .I4(\current_period_sig[10]_i_2_n_0 ),
+        .O(\current_period_sig[5]_i_4_n_0 ));
+  LUT5 #(
+    .INIT(32'hFFFFFFEF)) 
+    \current_period_sig[6]_i_1 
+       (.I0(slv_reg0[6]),
+        .I1(\current_period_sig[9]_i_2_n_0 ),
+        .I2(\current_period_sig[9]_i_3_n_0 ),
+        .I3(\current_period_sig[10]_i_2_n_0 ),
+        .I4(\current_period_sig[9]_i_4_n_0 ),
+        .O(period_sig[6]));
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  LUT2 #(
+    .INIT(4'hE)) 
+    \current_period_sig[7]_i_1 
+       (.I0(\current_period_sig[8]_i_2_n_0 ),
+        .I1(slv_reg0[7]),
+        .O(period_sig[7]));
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  LUT2 #(
+    .INIT(4'hE)) 
+    \current_period_sig[8]_i_1 
+       (.I0(\current_period_sig[8]_i_2_n_0 ),
+        .I1(slv_reg0[8]),
+        .O(period_sig[8]));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFAB)) 
+    \current_period_sig[8]_i_2 
+       (.I0(\current_period_sig[9]_i_4_n_0 ),
+        .I1(\current_period_sig[8]_i_3_n_0 ),
+        .I2(slv_reg0[10]),
+        .I3(\current_period_sig[8]_i_4_n_0 ),
+        .I4(\current_period_sig[8]_i_5_n_0 ),
+        .I5(\current_period_sig[9]_i_2_n_0 ),
+        .O(\current_period_sig[8]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT4 #(
+    .INIT(16'hA800)) 
+    \current_period_sig[8]_i_3 
+       (.I0(\current_period_sig[9]_i_5_n_0 ),
+        .I1(slv_reg0[3]),
+        .I2(slv_reg0[4]),
+        .I3(slv_reg0[5]),
+        .O(\current_period_sig[8]_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'hE)) 
+    \current_period_sig[8]_i_4 
+       (.I0(slv_reg0[22]),
+        .I1(slv_reg0[21]),
+        .O(\current_period_sig[8]_i_4_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT3 #(
+    .INIT(8'hFE)) 
+    \current_period_sig[8]_i_5 
+       (.I0(slv_reg0[17]),
+        .I1(slv_reg0[12]),
+        .I2(slv_reg0[18]),
+        .O(\current_period_sig[8]_i_5_n_0 ));
+  LUT5 #(
+    .INIT(32'hFFFFFFEF)) 
+    \current_period_sig[9]_i_1 
+       (.I0(slv_reg0[9]),
+        .I1(\current_period_sig[9]_i_2_n_0 ),
+        .I2(\current_period_sig[9]_i_3_n_0 ),
+        .I3(\current_period_sig[10]_i_2_n_0 ),
+        .I4(\current_period_sig[9]_i_4_n_0 ),
+        .O(period_sig[9]));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \current_period_sig[9]_i_2 
+       (.I0(\current_period_sig[10]_i_3_n_0 ),
+        .I1(\current_period_sig[10]_i_4_n_0 ),
+        .I2(\current_period_sig[10]_i_5_n_0 ),
+        .I3(\current_period_sig[10]_i_6_n_0 ),
+        .O(\current_period_sig[9]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT5 #(
+    .INIT(32'hFFFFA800)) 
+    \current_period_sig[9]_i_3 
+       (.I0(slv_reg0[5]),
+        .I1(slv_reg0[4]),
+        .I2(slv_reg0[3]),
+        .I3(\current_period_sig[9]_i_5_n_0 ),
+        .I4(\current_period_sig[9]_i_6_n_0 ),
+        .O(\current_period_sig[9]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'h8000000000000000)) 
+    \current_period_sig[9]_i_4 
+       (.I0(\current_period_sig[9]_i_7_n_0 ),
+        .I1(slv_reg0[8]),
+        .I2(slv_reg0[9]),
+        .I3(slv_reg0[6]),
+        .I4(slv_reg0[7]),
+        .I5(slv_reg0[10]),
+        .O(\current_period_sig[9]_i_4_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  LUT4 #(
+    .INIT(16'h8000)) 
+    \current_period_sig[9]_i_5 
+       (.I0(slv_reg0[8]),
+        .I1(slv_reg0[9]),
+        .I2(slv_reg0[6]),
+        .I3(slv_reg0[7]),
+        .O(\current_period_sig[9]_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFFE)) 
+    \current_period_sig[9]_i_6 
+       (.I0(slv_reg0[18]),
+        .I1(slv_reg0[12]),
+        .I2(slv_reg0[17]),
+        .I3(slv_reg0[22]),
+        .I4(slv_reg0[21]),
+        .I5(slv_reg0[10]),
+        .O(\current_period_sig[9]_i_6_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFEAAAAAAAA)) 
+    \current_period_sig[9]_i_7 
+       (.I0(slv_reg0[5]),
+        .I1(slv_reg0[1]),
+        .I2(slv_reg0[0]),
+        .I3(slv_reg0[2]),
+        .I4(slv_reg0[3]),
+        .I5(slv_reg0[4]),
+        .O(\current_period_sig[9]_i_7_n_0 ));
   FDRE \current_period_sig_reg[0] 
        (.C(s00_axi_aclk),
         .CE(current_period_sig_0),
-        .D(slv_reg0[0]),
+        .D(period_sig[0]),
         .Q(current_period_sig[0]),
         .R(servo_o_i_1_n_0));
   FDRE \current_period_sig_reg[10] 
        (.C(s00_axi_aclk),
         .CE(current_period_sig_0),
-        .D(slv_reg0[10]),
+        .D(period_sig[10]),
         .Q(current_period_sig[10]),
-        .R(servo_o_i_1_n_0));
-  FDRE \current_period_sig_reg[11] 
-       (.C(s00_axi_aclk),
-        .CE(current_period_sig_0),
-        .D(slv_reg0[11]),
-        .Q(current_period_sig[11]),
-        .R(servo_o_i_1_n_0));
-  FDRE \current_period_sig_reg[12] 
-       (.C(s00_axi_aclk),
-        .CE(current_period_sig_0),
-        .D(slv_reg0[12]),
-        .Q(current_period_sig[12]),
-        .R(servo_o_i_1_n_0));
-  FDRE \current_period_sig_reg[13] 
-       (.C(s00_axi_aclk),
-        .CE(current_period_sig_0),
-        .D(slv_reg0[13]),
-        .Q(current_period_sig[13]),
-        .R(servo_o_i_1_n_0));
-  FDRE \current_period_sig_reg[14] 
-       (.C(s00_axi_aclk),
-        .CE(current_period_sig_0),
-        .D(slv_reg0[14]),
-        .Q(current_period_sig[14]),
-        .R(servo_o_i_1_n_0));
-  FDRE \current_period_sig_reg[15] 
-       (.C(s00_axi_aclk),
-        .CE(current_period_sig_0),
-        .D(slv_reg0[15]),
-        .Q(current_period_sig[15]),
         .R(servo_o_i_1_n_0));
   FDRE \current_period_sig_reg[1] 
        (.C(s00_axi_aclk),
         .CE(current_period_sig_0),
-        .D(slv_reg0[1]),
+        .D(period_sig[1]),
         .Q(current_period_sig[1]),
         .R(servo_o_i_1_n_0));
   FDRE \current_period_sig_reg[2] 
        (.C(s00_axi_aclk),
         .CE(current_period_sig_0),
-        .D(slv_reg0[2]),
+        .D(period_sig[2]),
         .Q(current_period_sig[2]),
         .R(servo_o_i_1_n_0));
   FDRE \current_period_sig_reg[3] 
        (.C(s00_axi_aclk),
         .CE(current_period_sig_0),
-        .D(slv_reg0[3]),
+        .D(period_sig[3]),
         .Q(current_period_sig[3]),
         .R(servo_o_i_1_n_0));
   FDRE \current_period_sig_reg[4] 
        (.C(s00_axi_aclk),
         .CE(current_period_sig_0),
-        .D(slv_reg0[4]),
+        .D(period_sig[4]),
         .Q(current_period_sig[4]),
         .R(servo_o_i_1_n_0));
   FDRE \current_period_sig_reg[5] 
        (.C(s00_axi_aclk),
         .CE(current_period_sig_0),
-        .D(slv_reg0[5]),
+        .D(period_sig[5]),
         .Q(current_period_sig[5]),
         .R(servo_o_i_1_n_0));
   FDRE \current_period_sig_reg[6] 
        (.C(s00_axi_aclk),
         .CE(current_period_sig_0),
-        .D(slv_reg0[6]),
+        .D(period_sig[6]),
         .Q(current_period_sig[6]),
         .R(servo_o_i_1_n_0));
   FDRE \current_period_sig_reg[7] 
        (.C(s00_axi_aclk),
         .CE(current_period_sig_0),
-        .D(slv_reg0[7]),
+        .D(period_sig[7]),
         .Q(current_period_sig[7]),
         .R(servo_o_i_1_n_0));
   FDRE \current_period_sig_reg[8] 
        (.C(s00_axi_aclk),
         .CE(current_period_sig_0),
-        .D(slv_reg0[8]),
+        .D(period_sig[8]),
         .Q(current_period_sig[8]),
         .R(servo_o_i_1_n_0));
   FDRE \current_period_sig_reg[9] 
        (.C(s00_axi_aclk),
         .CE(current_period_sig_0),
-        .D(slv_reg0[9]),
+        .D(period_sig[9]),
         .Q(current_period_sig[9]),
         .R(servo_o_i_1_n_0));
-  LUT4 #(
-    .INIT(16'h22B2)) 
+  LUT2 #(
+    .INIT(4'hE)) 
     i__carry_i_1
        (.I0(\count_sig_reg_n_0_[15] ),
-        .I1(current_period_sig[15]),
-        .I2(\count_sig_reg_n_0_[14] ),
-        .I3(current_period_sig[14]),
+        .I1(\count_sig_reg_n_0_[14] ),
         .O(i__carry_i_1_n_0));
-  LUT4 #(
-    .INIT(16'h9009)) 
+  LUT2 #(
+    .INIT(4'h1)) 
     i__carry_i_10
-       (.I0(current_period_sig[13]),
-        .I1(\count_sig_reg_n_0_[13] ),
-        .I2(current_period_sig[12]),
-        .I3(\count_sig_reg_n_0_[12] ),
+       (.I0(\count_sig_reg_n_0_[13] ),
+        .I1(\count_sig_reg_n_0_[12] ),
         .O(i__carry_i_10_n_0));
-  LUT4 #(
-    .INIT(16'h9009)) 
+  LUT5 #(
+    .INIT(32'hCC900009)) 
     i__carry_i_10__0
-       (.I0(slv_reg0[13]),
-        .I1(\count_sig_reg_n_0_[13] ),
-        .I2(slv_reg0[12]),
-        .I3(\count_sig_reg_n_0_[12] ),
+       (.I0(slv_reg0[8]),
+        .I1(\count_sig_reg_n_0_[8] ),
+        .I2(slv_reg0[9]),
+        .I3(\current_period_sig[8]_i_2_n_0 ),
+        .I4(\count_sig_reg_n_0_[9] ),
         .O(i__carry_i_10__0_n_0));
-  LUT4 #(
-    .INIT(16'h9009)) 
+  LUT3 #(
+    .INIT(8'h41)) 
     i__carry_i_11
-       (.I0(current_period_sig[11]),
-        .I1(\count_sig_reg_n_0_[11] ),
-        .I2(current_period_sig[10]),
-        .I3(\count_sig_reg_n_0_[10] ),
+       (.I0(\count_sig_reg_n_0_[11] ),
+        .I1(current_period_sig[10]),
+        .I2(\count_sig_reg_n_0_[10] ),
         .O(i__carry_i_11_n_0));
-  LUT4 #(
-    .INIT(16'h9009)) 
+  LUT5 #(
+    .INIT(32'hCC900009)) 
     i__carry_i_11__0
-       (.I0(slv_reg0[11]),
-        .I1(\count_sig_reg_n_0_[11] ),
-        .I2(slv_reg0[10]),
-        .I3(\count_sig_reg_n_0_[10] ),
+       (.I0(slv_reg0[6]),
+        .I1(\count_sig_reg_n_0_[6] ),
+        .I2(slv_reg0[7]),
+        .I3(\current_period_sig[8]_i_2_n_0 ),
+        .I4(\count_sig_reg_n_0_[7] ),
         .O(i__carry_i_11__0_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
@@ -1498,13 +1742,15 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I2(current_period_sig[8]),
         .I3(\count_sig_reg_n_0_[8] ),
         .O(i__carry_i_12_n_0));
-  LUT4 #(
-    .INIT(16'h9009)) 
+  LUT6 #(
+    .INIT(64'h309030000C0C0C9C)) 
     i__carry_i_12__0
-       (.I0(slv_reg0[9]),
-        .I1(\count_sig_reg_n_0_[9] ),
-        .I2(slv_reg0[8]),
-        .I3(\count_sig_reg_n_0_[8] ),
+       (.I0(slv_reg0[5]),
+        .I1(\count_sig_reg_n_0_[5] ),
+        .I2(\current_period_sig[5]_i_2_n_0 ),
+        .I3(\current_period_sig[5]_i_3_n_0 ),
+        .I4(slv_reg0[4]),
+        .I5(\count_sig_reg_n_0_[4] ),
         .O(i__carry_i_12__0_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
@@ -1514,13 +1760,15 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I2(current_period_sig[6]),
         .I3(\count_sig_reg_n_0_[6] ),
         .O(i__carry_i_13_n_0));
-  LUT4 #(
-    .INIT(16'h9009)) 
+  LUT6 #(
+    .INIT(64'h000090003C3C0C9C)) 
     i__carry_i_13__0
-       (.I0(slv_reg0[7]),
-        .I1(\count_sig_reg_n_0_[7] ),
-        .I2(slv_reg0[6]),
-        .I3(\count_sig_reg_n_0_[6] ),
+       (.I0(slv_reg0[3]),
+        .I1(\count_sig_reg_n_0_[3] ),
+        .I2(\current_period_sig[5]_i_2_n_0 ),
+        .I3(slv_reg0[2]),
+        .I4(\current_period_sig[5]_i_3_n_0 ),
+        .I5(\count_sig_reg_n_0_[2] ),
         .O(i__carry_i_13__0_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
@@ -1530,13 +1778,14 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I2(current_period_sig[4]),
         .I3(\count_sig_reg_n_0_[4] ),
         .O(i__carry_i_14_n_0));
-  LUT4 #(
-    .INIT(16'h9009)) 
+  LUT5 #(
+    .INIT(32'h41000A4B)) 
     i__carry_i_14__0
-       (.I0(slv_reg0[5]),
-        .I1(\count_sig_reg_n_0_[5] ),
-        .I2(slv_reg0[4]),
-        .I3(\count_sig_reg_n_0_[4] ),
+       (.I0(\current_period_sig[8]_i_2_n_0 ),
+        .I1(slv_reg0[0]),
+        .I2(\count_sig_reg_n_0_[0] ),
+        .I3(slv_reg0[1]),
+        .I4(\count_sig_reg_n_0_[1] ),
         .O(i__carry_i_14__0_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
@@ -1548,67 +1797,49 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .O(i__carry_i_15_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
-    i__carry_i_15__0
-       (.I0(slv_reg0[3]),
-        .I1(\count_sig_reg_n_0_[3] ),
-        .I2(slv_reg0[2]),
-        .I3(\count_sig_reg_n_0_[2] ),
-        .O(i__carry_i_15__0_n_0));
-  LUT4 #(
-    .INIT(16'h9009)) 
     i__carry_i_16
        (.I0(current_period_sig[1]),
         .I1(\count_sig_reg_n_0_[1] ),
         .I2(current_period_sig[0]),
         .I3(\count_sig_reg_n_0_[0] ),
         .O(i__carry_i_16_n_0));
-  LUT4 #(
-    .INIT(16'h9009)) 
-    i__carry_i_16__0
-       (.I0(slv_reg0[1]),
-        .I1(\count_sig_reg_n_0_[1] ),
-        .I2(slv_reg0[0]),
-        .I3(\count_sig_reg_n_0_[0] ),
-        .O(i__carry_i_16__0_n_0));
-  LUT4 #(
-    .INIT(16'h44D4)) 
+  LUT3 #(
+    .INIT(8'h04)) 
     i__carry_i_1__0
-       (.I0(\count_sig_reg_n_0_[15] ),
-        .I1(slv_reg0[15]),
-        .I2(slv_reg0[14]),
-        .I3(\count_sig_reg_n_0_[14] ),
+       (.I0(\count_sig_reg_n_0_[11] ),
+        .I1(period_sig[10]),
+        .I2(\count_sig_reg_n_0_[10] ),
         .O(i__carry_i_1__0_n_0));
-  LUT4 #(
-    .INIT(16'h22B2)) 
+  LUT2 #(
+    .INIT(4'hE)) 
     i__carry_i_2
        (.I0(\count_sig_reg_n_0_[13] ),
-        .I1(current_period_sig[13]),
-        .I2(\count_sig_reg_n_0_[12] ),
-        .I3(current_period_sig[12]),
+        .I1(\count_sig_reg_n_0_[12] ),
         .O(i__carry_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h44D4)) 
+  LUT5 #(
+    .INIT(32'h54FD54DC)) 
     i__carry_i_2__0
-       (.I0(\count_sig_reg_n_0_[13] ),
-        .I1(slv_reg0[13]),
-        .I2(slv_reg0[12]),
-        .I3(\count_sig_reg_n_0_[12] ),
+       (.I0(\count_sig_reg_n_0_[9] ),
+        .I1(\current_period_sig[8]_i_2_n_0 ),
+        .I2(slv_reg0[9]),
+        .I3(\count_sig_reg_n_0_[8] ),
+        .I4(slv_reg0[8]),
         .O(i__carry_i_2__0_n_0));
-  LUT4 #(
-    .INIT(16'h22B2)) 
+  LUT3 #(
+    .INIT(8'hAE)) 
     i__carry_i_3
        (.I0(\count_sig_reg_n_0_[11] ),
-        .I1(current_period_sig[11]),
-        .I2(\count_sig_reg_n_0_[10] ),
-        .I3(current_period_sig[10]),
+        .I1(\count_sig_reg_n_0_[10] ),
+        .I2(current_period_sig[10]),
         .O(i__carry_i_3_n_0));
-  LUT4 #(
-    .INIT(16'h44D4)) 
+  LUT5 #(
+    .INIT(32'h5454FDDC)) 
     i__carry_i_3__0
-       (.I0(\count_sig_reg_n_0_[11] ),
-        .I1(slv_reg0[11]),
-        .I2(slv_reg0[10]),
-        .I3(\count_sig_reg_n_0_[10] ),
+       (.I0(\count_sig_reg_n_0_[7] ),
+        .I1(\current_period_sig[8]_i_2_n_0 ),
+        .I2(slv_reg0[7]),
+        .I3(slv_reg0[6]),
+        .I4(\count_sig_reg_n_0_[6] ),
         .O(i__carry_i_3__0_n_0));
   LUT4 #(
     .INIT(16'h22B2)) 
@@ -1618,13 +1849,15 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I2(\count_sig_reg_n_0_[8] ),
         .I3(current_period_sig[8]),
         .O(i__carry_i_4_n_0));
-  LUT4 #(
-    .INIT(16'h44D4)) 
+  LUT6 #(
+    .INIT(64'h045504555D555455)) 
     i__carry_i_4__0
-       (.I0(\count_sig_reg_n_0_[9] ),
-        .I1(slv_reg0[9]),
-        .I2(slv_reg0[8]),
-        .I3(\count_sig_reg_n_0_[8] ),
+       (.I0(\count_sig_reg_n_0_[5] ),
+        .I1(slv_reg0[5]),
+        .I2(\current_period_sig[5]_i_3_n_0 ),
+        .I3(\current_period_sig[5]_i_2_n_0 ),
+        .I4(slv_reg0[4]),
+        .I5(\count_sig_reg_n_0_[4] ),
         .O(i__carry_i_4__0_n_0));
   LUT4 #(
     .INIT(16'h22B2)) 
@@ -1634,13 +1867,15 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I2(\count_sig_reg_n_0_[6] ),
         .I3(current_period_sig[6]),
         .O(i__carry_i_5_n_0));
-  LUT4 #(
-    .INIT(16'h44D4)) 
+  LUT6 #(
+    .INIT(64'h1151115111D51151)) 
     i__carry_i_5__0
-       (.I0(\count_sig_reg_n_0_[7] ),
-        .I1(slv_reg0[7]),
-        .I2(slv_reg0[6]),
-        .I3(\count_sig_reg_n_0_[6] ),
+       (.I0(\count_sig_reg_n_0_[3] ),
+        .I1(\current_period_sig[5]_i_2_n_0 ),
+        .I2(slv_reg0[3]),
+        .I3(\current_period_sig[5]_i_3_n_0 ),
+        .I4(slv_reg0[2]),
+        .I5(\count_sig_reg_n_0_[2] ),
         .O(i__carry_i_5__0_n_0));
   LUT4 #(
     .INIT(16'h22B2)) 
@@ -1650,13 +1885,14 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I2(\count_sig_reg_n_0_[4] ),
         .I3(current_period_sig[4]),
         .O(i__carry_i_6_n_0));
-  LUT4 #(
-    .INIT(16'h44D4)) 
+  LUT5 #(
+    .INIT(32'h04550004)) 
     i__carry_i_6__0
-       (.I0(\count_sig_reg_n_0_[5] ),
-        .I1(slv_reg0[5]),
-        .I2(slv_reg0[4]),
-        .I3(\count_sig_reg_n_0_[4] ),
+       (.I0(\current_period_sig[8]_i_2_n_0 ),
+        .I1(slv_reg0[0]),
+        .I2(\count_sig_reg_n_0_[0] ),
+        .I3(\count_sig_reg_n_0_[1] ),
+        .I4(slv_reg0[1]),
         .O(i__carry_i_6__0_n_0));
   LUT4 #(
     .INIT(16'h22B2)) 
@@ -1666,13 +1902,11 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I2(\count_sig_reg_n_0_[2] ),
         .I3(current_period_sig[2]),
         .O(i__carry_i_7_n_0));
-  LUT4 #(
-    .INIT(16'h44D4)) 
+  LUT2 #(
+    .INIT(4'h1)) 
     i__carry_i_7__0
-       (.I0(\count_sig_reg_n_0_[3] ),
-        .I1(slv_reg0[3]),
-        .I2(slv_reg0[2]),
-        .I3(\count_sig_reg_n_0_[2] ),
+       (.I0(\count_sig_reg_n_0_[14] ),
+        .I1(\count_sig_reg_n_0_[15] ),
         .O(i__carry_i_7__0_n_0));
   LUT4 #(
     .INIT(16'h22B2)) 
@@ -1682,35 +1916,55 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I2(\count_sig_reg_n_0_[0] ),
         .I3(current_period_sig[0]),
         .O(i__carry_i_8_n_0));
-  LUT4 #(
-    .INIT(16'h44D4)) 
+  LUT2 #(
+    .INIT(4'h1)) 
     i__carry_i_8__0
-       (.I0(\count_sig_reg_n_0_[1] ),
-        .I1(slv_reg0[1]),
-        .I2(slv_reg0[0]),
-        .I3(\count_sig_reg_n_0_[0] ),
+       (.I0(\count_sig_reg_n_0_[12] ),
+        .I1(\count_sig_reg_n_0_[13] ),
         .O(i__carry_i_8__0_n_0));
-  LUT4 #(
-    .INIT(16'h9009)) 
+  LUT2 #(
+    .INIT(4'h1)) 
     i__carry_i_9
-       (.I0(current_period_sig[15]),
-        .I1(\count_sig_reg_n_0_[15] ),
-        .I2(current_period_sig[14]),
-        .I3(\count_sig_reg_n_0_[14] ),
+       (.I0(\count_sig_reg_n_0_[15] ),
+        .I1(\count_sig_reg_n_0_[14] ),
         .O(i__carry_i_9_n_0));
-  LUT4 #(
-    .INIT(16'h9009)) 
+  LUT3 #(
+    .INIT(8'h41)) 
     i__carry_i_9__0
-       (.I0(slv_reg0[15]),
-        .I1(\count_sig_reg_n_0_[15] ),
-        .I2(slv_reg0[14]),
-        .I3(\count_sig_reg_n_0_[14] ),
+       (.I0(\count_sig_reg_n_0_[11] ),
+        .I1(period_sig[10]),
+        .I2(\count_sig_reg_n_0_[10] ),
         .O(i__carry_i_9__0_n_0));
   LUT1 #(
     .INIT(2'h1)) 
     servo_o_i_1
        (.I0(s00_axi_aresetn),
         .O(servo_o_i_1_n_0));
+  LUT5 #(
+    .INIT(32'h00000010)) 
+    servo_o_i_10
+       (.I0(slv_reg0[7]),
+        .I1(\current_period_sig[9]_i_2_n_0 ),
+        .I2(\current_period_sig[9]_i_3_n_0 ),
+        .I3(\current_period_sig[10]_i_2_n_0 ),
+        .I4(\current_period_sig[9]_i_4_n_0 ),
+        .O(servo_o_i_10_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    servo_o_i_11
+       (.I0(current_period_sig[10]),
+        .I1(period_sig[10]),
+        .O(servo_o_i_11_n_0));
+  LUT6 #(
+    .INIT(64'hAAAAAAAAAAAAA9AA)) 
+    servo_o_i_12
+       (.I0(current_period_sig[8]),
+        .I1(\current_period_sig[9]_i_4_n_0 ),
+        .I2(\current_period_sig[10]_i_2_n_0 ),
+        .I3(\current_period_sig[9]_i_3_n_0 ),
+        .I4(\current_period_sig[9]_i_2_n_0 ),
+        .I5(slv_reg0[8]),
+        .O(servo_o_i_12_n_0));
   LUT5 #(
     .INIT(32'hC1C10001)) 
     servo_o_i_2
@@ -1731,60 +1985,63 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I5(servo_o_i_9_n_0),
         .O(servo_o_i_3_n_0));
   LUT6 #(
-    .INIT(64'h6FF6FFFFFFFF6FF6)) 
+    .INIT(64'h2FF22FF22FF2FFFF)) 
     servo_o_i_4
-       (.I0(slv_reg0[6]),
-        .I1(current_period_sig[6]),
-        .I2(current_period_sig[8]),
-        .I3(slv_reg0[8]),
+       (.I0(current_period_sig[3]),
+        .I1(period_sig[3]),
+        .I2(period_sig[6]),
+        .I3(current_period_sig[6]),
         .I4(current_period_sig[7]),
-        .I5(slv_reg0[7]),
+        .I5(servo_o_i_10_n_0),
         .O(servo_o_i_4_n_0));
   LUT6 #(
-    .INIT(64'h6FF6FFFFFFFF6FF6)) 
+    .INIT(64'h004F00440F0F0F0F)) 
     servo_o_i_5
-       (.I0(current_period_sig[11]),
-        .I1(slv_reg0[11]),
-        .I2(current_period_sig[10]),
-        .I3(slv_reg0[10]),
-        .I4(slv_reg0[9]),
-        .I5(current_period_sig[9]),
+       (.I0(slv_reg0[9]),
+        .I1(current_period_sig[9]),
+        .I2(current_period_sig[3]),
+        .I3(\current_period_sig[5]_i_3_n_0 ),
+        .I4(slv_reg0[3]),
+        .I5(\current_period_sig[5]_i_2_n_0 ),
         .O(servo_o_i_5_n_0));
-  LUT6 #(
-    .INIT(64'h6FF6FFFFFFFF6FF6)) 
+  LUT5 #(
+    .INIT(32'hFF4FCC44)) 
     servo_o_i_6
-       (.I0(slv_reg0[0]),
-        .I1(current_period_sig[0]),
-        .I2(current_period_sig[2]),
-        .I3(slv_reg0[2]),
-        .I4(current_period_sig[1]),
-        .I5(slv_reg0[1]),
+       (.I0(slv_reg0[1]),
+        .I1(current_period_sig[1]),
+        .I2(slv_reg0[0]),
+        .I3(\current_period_sig[8]_i_2_n_0 ),
+        .I4(current_period_sig[0]),
         .O(servo_o_i_6_n_0));
   LUT6 #(
-    .INIT(64'h6FF6FFFFFFFF6FF6)) 
+    .INIT(64'hFFFF44F444F444F4)) 
     servo_o_i_7
-       (.I0(current_period_sig[4]),
-        .I1(slv_reg0[4]),
-        .I2(current_period_sig[5]),
-        .I3(slv_reg0[5]),
-        .I4(slv_reg0[3]),
-        .I5(current_period_sig[3]),
+       (.I0(current_period_sig[9]),
+        .I1(period_sig[9]),
+        .I2(period_sig[1]),
+        .I3(current_period_sig[1]),
+        .I4(servo_o_i_10_n_0),
+        .I5(current_period_sig[7]),
         .O(servo_o_i_7_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
+  LUT6 #(
+    .INIT(64'hF2FFFFFFFFFFF2FF)) 
     servo_o_i_8
-       (.I0(current_period_sig[15]),
-        .I1(slv_reg0[15]),
+       (.I0(period_sig[0]),
+        .I1(current_period_sig[0]),
+        .I2(servo_o_i_11_n_0),
+        .I3(servo_o_i_12_n_0),
+        .I4(current_period_sig[4]),
+        .I5(period_sig[4]),
         .O(servo_o_i_8_n_0));
   LUT6 #(
-    .INIT(64'h6FF6FFFFFFFF6FF6)) 
+    .INIT(64'hFC6CFCFCCFFFCF6F)) 
     servo_o_i_9
-       (.I0(slv_reg0[12]),
-        .I1(current_period_sig[12]),
-        .I2(current_period_sig[13]),
-        .I3(slv_reg0[13]),
-        .I4(current_period_sig[14]),
-        .I5(slv_reg0[14]),
+       (.I0(slv_reg0[2]),
+        .I1(current_period_sig[2]),
+        .I2(\current_period_sig[5]_i_2_n_0 ),
+        .I3(\current_period_sig[5]_i_3_n_0 ),
+        .I4(slv_reg0[5]),
+        .I5(current_period_sig[5]),
         .O(servo_o_i_9_n_0));
   FDRE servo_o_reg
        (.C(s00_axi_aclk),
@@ -1805,9 +2062,9 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
        (.CI(1'b0),
         .CI_TOP(1'b0),
         .CO({\servo_state1_inferred__1/i__carry_n_0 ,\servo_state1_inferred__1/i__carry_n_1 ,\servo_state1_inferred__1/i__carry_n_2 ,\servo_state1_inferred__1/i__carry_n_3 ,\servo_state1_inferred__1/i__carry_n_4 ,\servo_state1_inferred__1/i__carry_n_5 ,\servo_state1_inferred__1/i__carry_n_6 ,\servo_state1_inferred__1/i__carry_n_7 }),
-        .DI({i__carry_i_1__0_n_0,i__carry_i_2__0_n_0,i__carry_i_3__0_n_0,i__carry_i_4__0_n_0,i__carry_i_5__0_n_0,i__carry_i_6__0_n_0,i__carry_i_7__0_n_0,i__carry_i_8__0_n_0}),
+        .DI({1'b0,1'b0,i__carry_i_1__0_n_0,i__carry_i_2__0_n_0,i__carry_i_3__0_n_0,i__carry_i_4__0_n_0,i__carry_i_5__0_n_0,i__carry_i_6__0_n_0}),
         .O(\NLW_servo_state1_inferred__1/i__carry_O_UNCONNECTED [7:0]),
-        .S({i__carry_i_9__0_n_0,i__carry_i_10__0_n_0,i__carry_i_11__0_n_0,i__carry_i_12__0_n_0,i__carry_i_13__0_n_0,i__carry_i_14__0_n_0,i__carry_i_15__0_n_0,i__carry_i_16__0_n_0}));
+        .S({i__carry_i_7__0_n_0,i__carry_i_8__0_n_0,i__carry_i_9__0_n_0,i__carry_i_10__0_n_0,i__carry_i_11__0_n_0,i__carry_i_12__0_n_0,i__carry_i_13__0_n_0,i__carry_i_14__0_n_0}));
   LUT4 #(
     .INIT(16'h0200)) 
     \slv_reg0[15]_i_1 
@@ -1815,7 +2072,7 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I1(p_0_in[1]),
         .I2(p_0_in[0]),
         .I3(s00_axi_wstrb[1]),
-        .O(p_1_in[11]));
+        .O(p_1_in[15]));
   LUT4 #(
     .INIT(16'h0200)) 
     \slv_reg0[23]_i_1 
@@ -1832,7 +2089,7 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .I2(p_0_in[0]),
         .I3(s00_axi_wstrb[3]),
         .O(p_1_in[31]));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT4 #(
     .INIT(16'h8000)) 
     \slv_reg0[31]_i_2 
@@ -1857,37 +2114,37 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .R(servo_o_i_1_n_0));
   FDRE \slv_reg0_reg[10] 
        (.C(s00_axi_aclk),
-        .CE(p_1_in[11]),
+        .CE(p_1_in[15]),
         .D(s00_axi_wdata[10]),
         .Q(slv_reg0[10]),
         .R(servo_o_i_1_n_0));
   FDRE \slv_reg0_reg[11] 
        (.C(s00_axi_aclk),
-        .CE(p_1_in[11]),
+        .CE(p_1_in[15]),
         .D(s00_axi_wdata[11]),
         .Q(slv_reg0[11]),
         .R(servo_o_i_1_n_0));
   FDRE \slv_reg0_reg[12] 
        (.C(s00_axi_aclk),
-        .CE(p_1_in[11]),
+        .CE(p_1_in[15]),
         .D(s00_axi_wdata[12]),
         .Q(slv_reg0[12]),
         .R(servo_o_i_1_n_0));
   FDRE \slv_reg0_reg[13] 
        (.C(s00_axi_aclk),
-        .CE(p_1_in[11]),
+        .CE(p_1_in[15]),
         .D(s00_axi_wdata[13]),
         .Q(slv_reg0[13]),
         .R(servo_o_i_1_n_0));
   FDRE \slv_reg0_reg[14] 
        (.C(s00_axi_aclk),
-        .CE(p_1_in[11]),
+        .CE(p_1_in[15]),
         .D(s00_axi_wdata[14]),
         .Q(slv_reg0[14]),
         .R(servo_o_i_1_n_0));
   FDRE \slv_reg0_reg[15] 
        (.C(s00_axi_aclk),
-        .CE(p_1_in[11]),
+        .CE(p_1_in[15]),
         .D(s00_axi_wdata[15]),
         .Q(slv_reg0[15]),
         .R(servo_o_i_1_n_0));
@@ -2031,13 +2288,13 @@ module servo_test_servo_generator_0_0_servo_generator_v1_0_S00_AXI
         .R(servo_o_i_1_n_0));
   FDRE \slv_reg0_reg[8] 
        (.C(s00_axi_aclk),
-        .CE(p_1_in[11]),
+        .CE(p_1_in[15]),
         .D(s00_axi_wdata[8]),
         .Q(slv_reg0[8]),
         .R(servo_o_i_1_n_0));
   FDRE \slv_reg0_reg[9] 
        (.C(s00_axi_aclk),
-        .CE(p_1_in[11]),
+        .CE(p_1_in[15]),
         .D(s00_axi_wdata[9]),
         .Q(slv_reg0[9]),
         .R(servo_o_i_1_n_0));

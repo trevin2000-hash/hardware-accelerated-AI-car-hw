@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.1 (lin64) Build 3526262 Mon Apr 18 15:47:01 MDT 2022
-// Date        : Fri Mar 28 23:56:56 2025
+// Date        : Fri Mar 28 23:56:55 2025
 // Host        : cummy running 64-bit Ubuntu 20.04.6 LTS
-// Command     : write_verilog -force -mode synth_stub
-//               /home/jizz/Documents/kv260-DPU-TDR/DPUCZDX8G/prj/Vivado/prj/KV260.gen/sources_1/bd/servo_test/ip/servo_test_auto_pc_0/servo_test_auto_pc_0_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top servo_test_auto_pc_0 -prefix
+//               servo_test_auto_pc_0_ servo_test_auto_pc_0_stub.v
 // Design      : servo_test_auto_pc_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xck26-sfvc784-2LV-c
