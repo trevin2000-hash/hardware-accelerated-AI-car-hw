@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="107.980500000 ms"></ZoomStartTime>
-      <ZoomEndTime time="167.180500001 ms"></ZoomEndTime>
-      <Cursor1Time time="111.380500000 ms"></Cursor1Time>
+      <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
+      <ZoomEndTime time="107.950000001 ms"></ZoomEndTime>
+      <Cursor1Time time="20.006585000 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="276"></NameColumnWidth>
-      <ValueColumnWidth column_width="92"></ValueColumnWidth>
+      <ValueColumnWidth column_width="84"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="30" />
+   <WVObjectSize size="31" />
    <wvobject type="array" fp_name="/servo_generator_tb/dut/servo_generator_v1_0_S00_AXI_inst/slv_reg0">
       <obj_property name="ElementShortName">slv_reg0[31:0]</obj_property>
       <obj_property name="ObjectShortName">slv_reg0[31:0]</obj_property>
@@ -68,6 +68,10 @@
    <wvobject type="logic" fp_name="/servo_generator_tb/s_axi_aclk">
       <obj_property name="ElementShortName">s_axi_aclk</obj_property>
       <obj_property name="ObjectShortName">s_axi_aclk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/servo_generator_tb/dut/servo_generator_v1_0_S00_AXI_inst/servo_ref_clk">
+      <obj_property name="ElementShortName">servo_ref_clk</obj_property>
+      <obj_property name="ObjectShortName">servo_ref_clk</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/servo_generator_tb/s_axi_aresetn">
       <obj_property name="ElementShortName">s_axi_aresetn</obj_property>

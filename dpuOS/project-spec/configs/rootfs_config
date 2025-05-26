@@ -3956,7 +3956,7 @@ CONFIG_u-boot-tools=y
 #
 # packagegroup-petalinux-gstreamer 
 #
-# CONFIG_packagegroup-petalinux-gstreamer is not set
+CONFIG_packagegroup-petalinux-gstreamer=y
 # CONFIG_packagegroup-petalinux-gstreamer-dev is not set
 # CONFIG_packagegroup-petalinux-gstreamer-dbg is not set
 
@@ -3970,7 +3970,7 @@ CONFIG_u-boot-tools=y
 #
 # packagegroup-petalinux-matchbox 
 #
-# CONFIG_packagegroup-petalinux-matchbox is not set
+CONFIG_packagegroup-petalinux-matchbox=y
 # CONFIG_packagegroup-petalinux-matchbox-dbg is not set
 # CONFIG_packagegroup-petalinux-matchbox-dev is not set
 
@@ -3984,7 +3984,7 @@ CONFIG_u-boot-tools=y
 #
 # packagegroup-petalinux-multimedia 
 #
-# CONFIG_packagegroup-petalinux-multimedia is not set
+CONFIG_packagegroup-petalinux-multimedia=y
 # CONFIG_packagegroup-petalinux-multimedia-dbg is not set
 # CONFIG_packagegroup-petalinux-multimedia-dev is not set
 
@@ -4019,7 +4019,7 @@ CONFIG_packagegroup-petalinux-networking-stack=y
 #
 # packagegroup-petalinux-opencv 
 #
-# CONFIG_packagegroup-petalinux-opencv is not set
+CONFIG_packagegroup-petalinux-opencv=y
 # CONFIG_packagegroup-petalinux-opencv-dev is not set
 # CONFIG_packagegroup-petalinux-opencv-dbg is not set
 
@@ -4033,7 +4033,7 @@ CONFIG_packagegroup-petalinux-python-modules=y
 #
 # packagegroup-petalinux-qt 
 #
-# CONFIG_packagegroup-petalinux-qt is not set
+CONFIG_packagegroup-petalinux-qt=y
 # CONFIG_packagegroup-petalinux-qt-dev is not set
 # CONFIG_packagegroup-petalinux-qt-dbg is not set
 # CONFIG_imageclass-populate-sdk-qt5 is not set
@@ -4048,7 +4048,7 @@ CONFIG_packagegroup-petalinux-python-modules=y
 #
 # packagegroup-petalinux-self-hosted 
 #
-# CONFIG_packagegroup-petalinux-self-hosted is not set
+CONFIG_packagegroup-petalinux-self-hosted=y
 # CONFIG_packagegroup-petalinux-self-hosted-dbg is not set
 # CONFIG_packagegroup-petalinux-self-hosted-dev is not set
 
@@ -4062,7 +4062,7 @@ CONFIG_packagegroup-petalinux-utils=y
 #
 # packagegroup-petalinux-v4lutils 
 #
-# CONFIG_packagegroup-petalinux-v4lutils is not set
+CONFIG_packagegroup-petalinux-v4lutils=y
 # CONFIG_packagegroup-petalinux-v4lutils-dbg is not set
 # CONFIG_packagegroup-petalinux-v4lutils-dev is not set
 
@@ -4076,7 +4076,7 @@ CONFIG_packagegroup-petalinux-utils=y
 #
 # packagegroup-petalinux-x11 
 #
-# CONFIG_packagegroup-petalinux-x11 is not set
+CONFIG_packagegroup-petalinux-x11=y
 # CONFIG_packagegroup-petalinux-x11-dev is not set
 # CONFIG_packagegroup-petalinux-x11-dbg is not set
 

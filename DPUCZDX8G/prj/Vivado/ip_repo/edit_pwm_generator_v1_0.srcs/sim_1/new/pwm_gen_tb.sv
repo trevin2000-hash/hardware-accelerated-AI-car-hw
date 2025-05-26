@@ -3,7 +3,7 @@
 module pwm_generator_v1_0_tb();
 
     // Clock period definitions
-    localparam CLK_PERIOD = 195.3125; // 5.12 MHz clock
+    localparam CLK_PERIOD = 10; // 100 MHz clock
 
     // Parameters for the DUT
     localparam C_S_AXI_DATA_WIDTH = 32;
@@ -263,7 +263,7 @@ module pwm_generator_v1_0_tb();
         axi_write(ENABLE_REG_ADDR, 32'h1);
 
         // Start with 25% duty
-        axi_write(DUTY_REG_ADDR, 16'd64);
+        axi_write(DUTY_REG_ADDR, 16'd64); 
         #150000 //wait to 3 pwm cycles
 
          // Start with 50% duty
@@ -274,12 +274,18 @@ module pwm_generator_v1_0_tb();
          axi_write(DUTY_REG_ADDR, 16'd192);
         #150000 //wait to 3 pwm cycles
 
-         // Disable motor again
-         axi_write(ENABLE_REG_ADDR, 32'h0);
+         // Disable motor again and 
+        axi_write(ENABLE_REG_ADDR, 32'h0);
+        #300000 //wait to 3 pwm cycles
+    
+        s_axi_duty_aresetn = 0;
+        #300000 //wait to 3 pwm cycles
+        
+        s_axi_duty_aresetn = 1;
         #300000 //wait to 3 pwm cycles
 
          // re-enable the motor
-         axi_write(ENABLE_REG_ADDR, 32'h1);
+        axi_write(ENABLE_REG_ADDR, 32'h1);
 
         // Start with 25% duty
         axi_write(DUTY_REG_ADDR, 16'd64);

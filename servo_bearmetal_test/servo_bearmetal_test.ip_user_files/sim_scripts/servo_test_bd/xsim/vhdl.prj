@@ -1,0 +1,7 @@
+vhdl xil_defaultlib  \
+"../../../bd/servo_test_bd/ipshared/3ca6/hdl/servo_generator_v1_0_S00_AXI.vhd" \
+"../../../bd/servo_test_bd/ipshared/3ca6/hdl/servo_generator_v1_0.vhd" \
+"../../../bd/servo_test_bd/ip/servo_test_bd_servo_generator_0_0/sim/servo_test_bd_servo_generator_0_0.vhd" \
+"../../../bd/servo_test_bd/ip/servo_test_bd_rst_ps8_0_96M_0/sim/servo_test_bd_rst_ps8_0_96M_0.vhd" \
+
+nosort

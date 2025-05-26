@@ -16,3 +16,4 @@ platform write
 platform generate -domains 
 platform active {servo_platform}
 platform generate
+platform active {servo_platform}

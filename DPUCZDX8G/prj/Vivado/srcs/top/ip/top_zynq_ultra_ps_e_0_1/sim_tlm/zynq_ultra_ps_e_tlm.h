@@ -142,8 +142,6 @@ class zynq_ultra_ps_e_tlm : public sc_core::sc_module   {
     sc_core::sc_out<bool> pl_resetn0;
     sc_core::sc_out<bool> pl_clk0;
     sc_core::sc_out<bool> pl_clk1;
-    sc_core::sc_out<bool> pl_clk2;
-    sc_core::sc_out<bool> pl_clk3;
      
     // Xtlm aximm slave sockets are delcared here. these XTLM sockets will hierachically bound with 
     // slave sockets defined in vivado generated wrapper.
@@ -205,8 +203,6 @@ class zynq_ultra_ps_e_tlm : public sc_core::sc_module   {
     // output pins pl_clk0..3 are drived by these clocks
     sc_core::sc_clock pl_clk0_clk;
     sc_core::sc_clock pl_clk1_clk;
-    sc_core::sc_clock pl_clk2_clk;
-    sc_core::sc_clock pl_clk3_clk;
 
     
     //Method which is sentive to pl_clk0_clk sc_clock object
@@ -215,12 +211,6 @@ class zynq_ultra_ps_e_tlm : public sc_core::sc_module   {
     //Method which is sentive to pl_clk1_clk sc_clock object
     //pl_clk1 pin written based on pl_clk1_clk clock value 
     void trigger_pl_clk1_pin();
-    //Method which is sentive to pl_clk2_clk sc_clock object
-    //pl_clk2 pin written based on pl_clk2_clk clock value 
-    void trigger_pl_clk2_pin();
-    //Method which is sentive to pl_clk3_clk sc_clock object
-    //pl_clk3 pin written based on pl_clk3_clk clock value 
-    void trigger_pl_clk3_pin();
 
     void pl_ps_irq0_method();
     void pl_ps_irq1_method();

@@ -54,14 +54,10 @@
 #endif
 typedef void (*funcp)(char *, char *);
 extern int main(int, char**);
-IKI_DLLESPEC extern void execute_48(char*, char *);
-IKI_DLLESPEC extern void execute_50(char*, char *);
-IKI_DLLESPEC extern void execute_51(char*, char *);
-IKI_DLLESPEC extern void execute_62(char*, char *);
-IKI_DLLESPEC extern void execute_73(char*, char *);
-IKI_DLLESPEC extern void execute_74(char*, char *);
-IKI_DLLESPEC extern void execute_75(char*, char *);
-IKI_DLLESPEC extern void execute_76(char*, char *);
+IKI_DLLESPEC extern void execute_52(char*, char *);
+IKI_DLLESPEC extern void execute_54(char*, char *);
+IKI_DLLESPEC extern void execute_55(char*, char *);
+IKI_DLLESPEC extern void execute_66(char*, char *);
 IKI_DLLESPEC extern void execute_77(char*, char *);
 IKI_DLLESPEC extern void execute_78(char*, char *);
 IKI_DLLESPEC extern void execute_79(char*, char *);
@@ -80,6 +76,10 @@ IKI_DLLESPEC extern void execute_91(char*, char *);
 IKI_DLLESPEC extern void execute_92(char*, char *);
 IKI_DLLESPEC extern void execute_93(char*, char *);
 IKI_DLLESPEC extern void execute_94(char*, char *);
+IKI_DLLESPEC extern void execute_95(char*, char *);
+IKI_DLLESPEC extern void execute_96(char*, char *);
+IKI_DLLESPEC extern void execute_97(char*, char *);
+IKI_DLLESPEC extern void execute_98(char*, char *);
 IKI_DLLESPEC extern void execute_24(char*, char *);
 IKI_DLLESPEC extern void execute_25(char*, char *);
 IKI_DLLESPEC extern void execute_26(char*, char *);
@@ -101,26 +101,30 @@ IKI_DLLESPEC extern void execute_41(char*, char *);
 IKI_DLLESPEC extern void execute_42(char*, char *);
 IKI_DLLESPEC extern void execute_43(char*, char *);
 IKI_DLLESPEC extern void execute_44(char*, char *);
-IKI_DLLESPEC extern void execute_45(char*, char *);
+IKI_DLLESPEC extern void execute_48(char*, char *);
+IKI_DLLESPEC extern void execute_51(char*, char *);
+IKI_DLLESPEC extern void execute_46(char*, char *);
 IKI_DLLESPEC extern void execute_47(char*, char *);
+IKI_DLLESPEC extern void execute_50(char*, char *);
+IKI_DLLESPEC extern void execute_73(char*, char *);
+IKI_DLLESPEC extern void execute_74(char*, char *);
+IKI_DLLESPEC extern void execute_75(char*, char *);
+IKI_DLLESPEC extern void execute_76(char*, char *);
 IKI_DLLESPEC extern void execute_69(char*, char *);
 IKI_DLLESPEC extern void execute_70(char*, char *);
 IKI_DLLESPEC extern void execute_71(char*, char *);
 IKI_DLLESPEC extern void execute_72(char*, char *);
-IKI_DLLESPEC extern void execute_65(char*, char *);
-IKI_DLLESPEC extern void execute_66(char*, char *);
-IKI_DLLESPEC extern void execute_67(char*, char *);
-IKI_DLLESPEC extern void execute_68(char*, char *);
-IKI_DLLESPEC extern void execute_95(char*, char *);
-IKI_DLLESPEC extern void execute_96(char*, char *);
-IKI_DLLESPEC extern void execute_97(char*, char *);
-IKI_DLLESPEC extern void execute_98(char*, char *);
 IKI_DLLESPEC extern void execute_99(char*, char *);
 IKI_DLLESPEC extern void execute_100(char*, char *);
+IKI_DLLESPEC extern void execute_101(char*, char *);
+IKI_DLLESPEC extern void execute_102(char*, char *);
+IKI_DLLESPEC extern void execute_103(char*, char *);
+IKI_DLLESPEC extern void execute_104(char*, char *);
 IKI_DLLESPEC extern void transaction_21(char*, char*, unsigned, unsigned, unsigned);
 IKI_DLLESPEC extern void vhdl_transfunc_eventcallback(char*, char*, unsigned, unsigned, unsigned, char *);
 IKI_DLLESPEC extern void transaction_30(char*, char*, unsigned, unsigned, unsigned);
 IKI_DLLESPEC extern void transaction_31(char*, char*, unsigned, unsigned, unsigned);
+IKI_DLLESPEC extern void transaction_32(char*, char*, unsigned, unsigned, unsigned);
 IKI_DLLESPEC extern void transaction_33(char*, char*, unsigned, unsigned, unsigned);
 IKI_DLLESPEC extern void transaction_35(char*, char*, unsigned, unsigned, unsigned);
 IKI_DLLESPEC extern void transaction_37(char*, char*, unsigned, unsigned, unsigned);
@@ -141,20 +145,21 @@ IKI_DLLESPEC extern void transaction_65(char*, char*, unsigned, unsigned, unsign
 IKI_DLLESPEC extern void transaction_67(char*, char*, unsigned, unsigned, unsigned);
 IKI_DLLESPEC extern void transaction_69(char*, char*, unsigned, unsigned, unsigned);
 IKI_DLLESPEC extern void transaction_71(char*, char*, unsigned, unsigned, unsigned);
-IKI_DLLESPEC extern void transaction_94(char*, char*, unsigned, unsigned, unsigned);
+IKI_DLLESPEC extern void transaction_91(char*, char*, unsigned, unsigned, unsigned);
 IKI_DLLESPEC extern void transaction_95(char*, char*, unsigned, unsigned, unsigned);
-IKI_DLLESPEC extern void transaction_99(char*, char*, unsigned, unsigned, unsigned);
-IKI_DLLESPEC extern void transaction_100(char*, char*, unsigned, unsigned, unsigned);
+IKI_DLLESPEC extern void transaction_96(char*, char*, unsigned, unsigned, unsigned);
+IKI_DLLESPEC extern void transaction_103(char*, char*, unsigned, unsigned, unsigned);
+IKI_DLLESPEC extern void transaction_104(char*, char*, unsigned, unsigned, unsigned);
 IKI_DLLESPEC extern void vlog_transfunc_eventcallback(char*, char*, unsigned, unsigned, unsigned, char *);
 IKI_DLLESPEC extern void transaction_0(char*, char*, unsigned, unsigned, unsigned);
-funcp funcTab[93] = {(funcp)execute_48, (funcp)execute_50, (funcp)execute_51, (funcp)execute_62, (funcp)execute_73, (funcp)execute_74, (funcp)execute_75, (funcp)execute_76, (funcp)execute_77, (funcp)execute_78, (funcp)execute_79, (funcp)execute_80, (funcp)execute_81, (funcp)execute_82, (funcp)execute_83, (funcp)execute_84, (funcp)execute_85, (funcp)execute_86, (funcp)execute_87, (funcp)execute_88, (funcp)execute_89, (funcp)execute_90, (funcp)execute_91, (funcp)execute_92, (funcp)execute_93, (funcp)execute_94, (funcp)execute_24, (funcp)execute_25, (funcp)execute_26, (funcp)execute_27, (funcp)execute_28, (funcp)execute_29, (funcp)execute_30, (funcp)execute_31, (funcp)execute_32, (funcp)execute_33, (funcp)execute_34, (funcp)execute_35, (funcp)execute_36, (funcp)execute_37, (funcp)execute_38, (funcp)execute_39, (funcp)execute_40, (funcp)execute_41, (funcp)execute_42, (funcp)execute_43, (funcp)execute_44, (funcp)execute_45, (funcp)execute_47, (funcp)execute_69, (funcp)execute_70, (funcp)execute_71, (funcp)execute_72, (funcp)execute_65, (funcp)execute_66, (funcp)execute_67, (funcp)execute_68, (funcp)execute_95, (funcp)execute_96, (funcp)execute_97, (funcp)execute_98, (funcp)execute_99, (funcp)execute_100, (funcp)transaction_21, (funcp)vhdl_transfunc_eventcallback, (funcp)transaction_30, (funcp)transaction_31, (funcp)transaction_33, (funcp)transaction_35, (funcp)transaction_37, (funcp)transaction_39, (funcp)transaction_41, (funcp)transaction_43, (funcp)transaction_45, (funcp)transaction_47, (funcp)transaction_49, (funcp)transaction_51, (funcp)transaction_53, (funcp)transaction_55, (funcp)transaction_57, (funcp)transaction_59, (funcp)transaction_61, (funcp)transaction_63, (funcp)transaction_65, (funcp)transaction_67, (funcp)transaction_69, (funcp)transaction_71, (funcp)transaction_94, (funcp)transaction_95, (funcp)transaction_99, (funcp)transaction_100, (funcp)vlog_transfunc_eventcallback, (funcp)transaction_0};
-const int NumRelocateId= 93;
+funcp funcTab[98] = {(funcp)execute_52, (funcp)execute_54, (funcp)execute_55, (funcp)execute_66, (funcp)execute_77, (funcp)execute_78, (funcp)execute_79, (funcp)execute_80, (funcp)execute_81, (funcp)execute_82, (funcp)execute_83, (funcp)execute_84, (funcp)execute_85, (funcp)execute_86, (funcp)execute_87, (funcp)execute_88, (funcp)execute_89, (funcp)execute_90, (funcp)execute_91, (funcp)execute_92, (funcp)execute_93, (funcp)execute_94, (funcp)execute_95, (funcp)execute_96, (funcp)execute_97, (funcp)execute_98, (funcp)execute_24, (funcp)execute_25, (funcp)execute_26, (funcp)execute_27, (funcp)execute_28, (funcp)execute_29, (funcp)execute_30, (funcp)execute_31, (funcp)execute_32, (funcp)execute_33, (funcp)execute_34, (funcp)execute_35, (funcp)execute_36, (funcp)execute_37, (funcp)execute_38, (funcp)execute_39, (funcp)execute_40, (funcp)execute_41, (funcp)execute_42, (funcp)execute_43, (funcp)execute_44, (funcp)execute_48, (funcp)execute_51, (funcp)execute_46, (funcp)execute_47, (funcp)execute_50, (funcp)execute_73, (funcp)execute_74, (funcp)execute_75, (funcp)execute_76, (funcp)execute_69, (funcp)execute_70, (funcp)execute_71, (funcp)execute_72, (funcp)execute_99, (funcp)execute_100, (funcp)execute_101, (funcp)execute_102, (funcp)execute_103, (funcp)execute_104, (funcp)transaction_21, (funcp)vhdl_transfunc_eventcallback, (funcp)transaction_30, (funcp)transaction_31, (funcp)transaction_32, (funcp)transaction_33, (funcp)transaction_35, (funcp)transaction_37, (funcp)transaction_39, (funcp)transaction_41, (funcp)transaction_43, (funcp)transaction_45, (funcp)transaction_47, (funcp)transaction_49, (funcp)transaction_51, (funcp)transaction_53, (funcp)transaction_55, (funcp)transaction_57, (funcp)transaction_59, (funcp)transaction_61, (funcp)transaction_63, (funcp)transaction_65, (funcp)transaction_67, (funcp)transaction_69, (funcp)transaction_71, (funcp)transaction_91, (funcp)transaction_95, (funcp)transaction_96, (funcp)transaction_103, (funcp)transaction_104, (funcp)vlog_transfunc_eventcallback, (funcp)transaction_0};
+const int NumRelocateId= 98;
 
 void relocate(char *dp)
 {
-	iki_relocate(dp, "xsim.dir/pwm_generator_v1_0_tb_behav/xsim.reloc",  (void **)funcTab, 93);
-	iki_vhdl_file_variable_register(dp + 33696);
-	iki_vhdl_file_variable_register(dp + 33752);
+	iki_relocate(dp, "xsim.dir/pwm_generator_v1_0_tb_behav/xsim.reloc",  (void **)funcTab, 98);
+	iki_vhdl_file_variable_register(dp + 34664);
+	iki_vhdl_file_variable_register(dp + 34720);
 
 
 	/*Populate the transaction function pointer field in the whole net structure */
@@ -170,27 +175,27 @@ void simulate(char *dp)
 		iki_schedule_processes_at_time_zero(dp, "xsim.dir/pwm_generator_v1_0_tb_behav/xsim.reloc");
 	// Initialize Verilog nets in mixed simulation, for the cases when the value at time 0 should be propagated from the mixed language Vhdl net
 
-	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 46760, dp + 36504, 0, 0, 0, 0, 1, 1);
+	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 47728, dp + 37472, 0, 0, 0, 0, 1, 1);
 
-	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 47064, dp + 37512, 0, 0, 0, 0, 1, 1);
+	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 48032, dp + 38480, 0, 0, 0, 0, 1, 1);
 
-	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 47256, dp + 37960, 0, 0, 0, 0, 1, 1);
+	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 48224, dp + 38928, 0, 0, 0, 0, 1, 1);
 
-	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 47312, dp + 38072, 0, 1, 0, 1, 2, 1);
+	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 48280, dp + 39040, 0, 1, 0, 1, 2, 1);
 
-	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 47352, dp + 38184, 0, 0, 0, 0, 1, 1);
+	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 48320, dp + 39152, 0, 0, 0, 0, 1, 1);
 
-	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 47600, dp + 38744, 0, 0, 0, 0, 1, 1);
+	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 48568, dp + 39712, 0, 0, 0, 0, 1, 1);
 
-	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 47656, dp + 38856, 0, 31, 0, 31, 32, 1);
+	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 48624, dp + 39824, 0, 31, 0, 31, 32, 1);
 
-	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 47696, dp + 38968, 0, 1, 0, 1, 2, 1);
+	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 48664, dp + 39936, 0, 1, 0, 1, 2, 1);
 
-	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 47736, dp + 39080, 0, 0, 0, 0, 1, 1);
+	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 48704, dp + 40048, 0, 0, 0, 0, 1, 1);
 
-	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 50040, dp + 54752, 0, 0, 0, 0, 1, 1);
+	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 51064, dp + 56696, 0, 0, 0, 0, 1, 1);
 
-	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 50096, dp + 54808, 0, 0, 0, 0, 1, 1);
+	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 51120, dp + 56752, 0, 0, 0, 0, 1, 1);
 	iki_execute_processes();
 
 	// Schedule resolution functions for the multiply driven Verilog nets that have strength

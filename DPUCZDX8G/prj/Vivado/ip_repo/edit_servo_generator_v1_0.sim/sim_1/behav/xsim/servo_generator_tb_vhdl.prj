@@ -2,6 +2,7 @@
 vhdl xil_defaultlib  \
 "../../../../servo_generator_1.0/hdl/servo_generator_v1_0.vhd" \
 "../../../../servo_generator_1.0/hdl/servo_generator_v1_0_S00_AXI.vhd" \
+"../../../../edit_servo_generator_v1_0.srcs/sources_1/imports/hdl/servo_ref_clk_divider.vhd" \
 
 # Do not sort compile order
 nosort

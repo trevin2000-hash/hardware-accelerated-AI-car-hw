@@ -1,4 +1,4 @@
-`timescale 100 ns / 1ns
+`timescale 1 ns / 10ps
 
 module servo_generator_tb();
     // Clock and reset
@@ -62,8 +62,8 @@ module servo_generator_tb();
                              .s00_axi_rready(s_axi_rready)
                          );
 
-    // Clock generation (100MHz - adjust if your system uses a different frequency)
-    always #5 s_axi_aclk = ~s_axi_aclk; //200Mhz clock, the count need to increment once every 1us
+ 
+    always #5 s_axi_aclk = ~s_axi_aclk; // 00 Mhz clock
 
     // Task to write to an AXI-Lite register
     task axi_write(input [3:0] addr, input [31:0] data);
@@ -182,7 +182,7 @@ module servo_generator_tb();
         //     measure_pulse();
         // end
 
-        #800000 //wait for two pulses
+        #80000000 //wait for two pulses
 
          // Test 2: Configure for 1.5ms pulse width (1500us) - center position
          $display("Test 2: Setting 1.5ms pulse width");
@@ -196,7 +196,7 @@ module servo_generator_tb();
         //     measure_pulse();
         // end
 
-        #800000
+        #80000000
 
          // Test 3: Configure for 2ms pulse width (2000us)
          $display("Test 3: Setting 2ms pulse width");
@@ -209,7 +209,7 @@ module servo_generator_tb();
         //     measure_pulse();
         // end
 
-        #800000
+        #80000000
 
          s_axi_aresetn  = 1'b0; //rest to test it being resetted
 
@@ -227,7 +227,7 @@ module servo_generator_tb();
         //     measure_pulse();
         // end
 
-        #800000 //wait for two pulses
+        #80000000 //wait for two pulses
 
          // Test 2: Configure for 1.5ms pulse width (1500us) - center position
          $display("Test 2: Setting 1.5ms pulse width");
@@ -241,7 +241,7 @@ module servo_generator_tb();
         //     measure_pulse();
         // end
 
-        #800000
+        #80000000
 
          // Test 3: Configure for 2ms pulse width (2000us)
          $display("Test 3: Setting 2ms pulse width");
@@ -258,7 +258,7 @@ module servo_generator_tb();
         axi_read(4'h0, read_data);
         $display("Read back value from register 0: %d", read_data);
 
-        #800000
+        #80000000
 
          $display("All tests completed");
         #100000;  // Run a bit longer to observe behavior

@@ -262,9 +262,7 @@ pl_ps_irq0,
 pl_ps_irq1, 
 pl_resetn0, 
 pl_clk0, 
-pl_clk1, 
-pl_clk2, 
-pl_clk3 
+pl_clk1 
 );
 input maxihpm0_fpd_aclk;
 output [15 : 0] maxigp0_awid;
@@ -471,8 +469,6 @@ input [0 : 0] pl_ps_irq1;
 output pl_resetn0;
 output pl_clk0;
 output pl_clk1;
-output pl_clk2;
-output pl_clk3;
 wire pl_clk_t[3:0] ;
 
 wire saxihpc0_fpd_rclk_temp;
@@ -495,9 +491,9 @@ assign pl_clk0 = pl_clk_t[0] ;
 
  assign pl_clk1 = pl_clk_t[1] ;
 
-assign pl_clk2 = pl_clk_t[2] ;
+ assign  pl_clk2 = 1'b0 ;
 
- assign  pl_clk3 = pl_clk_t[3] ;
+ assign  pl_clk3 = 1'b0 ;
 
   
    

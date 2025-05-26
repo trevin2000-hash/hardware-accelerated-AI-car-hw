@@ -7,8 +7,7 @@
       "name": "servo_test",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2022.1",
-      "validated": "true"
+      "tool_version": "2022.1"
     },
     "design_tree": {
       "zynq_ultra_ps_e_0": "",
@@ -1722,7 +1721,7 @@
         "inst_hier_path": "rst_ps8_0_99M"
       },
       "servo_generator_0": {
-        "vlnv": "user.org:user:servo_generator:1.0",
+        "vlnv": "user.org:user:servo_generator:2.3",
         "xci_name": "servo_test_servo_generator_0_0",
         "xci_path": "ip/servo_test_servo_generator_0_0/servo_test_servo_generator_0_0.xci",
         "inst_hier_path": "servo_generator_0"

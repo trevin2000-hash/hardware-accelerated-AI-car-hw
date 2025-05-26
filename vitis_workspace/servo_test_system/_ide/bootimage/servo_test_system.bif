@@ -1,0 +1,7 @@
+//arch = zynqmp; split = false; format = BIN
+the_ROM_image:
+{
+	[bootloader, destination_cpu = a53-0]/home/jizz/Documents/kv260-DPU-TDR/vitis_workspace/servo_platform/export/servo_platform/sw/servo_platform/boot/fsbl.elf
+	[destination_device = pl]/home/jizz/Documents/kv260-DPU-TDR/vitis_workspace/servo_test/_ide/bitstream/servo_test_bd_wrapper.bit
+	[destination_cpu = a53-0]/home/jizz/Documents/kv260-DPU-TDR/vitis_workspace/servo_test/Debug/servo_test.elf
+}

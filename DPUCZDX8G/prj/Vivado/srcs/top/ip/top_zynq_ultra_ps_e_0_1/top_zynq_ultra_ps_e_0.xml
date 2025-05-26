@@ -14731,7 +14731,7 @@
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.PL_CLK2" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PSU__FPGA_PL2_ENABLE))=1)">true</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.PL_CLK2" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PSU__FPGA_PL2_ENABLE))=1)">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:busInterfaceInfo>
       </spirit:vendorExtensions>
@@ -14828,7 +14828,7 @@
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.PL_CLK3" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PSU__FPGA_PL3_ENABLE))=1)">true</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.PL_CLK3" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PSU__FPGA_PL3_ENABLE))=1)">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:busInterfaceInfo>
       </spirit:vendorExtensions>
@@ -31787,11 +31787,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Apr 02 22:16:19 UTC 2025</spirit:value>
+            <spirit:value>Thu Apr 10 21:52:56 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:d77de724</spirit:value>
+            <spirit:value>9:794d7f26</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -31802,7 +31802,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:d77de724</spirit:value>
+            <spirit:value>9:794d7f26</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -31818,11 +31818,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Apr 02 22:16:20 UTC 2025</spirit:value>
+            <spirit:value>Thu Apr 10 21:52:57 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:d77de724</spirit:value>
+            <spirit:value>9:794d7f26</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -31843,11 +31843,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Mar 19 16:46:26 UTC 2025</spirit:value>
+            <spirit:value>Thu Apr 10 21:52:57 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:dc6e6516</spirit:value>
+            <spirit:value>9:9dccedf2</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -31863,11 +31863,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Apr 02 22:16:21 UTC 2025</spirit:value>
+            <spirit:value>Thu Apr 10 21:52:58 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:cc6bd4ce</spirit:value>
+            <spirit:value>9:48ae2626</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>sim_type</spirit:name>
@@ -31886,11 +31886,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Apr 02 22:16:22 UTC 2025</spirit:value>
+            <spirit:value>Thu Apr 10 21:52:59 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:dc6e6516</spirit:value>
+            <spirit:value>9:9dccedf2</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -31906,11 +31906,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Apr 02 22:16:22 UTC 2025</spirit:value>
+            <spirit:value>Thu Apr 10 21:52:59 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:cc6bd4ce</spirit:value>
+            <spirit:value>9:48ae2626</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>sim_type</spirit:name>
@@ -31925,7 +31925,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:d77de724</spirit:value>
+            <spirit:value>9:794d7f26</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -54609,7 +54609,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.pl_clk2" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PSU__FPGA_PL2_ENABLE))=1)">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.pl_clk2" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PSU__FPGA_PL2_ENABLE))=1)">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -54629,7 +54629,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.pl_clk3" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PSU__FPGA_PL3_ENABLE))=1)">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.pl_clk3" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PSU__FPGA_PL3_ENABLE))=1)">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -66801,11 +66801,11 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="STRING">
         <spirit:name>C_PL_CLK2_BUF</spirit:name>
-        <spirit:value spirit:resolve="dependent" spirit:id="MODELPARAM_VALUE.C_PL_CLK2_BUF" spirit:dependency="spirit:decode(id(PARAM_VALUE.PSU__PL_CLK2_BUF))">TRUE</spirit:value>
+        <spirit:value spirit:resolve="dependent" spirit:id="MODELPARAM_VALUE.C_PL_CLK2_BUF" spirit:dependency="spirit:decode(id(PARAM_VALUE.PSU__PL_CLK2_BUF))">FALSE</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="STRING">
         <spirit:name>C_PL_CLK3_BUF</spirit:name>
-        <spirit:value spirit:resolve="dependent" spirit:id="MODELPARAM_VALUE.C_PL_CLK3_BUF" spirit:dependency="spirit:decode(id(PARAM_VALUE.PSU__PL_CLK3_BUF))">TRUE</spirit:value>
+        <spirit:value spirit:resolve="dependent" spirit:id="MODELPARAM_VALUE.C_PL_CLK3_BUF" spirit:dependency="spirit:decode(id(PARAM_VALUE.PSU__PL_CLK3_BUF))">FALSE</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="INTEGER">
         <spirit:name>C_TRACE_PIPELINE_WIDTH</spirit:name>
@@ -69144,12 +69144,12 @@
     <spirit:parameter>
       <spirit:name>PSU__FPGA_PL2_ENABLE</spirit:name>
       <spirit:displayName>PL2</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__FPGA_PL2_ENABLE" spirit:choiceRef="choice_list_8af5a703">1</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__FPGA_PL2_ENABLE" spirit:choiceRef="choice_list_8af5a703">0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__FPGA_PL3_ENABLE</spirit:name>
       <spirit:displayName>PL3</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__FPGA_PL3_ENABLE" spirit:choiceRef="choice_list_8af5a703">1</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__FPGA_PL3_ENABLE" spirit:choiceRef="choice_list_8af5a703">0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__ENET1__GRP_MDIO__IO</spirit:name>
@@ -78977,11 +78977,25 @@ SB 0#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#MDI
       <spirit:name>PSU__CRL_APB__PL2_REF_CTRL__SRCSEL</spirit:name>
       <spirit:displayName>PL2 CLKSRC</spirit:displayName>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__CRL_APB__PL2_REF_CTRL__SRCSEL" spirit:choiceRef="choice_list_c27c51c5">RPLL</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU__CRL_APB__PL2_REF_CTRL__SRCSEL">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__CRL_APB__PL3_REF_CTRL__SRCSEL</spirit:name>
       <spirit:displayName>PL3 CLKSRC</spirit:displayName>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__CRL_APB__PL3_REF_CTRL__SRCSEL" spirit:choiceRef="choice_list_c27c51c5">RPLL</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU__CRL_APB__PL3_REF_CTRL__SRCSEL">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__CRF_APB__GDMA_REF_CTRL__SRCSEL</spirit:name>
@@ -79334,11 +79348,11 @@ SB 0#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#MDI
     <spirit:parameter>
       <spirit:name>PSU__PL_CLK2_BUF</spirit:name>
       <spirit:displayName>PL2</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__PL_CLK2_BUF" spirit:choiceRef="choice_list_d10f4555">TRUE</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__PL_CLK2_BUF" spirit:choiceRef="choice_list_d10f4555">FALSE</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.PSU__PL_CLK2_BUF" xilinx:dependency="((spirit:decode(id(PARAM_VALUE.PSU__CRL_APB__PL2_REF_CTRL__ACT_FREQMHZ)) > 0)&amp;&amp;(spirit:decode(id(PARAM_VALUE.PSU__FPGA_PL2_ENABLE)) == 1))">true</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.PSU__PL_CLK2_BUF" xilinx:dependency="((spirit:decode(id(PARAM_VALUE.PSU__CRL_APB__PL2_REF_CTRL__ACT_FREQMHZ)) > 0)&amp;&amp;(spirit:decode(id(PARAM_VALUE.PSU__FPGA_PL2_ENABLE)) == 1))">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
@@ -79346,11 +79360,11 @@ SB 0#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#MDI
     <spirit:parameter>
       <spirit:name>PSU__PL_CLK3_BUF</spirit:name>
       <spirit:displayName>PL3</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__PL_CLK3_BUF" spirit:choiceRef="choice_list_d10f4555">TRUE</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__PL_CLK3_BUF" spirit:choiceRef="choice_list_d10f4555">FALSE</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.PSU__PL_CLK3_BUF" xilinx:dependency="((spirit:decode(id(PARAM_VALUE.PSU__CRL_APB__PL3_REF_CTRL__ACT_FREQMHZ)) > 0)&amp;&amp;(spirit:decode(id(PARAM_VALUE.PSU__FPGA_PL3_ENABLE)) == 1))">true</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.PSU__PL_CLK3_BUF" xilinx:dependency="((spirit:decode(id(PARAM_VALUE.PSU__CRL_APB__PL3_REF_CTRL__ACT_FREQMHZ)) > 0)&amp;&amp;(spirit:decode(id(PARAM_VALUE.PSU__FPGA_PL3_ENABLE)) == 1))">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
@@ -79825,12 +79839,26 @@ SB 0#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#MDI
     <spirit:parameter>
       <spirit:name>PSU__CRL_APB__PL2_REF_CTRL__FREQMHZ</spirit:name>
       <spirit:displayName>PL2</spirit:displayName>
-      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__CRL_APB__PL2_REF_CTRL__FREQMHZ" spirit:minimum="0.000000" spirit:maximum="1600.000000">1</spirit:value>
+      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__CRL_APB__PL2_REF_CTRL__FREQMHZ" spirit:minimum="0.000000" spirit:maximum="1600.000000">100</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU__CRL_APB__PL2_REF_CTRL__FREQMHZ">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__CRL_APB__PL3_REF_CTRL__FREQMHZ</spirit:name>
       <spirit:displayName>PL3</spirit:displayName>
-      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__CRL_APB__PL3_REF_CTRL__FREQMHZ" spirit:minimum="0.000000" spirit:maximum="1600.000000">5.12</spirit:value>
+      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__CRL_APB__PL3_REF_CTRL__FREQMHZ" spirit:minimum="0.000000" spirit:maximum="1600.000000">100</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU__CRL_APB__PL3_REF_CTRL__FREQMHZ">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__CRF_APB__GDMA_REF_CTRL__FREQMHZ</spirit:name>

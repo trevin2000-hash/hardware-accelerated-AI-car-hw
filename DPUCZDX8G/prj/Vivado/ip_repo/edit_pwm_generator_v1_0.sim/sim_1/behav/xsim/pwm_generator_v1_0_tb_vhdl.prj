@@ -2,6 +2,7 @@
 vhdl xil_defaultlib  \
 "../../../../pwm_generator_1.0/hdl/pwm_generator_v1_0.vhd" \
 "../../../../pwm_generator_1.0/hdl/pwm_generator_v1_0_S_AXI_DUTY.vhd" \
+"../../../../edit_pwm_generator_v1_0.srcs/sources_1/imports/hdl/pwm_ref_clk_divider.vhd" \
 
 # Do not sort compile order
 nosort

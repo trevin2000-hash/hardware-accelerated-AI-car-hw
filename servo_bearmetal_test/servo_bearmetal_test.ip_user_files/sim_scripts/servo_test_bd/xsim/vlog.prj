@@ -1,0 +1,12 @@
+verilog xil_defaultlib --include "/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/include" --include "../../../../servo_bearmetal_test.gen/sources_1/bd/servo_test_bd/ipshared/ec67/hdl" --include "../../../../servo_bearmetal_test.gen/sources_1/bd/servo_test_bd/ipshared/8cdf/hdl" \
+"../../../bd/servo_test_bd/ip/servo_test_bd_zynq_ultra_ps_e_0_0/sim/servo_test_bd_zynq_ultra_ps_e_0_0_vip_wrapper.v" \
+"../../../bd/servo_test_bd/ip/servo_test_bd_xbar_0/sim/servo_test_bd_xbar_0.v" \
+"../../../bd/servo_test_bd/ip/servo_test_bd_auto_ds_0/sim/servo_test_bd_auto_ds_0.v" \
+"../../../bd/servo_test_bd/ip/servo_test_bd_auto_pc_0/sim/servo_test_bd_auto_pc_0.v" \
+"../../../bd/servo_test_bd/ip/servo_test_bd_auto_ds_1/sim/servo_test_bd_auto_ds_1.v" \
+"../../../bd/servo_test_bd/ip/servo_test_bd_auto_pc_1/sim/servo_test_bd_auto_pc_1.v" \
+"../../../bd/servo_test_bd/sim/servo_test_bd.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

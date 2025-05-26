@@ -1,59 +1,93 @@
 {
    "ActiveEmotionalView":"Color Coded",
+   "Addressing View_ExpandedHierarchyInLayout":"",
+   "Addressing View_Layers":"/hier_dpu/hier_dpu_clk/dpu_clk_wiz_clk_dpu:false|/hier_dpu/hier_dpu_clk/rst_gen_clk_interconnect_aresetn:false|/hier_dpu/DPUCZDX8G_dpu0_interrupt:false|/rst_gen_ghp_peripheral_aresetn:false|/hier_dpu/DPUCZDX8G_dpu_2x_clk_ce:false|/S_AXI_RSTn_1:false|/zynq_ultra_ps_e_pl_resetn0:false|/hier_dpu/hier_dpu_clk/dpu_clk_wiz_clk_dsp:false|/zynq_ultra_ps_e_pl_clk1:false|/hier_dpu/hier_dpu_clk/rst_gen_clk_peripheral_aresetn:false|/zynq_ultra_ps_e_pl_clk0:false|/hier_dpu/hier_dpu_clk/rst_gen_clk_dsp_peripheral_aresetn:false|/proc_sys_reset_0_peripheral_aresetn:false|/rst_gen_reg_peripheral_aresetn:false|",
+   "Addressing View_Layout":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port port-id_servo_o -pg 1 -lvl 6 -x 1440 -y 60 -defaultsOSRD
+preplace port port-id_pwm_left_o -pg 1 -lvl 6 -x 1440 -y 20 -defaultsOSRD
+preplace port port-id_pwm_right_o -pg 1 -lvl 6 -x 1440 -y 40 -defaultsOSRD
+preplace inst hier_dpu -pg 1 -lvl 2 -x 180 -y 130 -defaultsOSRD
+preplace inst zynq_ultra_ps_e -pg 1 -lvl 3 -x 620 -y 130 -defaultsOSRD
+preplace inst axi_interconnect_0 -pg 1 -lvl 4 -x 1060 -y 140 -defaultsOSRD
+preplace inst pwm_generator_right -pg 1 -lvl 5 -x 1310 -y 260 -defaultsOSRD
+preplace inst pwm_generator_left -pg 1 -lvl 5 -x 1310 -y 60 -defaultsOSRD
+preplace inst servo_generator -pg 1 -lvl 5 -x 1310 -y 160 -defaultsOSRD
+preplace netloc dpu_concat_irq_dout 1 2 1 740J 290n
+preplace netloc hier_dpu_GHP_CLK_O 1 2 1 720 190n
+preplace netloc hier_dpu_INTR 1 1 2 410 290n 700
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 3 2 1400 140n 1700
+preplace netloc rst_gen_ghp_peripheral_aresetn 1 1 1 400 230n
+preplace netloc zynq_ultra_ps_e_pl_clk0 1 0 5 20 10n 390 50n 730 60n 1390 130n 1720
+preplace netloc zynq_ultra_ps_e_pl_clk1 1 0 4 30 280n 390 280n 710J 70n 1370
+preplace netloc zynq_ultra_ps_e_pl_resetn0 1 0 4 20 410n NJ 410n 740 370n 1360
+preplace netloc rst_gen_reg_peripheral_aresetn 1 1 1 400 150n
+preplace netloc S00_AXI_1 1 3 1 N 140
+preplace netloc axi_interconnect_0_M00_AXI 1 4 1 1200 60n
+preplace netloc axi_interconnect_0_M01_AXI 1 4 1 1200 140n
+preplace netloc axi_interconnect_0_M02_AXI 1 4 1 N 160
+preplace netloc hier_dpu_M_AXI_HP0_FPD 1 2 1 N 110
+preplace netloc hier_dpu_M_AXI_HP1_FPD 1 2 1 N 130
+preplace netloc hier_dpu_M_AXI_LPD 1 2 1 N 150
+preplace netloc zynq_ultra_ps_e_M_AXI_HPM0_LPD 1 1 3 50 40 NJ 40 920
+levelinfo -pg 1 0 30 180 620 1060 1310 1440
+pagesize -pg 1 -db -bbox -sgen 0 0 1580 320
+",
+   "Addressing View_ScaleFactor":"0.884177",
+   "Addressing View_TopLeft":"1,-472",
    "Color Coded_ExpandedHierarchyInLayout":"",
    "Color Coded_Layers":"/hier_dpu/DPUCZDX8G_dpu0_interrupt:true|/hier_dpu/hier_dpu_clk/rst_gen_clk_dsp_peripheral_aresetn:true|/rst_gen_ghp_peripheral_aresetn:true|/hier_dpu/hier_dpu_clk/rst_gen_clk_peripheral_aresetn:true|/zynq_ultra_ps_e_pl_clk0:true|/zynq_ultra_ps_e_pl_resetn0:true|/hier_dpu/DPUCZDX8G_dpu_2x_clk_ce:true|/hier_dpu/hier_dpu_clk/dpu_clk_wiz_clk_dsp:true|/rst_gen_reg_peripheral_aresetn:true|/hier_dpu/hier_dpu_clk/rst_gen_clk_interconnect_aresetn:true|/zynq_ultra_ps_e_pl_clk1:true|/hier_dpu/hier_dpu_clk/dpu_clk_wiz_clk_dpu:true|",
    "Color Coded_Layout":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
-preplace port port-id_servo_o -pg 1 -lvl 6 -x 2040 -y 400 -defaultsOSRD
-preplace port port-id_pwm_left_o -pg 1 -lvl 6 -x 2040 -y 110 -defaultsOSRD
-preplace port port-id_pwm_right_o -pg 1 -lvl 6 -x 2040 -y 250 -defaultsOSRD
-preplace inst hier_dpu -pg 1 -lvl 2 -x 570 -y 120 -defaultsOSRD
-preplace inst dpu_concat_irq -pg 1 -lvl 2 -x 570 -y 380 -defaultsOSRD
-preplace inst rst_gen_ghp -pg 1 -lvl 1 -x 220 -y 140 -defaultsOSRD
-preplace inst rst_gen_reg -pg 1 -lvl 1 -x 220 -y 350 -defaultsOSRD
-preplace inst zynq_ultra_ps_e -pg 1 -lvl 3 -x 1070 -y 170 -defaultsOSRD
-preplace inst axi_interconnect_0 -pg 1 -lvl 4 -x 1590 -y 230 -defaultsOSRD
-preplace inst pwm_generator_0 -pg 1 -lvl 5 -x 1890 -y 110 -defaultsOSRD
-preplace inst pwm_generator_1 -pg 1 -lvl 5 -x 1890 -y 250 -defaultsOSRD
-preplace inst servo_generator_0 -pg 1 -lvl 5 -x 1890 -y 400 -defaultsOSRD
-preplace inst rst_ps8_5M -pg 1 -lvl 3 -x 1070 -y 790 -defaultsOSRD
-preplace inst rst_ps8_0M -pg 1 -lvl 3 -x 1070 -y 590 -defaultsOSRD
-preplace netloc dpu_concat_irq_dout 1 2 1 760J 240n
-preplace netloc hier_dpu_GHP_CLK_O 1 2 1 720 140n
-preplace netloc hier_dpu_INTR 1 1 2 430 440 710
-preplace netloc rst_gen_ghp_peripheral_aresetn 1 1 1 N 180
-preplace netloc rst_gen_reg_peripheral_aresetn 1 1 3 420 230 730J 10 1420
-preplace netloc zynq_ultra_ps_e_pl_clk0 1 0 4 30 240 410 240 740 20 1410
-preplace netloc zynq_ultra_ps_e_pl_clk1 1 0 4 20 40 400 310 720J 330 1380
-preplace netloc zynq_ultra_ps_e_pl_resetn0 1 0 4 20 250 NJ 250 740 340 1400
-preplace netloc pwm_generator_0_pwm_o 1 5 1 NJ 110
-preplace netloc pwm_generator_1_pwm_o 1 5 1 NJ 250
-preplace netloc zynq_ultra_ps_e_pl_clk3 1 2 3 750 390 1420 390 1750
-preplace netloc servo_generator_0_servo_o 1 5 1 NJ 400
-preplace netloc zynq_ultra_ps_e_pl_clk2 1 2 3 760 400 1410 400 NJ
-preplace netloc rst_ps8_5M_peripheral_aresetn 1 3 2 1430 410 1760
-preplace netloc rst_ps8_0M_peripheral_aresetn 1 3 2 1440 420 NJ
-preplace netloc hier_dpu_M_AXI_HP0_FPD 1 2 1 N 80
-preplace netloc hier_dpu_M_AXI_HP1_FPD 1 2 1 N 100
-preplace netloc hier_dpu_M_AXI_LPD 1 2 1 N 120
-preplace netloc zynq_ultra_ps_e_M_AXI_HPM0_LPD 1 1 3 430 320 NJ 320 1390
-preplace netloc axi_interconnect_0_M00_AXI 1 4 1 1740 90n
-preplace netloc axi_interconnect_0_M01_AXI 1 4 1 N 230
-preplace netloc axi_interconnect_0_M02_AXI 1 4 1 1740 250n
-preplace netloc zynq_ultra_ps_e_M_AXI_HPM1_FPD 1 3 1 N 130
-levelinfo -pg 1 0 220 570 1070 1590 1890 2040
-pagesize -pg 1 -db -bbox -sgen 0 0 2180 890
+preplace port port-id_servo_o -pg 1 -lvl 6 -x 2140 -y 320 -defaultsOSRD
+preplace port port-id_pwm_left_o -pg 1 -lvl 6 -x 2140 -y 180 -defaultsOSRD
+preplace port port-id_pwm_right_o -pg 1 -lvl 6 -x 2140 -y 460 -defaultsOSRD
+preplace inst hier_dpu -pg 1 -lvl 2 -x 650 -y 170 -defaultsOSRD
+preplace inst dpu_concat_irq -pg 1 -lvl 2 -x 650 -y 350 -defaultsOSRD
+preplace inst rst_gen_ghp -pg 1 -lvl 1 -x 210 -y 520 -defaultsOSRD
+preplace inst rst_gen_reg -pg 1 -lvl 1 -x 210 -y 110 -defaultsOSRD
+preplace inst zynq_ultra_ps_e -pg 1 -lvl 3 -x 1171 -y 220 -defaultsOSRD
+preplace inst axi_interconnect_0 -pg 1 -lvl 4 -x 1680 -y 300 -defaultsOSRD
+preplace inst proc_sys_reset_0 -pg 1 -lvl 3 -x 1171 -y 520 -swap {0 1 2 3 4 9 6 7 8 5} -defaultsOSRD
+preplace inst pwm_generator_right -pg 1 -lvl 5 -x 1990 -y 460 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 22 21} -defaultsOSRD
+preplace inst pwm_generator_left -pg 1 -lvl 5 -x 1990 -y 180 -defaultsOSRD
+preplace inst servo_generator -pg 1 -lvl 5 -x 1990 -y 320 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 22 21} -defaultsOSRD
+preplace netloc dpu_concat_irq_dout 1 2 1 800J 290n
+preplace netloc hier_dpu_GHP_CLK_O 1 2 1 800 190n
+preplace netloc hier_dpu_INTR 1 1 2 420 280 790
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 3 2 1530 140 1850
+preplace netloc pwm_generator_1_pwm_o 1 5 1 NJ 180
+preplace netloc pwm_generator_right_pwm_o 1 5 1 NJ 460
+preplace netloc rst_gen_ghp_peripheral_aresetn 1 1 1 400 230n
+preplace netloc servo_generator_0_servo_o 1 5 1 NJ 320
+preplace netloc zynq_ultra_ps_e_pl_clk0 1 0 5 20 10 390 30 810 70 1520 130 1860
+preplace netloc zynq_ultra_ps_e_pl_clk1 1 0 4 30 210 410 50 NJ 50 1500
+preplace netloc zynq_ultra_ps_e_pl_resetn0 1 0 4 20 410 NJ 410 820 370 1490
+preplace netloc rst_gen_reg_peripheral_aresetn 1 1 1 400 150n
+preplace netloc S00_AXI_1 1 3 1 N 200
+preplace netloc axi_interconnect_0_M00_AXI 1 4 1 1830 160n
+preplace netloc axi_interconnect_0_M01_AXI 1 4 1 1830 300n
+preplace netloc axi_interconnect_0_M02_AXI 1 4 1 1840 300n
+preplace netloc hier_dpu_M_AXI_HP0_FPD 1 2 1 N 130
+preplace netloc hier_dpu_M_AXI_HP1_FPD 1 2 1 N 150
+preplace netloc hier_dpu_M_AXI_LPD 1 2 1 N 170
+preplace netloc zynq_ultra_ps_e_M_AXI_HPM0_LPD 1 1 3 420 40 NJ 40 1510
+levelinfo -pg 1 0 210 650 1171 1680 1990 2140
+pagesize -pg 1 -db -bbox -sgen 0 0 2280 1130
 ",
-   "Color Coded_ScaleFactor":"0.917978",
-   "Color Coded_TopLeft":"732,1",
-   "Default View_ScaleFactor":"0.531183",
-   "Default View_TopLeft":"-497,0",
+   "Color Coded_ScaleFactor":"0.658964",
+   "Color Coded_TopLeft":"12,-731",
+   "Default View_Layers":"/hier_dpu/hier_dpu_clk/dpu_clk_wiz_clk_dpu:true|/hier_dpu/hier_dpu_clk/rst_gen_clk_interconnect_aresetn:true|/hier_dpu/DPUCZDX8G_dpu0_interrupt:true|/rst_gen_ghp_peripheral_aresetn:true|/hier_dpu/DPUCZDX8G_dpu_2x_clk_ce:true|/S_AXI_RSTn_1:true|/zynq_ultra_ps_e_pl_resetn0:true|/hier_dpu/hier_dpu_clk/dpu_clk_wiz_clk_dsp:true|/zynq_ultra_ps_e_pl_clk1:true|/hier_dpu/hier_dpu_clk/rst_gen_clk_peripheral_aresetn:true|/zynq_ultra_ps_e_pl_clk0:true|/hier_dpu/hier_dpu_clk/rst_gen_clk_dsp_peripheral_aresetn:true|/proc_sys_reset_0_peripheral_aresetn:true|/rst_gen_reg_peripheral_aresetn:true|",
+   "Default View_ScaleFactor":"0.652804",
+   "Default View_TopLeft":"0,-565",
    "Display-PortTypeClock":"true",
    "Display-PortTypeClockEnable":"true",
    "Display-PortTypeInterrupt":"true",
    "Display-PortTypeOthers":"true",
    "Display-PortTypeReset":"true",
    "ExpandedHierarchyInLayout":"",
+   "Grouping and No Loops_ScaleFactor":"0.751075",
+   "Grouping and No Loops_TopLeft":"0,-168",
    "Interfaces View_ExpandedHierarchyInLayout":"",
    "Interfaces View_Layers":"/hier_dpu/DPUCZDX8G_dpu0_interrupt:false|/hier_dpu/hier_dpu_clk/rst_gen_clk_dsp_peripheral_aresetn:false|/rst_gen_ghp_peripheral_aresetn:false|/hier_dpu/hier_dpu_clk/rst_gen_clk_peripheral_aresetn:false|/zynq_ultra_ps_e_pl_clk0:false|/zynq_ultra_ps_e_pl_resetn0:false|/hier_dpu/DPUCZDX8G_dpu_2x_clk_ce:false|/hier_dpu/hier_dpu_clk/dpu_clk_wiz_clk_dsp:false|/rst_gen_reg_peripheral_aresetn:false|/hier_dpu/hier_dpu_clk/rst_gen_clk_interconnect_aresetn:false|/zynq_ultra_ps_e_pl_clk1:false|/hier_dpu/hier_dpu_clk/dpu_clk_wiz_clk_dpu:false|",
    "Interfaces View_Layout":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
@@ -75,28 +109,44 @@ pagesize -pg 1 -db -bbox -sgen 0 0 930 210
    "Reduced Jogs_TopLeft":"-275,0",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
-preplace inst hier_dpu -pg 1 -lvl 2 -x 870 -y 430 -defaultsOSRD
-preplace inst zynq_ultra_ps_e -pg 1 -lvl 1 -x 380 -y 140 -defaultsOSRD
-preplace inst dpu_concat_irq -pg 1 -lvl 3 -x 1130 -y 470 -defaultsOSRD
-preplace inst rst_gen_reg -pg 1 -lvl 1 -x 380 -y 650 -defaultsOSRD
-preplace inst rst_gen_ghp -pg 1 -lvl 1 -x 380 -y 830 -defaultsOSRD
-preplace netloc dpu_concat_irq_dout 1 0 4 70 290 NJ 290 NJ 290 1230
-preplace netloc hier_dpu_GHP_CLK_O 1 0 3 60 280 NJ 280 1030
-preplace netloc hier_dpu_INTR 1 2 1 NJ 470
-preplace netloc rst_gen_ghp_peripheral_aresetn 1 1 1 730 490n
-preplace netloc rst_gen_reg_peripheral_aresetn 1 1 1 710 410n
-preplace netloc zynq_ultra_ps_e_pl_clk0 1 0 2 50 320 720
-preplace netloc zynq_ultra_ps_e_pl_clk1 1 0 2 60 470 700
-preplace netloc zynq_ultra_ps_e_pl_resetn0 1 0 2 70 550 690
-preplace netloc hier_dpu_M_AXI_HP0_FPD 1 0 3 20 300 NJ 300 1020
-preplace netloc hier_dpu_M_AXI_HP1_FPD 1 0 3 30 310 NJ 310 1010
-preplace netloc hier_dpu_M_AXI_LPD 1 0 3 40 540 NJ 540 1010
-preplace netloc zynq_ultra_ps_e_M_AXI_HPM0_LPD 1 1 1 730 110n
-levelinfo -pg 1 0 380 870 1130 1250
-pagesize -pg 1 -db -bbox -sgen 0 0 1250 930
+preplace port port-id_servo_o -pg 1 -lvl 6 -x 2000 -y 300 -defaultsOSRD
+preplace port port-id_pwm_left_o -pg 1 -lvl 6 -x 2000 -y 160 -defaultsOSRD
+preplace port port-id_pwm_right_o -pg 1 -lvl 6 -x 2000 -y 440 -defaultsOSRD
+preplace inst hier_dpu -pg 1 -lvl 2 -x 570 -y 130 -defaultsOSRD
+preplace inst dpu_concat_irq -pg 1 -lvl 2 -x 570 -y 310 -defaultsOSRD
+preplace inst rst_gen_ghp -pg 1 -lvl 1 -x 210 -y 480 -defaultsOSRD
+preplace inst rst_gen_reg -pg 1 -lvl 1 -x 210 -y 190 -defaultsOSRD
+preplace inst zynq_ultra_ps_e -pg 1 -lvl 3 -x 1050 -y 180 -defaultsOSRD
+preplace inst axi_interconnect_0 -pg 1 -lvl 4 -x 1540 -y 260 -defaultsOSRD
+preplace inst proc_sys_reset_0 -pg 1 -lvl 3 -x 1050 -y 480 -defaultsOSRD
+preplace inst pwm_generator_right -pg 1 -lvl 5 -x 1850 -y 440 -defaultsOSRD
+preplace inst pwm_generator_left -pg 1 -lvl 5 -x 1850 -y 160 -defaultsOSRD
+preplace inst servo_generator -pg 1 -lvl 5 -x 1850 -y 300 -defaultsOSRD
+preplace netloc dpu_concat_irq_dout 1 2 1 740J 250n
+preplace netloc hier_dpu_GHP_CLK_O 1 2 1 720 150n
+preplace netloc hier_dpu_INTR 1 1 2 430 240 710
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 3 2 1390 430 1720
+preplace netloc pwm_generator_1_pwm_o 1 5 1 NJ 160
+preplace netloc pwm_generator_right_pwm_o 1 5 1 NJ 440
+preplace netloc rst_gen_ghp_peripheral_aresetn 1 1 1 420 190n
+preplace netloc servo_generator_0_servo_o 1 5 1 NJ 300
+preplace netloc zynq_ultra_ps_e_pl_clk0 1 0 5 20 90 400 250 730 330 1380 420 1700
+preplace netloc zynq_ultra_ps_e_pl_clk1 1 0 4 30 370 410 370 NJ 370 1360
+preplace netloc zynq_ultra_ps_e_pl_resetn0 1 0 4 20 380 NJ 380 710 380 1370
+preplace netloc rst_gen_reg_peripheral_aresetn 1 1 1 390 110n
+preplace netloc S00_AXI_1 1 3 1 N 160
+preplace netloc axi_interconnect_0_M00_AXI 1 4 1 1690 140n
+preplace netloc axi_interconnect_0_M01_AXI 1 4 1 1710 260n
+preplace netloc axi_interconnect_0_M02_AXI 1 4 1 N 280
+preplace netloc hier_dpu_M_AXI_HP0_FPD 1 2 1 N 90
+preplace netloc hier_dpu_M_AXI_HP1_FPD 1 2 1 N 110
+preplace netloc hier_dpu_M_AXI_LPD 1 2 1 N 130
+preplace netloc zynq_ultra_ps_e_M_AXI_HPM0_LPD 1 1 3 400 10 NJ 10 1390
+levelinfo -pg 1 0 210 570 1050 1540 1850 2000
+pagesize -pg 1 -db -bbox -sgen 0 0 2140 580
 "
 }
 {
-   "da_axi4_cnt":"3",
-   "da_clkrst_cnt":"15"
+   "da_axi4_cnt":"4",
+   "da_clkrst_cnt":"24"
 }
